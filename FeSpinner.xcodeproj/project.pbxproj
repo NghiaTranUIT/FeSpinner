@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BA5D0F8D185B635500A5F726 /* FeTenDot.m in Sources */ = {isa = PBXBuildFile; fileRef = BA5D0F8C185B635500A5F726 /* FeTenDot.m */; };
+		BA847718183DF0DE009A5272 /* test.png in Resources */ = {isa = PBXBuildFile; fileRef = BA847717183DF0DE009A5272 /* test.png */; };
+		BAB5ABB01848C90700CBCBBD /* FeSpinnerTenDot.m in Sources */ = {isa = PBXBuildFile; fileRef = BAB5ABAF1848C90700CBCBBD /* FeSpinnerTenDot.m */; };
 		BAE08704183CE85100B12AB6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAE08703183CE85100B12AB6 /* Foundation.framework */; };
 		BAE08706183CE85100B12AB6 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAE08705183CE85100B12AB6 /* CoreGraphics.framework */; };
 		BAE08708183CE85100B12AB6 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAE08707183CE85100B12AB6 /* UIKit.framework */; };
@@ -22,6 +25,9 @@
 		BAE08728183CE85100B12AB6 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAE08707183CE85100B12AB6 /* UIKit.framework */; };
 		BAE08730183CE85100B12AB6 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = BAE0872E183CE85100B12AB6 /* InfoPlist.strings */; };
 		BAE08732183CE85100B12AB6 /* FeSpinnerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = BAE08731183CE85100B12AB6 /* FeSpinnerTests.m */; };
+		BAE08740183CE8A500B12AB6 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAE0873F183CE8A500B12AB6 /* QuartzCore.framework */; };
+		BAE08743183CE91800B12AB6 /* FXBlurView.m in Sources */ = {isa = PBXBuildFile; fileRef = BAE08742183CE91800B12AB6 /* FXBlurView.m */; };
+		BAE0874E183CFC0B00B12AB6 /* UIColor+flat.m in Sources */ = {isa = PBXBuildFile; fileRef = BAE0874D183CFC0B00B12AB6 /* UIColor+flat.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,6 +41,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		BA5D0F8B185B635500A5F726 /* FeTenDot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeTenDot.h; sourceTree = "<group>"; };
+		BA5D0F8C185B635500A5F726 /* FeTenDot.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeTenDot.m; sourceTree = "<group>"; };
+		BA847717183DF0DE009A5272 /* test.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = test.png; sourceTree = "<group>"; };
+		BAB5ABAE1848C90700CBCBBD /* FeSpinnerTenDot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeSpinnerTenDot.h; sourceTree = "<group>"; };
+		BAB5ABAF1848C90700CBCBBD /* FeSpinnerTenDot.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeSpinnerTenDot.m; sourceTree = "<group>"; };
 		BAE08700183CE85100B12AB6 /* FeSpinner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FeSpinner.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BAE08703183CE85100B12AB6 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		BAE08705183CE85100B12AB6 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -55,6 +66,11 @@
 		BAE0872D183CE85100B12AB6 /* FeSpinnerTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "FeSpinnerTests-Info.plist"; sourceTree = "<group>"; };
 		BAE0872F183CE85100B12AB6 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		BAE08731183CE85100B12AB6 /* FeSpinnerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FeSpinnerTests.m; sourceTree = "<group>"; };
+		BAE0873F183CE8A500B12AB6 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		BAE08741183CE91800B12AB6 /* FXBlurView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXBlurView.h; sourceTree = "<group>"; };
+		BAE08742183CE91800B12AB6 /* FXBlurView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FXBlurView.m; sourceTree = "<group>"; };
+		BAE0874C183CFC0B00B12AB6 /* UIColor+flat.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+flat.h"; sourceTree = "<group>"; };
+		BAE0874D183CFC0B00B12AB6 /* UIColor+flat.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+flat.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +78,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BAE08740183CE8A500B12AB6 /* QuartzCore.framework in Frameworks */,
 				BAE08706183CE85100B12AB6 /* CoreGraphics.framework in Frameworks */,
 				BAE08708183CE85100B12AB6 /* UIKit.framework in Frameworks */,
 				BAE08704183CE85100B12AB6 /* Foundation.framework in Frameworks */,
@@ -81,6 +98,35 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		BA0E9FB5185C03BE0056A74E /* Type */ = {
+			isa = PBXGroup;
+			children = (
+				BAB5ABAD1848C87400CBCBBD /* Ten Dot */,
+			);
+			name = Type;
+			sourceTree = "<group>";
+		};
+		BA53DA291848DDF600DD1DA8 /* Tool */ = {
+			isa = PBXGroup;
+			children = (
+				BAE08744183CE91B00B12AB6 /* Blur View */,
+				BAE0874C183CFC0B00B12AB6 /* UIColor+flat.h */,
+				BAE0874D183CFC0B00B12AB6 /* UIColor+flat.m */,
+			);
+			name = Tool;
+			sourceTree = "<group>";
+		};
+		BAB5ABAD1848C87400CBCBBD /* Ten Dot */ = {
+			isa = PBXGroup;
+			children = (
+				BAB5ABAE1848C90700CBCBBD /* FeSpinnerTenDot.h */,
+				BAB5ABAF1848C90700CBCBBD /* FeSpinnerTenDot.m */,
+				BA5D0F8B185B635500A5F726 /* FeTenDot.h */,
+				BA5D0F8C185B635500A5F726 /* FeTenDot.m */,
+			);
+			name = "Ten Dot";
+			sourceTree = "<group>";
+		};
 		BAE086F7183CE85100B12AB6 = {
 			isa = PBXGroup;
 			children = (
@@ -103,6 +149,7 @@
 		BAE08702183CE85100B12AB6 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				BAE0873F183CE8A500B12AB6 /* QuartzCore.framework */,
 				BAE08703183CE85100B12AB6 /* Foundation.framework */,
 				BAE08705183CE85100B12AB6 /* CoreGraphics.framework */,
 				BAE08707183CE85100B12AB6 /* UIKit.framework */,
@@ -114,6 +161,8 @@
 		BAE08709183CE85100B12AB6 /* FeSpinner */ = {
 			isa = PBXGroup;
 			children = (
+				BA847717183DF0DE009A5272 /* test.png */,
+				BAE0873B183CE88D00B12AB6 /* FeSpinner */,
 				BAE08712183CE85100B12AB6 /* FeAppDelegate.h */,
 				BAE08713183CE85100B12AB6 /* FeAppDelegate.m */,
 				BAE08715183CE85100B12AB6 /* Main_iPhone.storyboard */,
@@ -153,6 +202,24 @@
 				BAE0872E183CE85100B12AB6 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		BAE0873B183CE88D00B12AB6 /* FeSpinner */ = {
+			isa = PBXGroup;
+			children = (
+				BA0E9FB5185C03BE0056A74E /* Type */,
+				BA53DA291848DDF600DD1DA8 /* Tool */,
+			);
+			name = FeSpinner;
+			sourceTree = "<group>";
+		};
+		BAE08744183CE91B00B12AB6 /* Blur View */ = {
+			isa = PBXGroup;
+			children = (
+				BAE08741183CE91800B12AB6 /* FXBlurView.h */,
+				BAE08742183CE91800B12AB6 /* FXBlurView.m */,
+			);
+			name = "Blur View";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -233,6 +300,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BAE0871A183CE85100B12AB6 /* Main_iPad.storyboard in Resources */,
+				BA847718183DF0DE009A5272 /* test.png in Resources */,
 				BAE0871F183CE85100B12AB6 /* Images.xcassets in Resources */,
 				BAE08717183CE85100B12AB6 /* Main_iPhone.storyboard in Resources */,
 				BAE0870E183CE85100B12AB6 /* InfoPlist.strings in Resources */,
@@ -255,7 +323,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				BAE08710183CE85100B12AB6 /* main.m in Sources */,
+				BAE08743183CE91800B12AB6 /* FXBlurView.m in Sources */,
 				BAE0871D183CE85100B12AB6 /* FeViewController.m in Sources */,
+				BAE0874E183CFC0B00B12AB6 /* UIColor+flat.m in Sources */,
+				BAB5ABB01848C90700CBCBBD /* FeSpinnerTenDot.m in Sources */,
+				BA5D0F8D185B635500A5F726 /* FeTenDot.m in Sources */,
 				BAE08714183CE85100B12AB6 /* FeAppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -475,6 +547,7 @@
 				BAE08737183CE85100B12AB6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		BAE08738183CE85100B12AB6 /* Build configuration list for PBXNativeTarget "FeSpinnerTests" */ = {
 			isa = XCConfigurationList;
@@ -483,6 +556,7 @@
 				BAE0873A183CE85100B12AB6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
