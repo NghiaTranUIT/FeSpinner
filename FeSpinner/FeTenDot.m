@@ -17,6 +17,11 @@
 @property (strong, nonatomic) NSTimer *timer;
 @property (assign, nonatomic) BOOL isAnimating;
 
+// Main View
+@property (weak, nonatomic) UIView *mainView;
+@property (assign, nonatomic) NSInteger indexDot;
+@property (assign, nonatomic) CGPoint originCenter;
+
 -(CGPoint) centerAtIndex:(NSInteger) index;
 -(CATransform3D ) transform3DAtIndex:(NSInteger) index;
 -(void) animate;
@@ -33,6 +38,7 @@
 }
 -(id) initDotAtMainView:(UIView *) mainView atIndex:(NSInteger) index
 {
+    
     CGRect frame = CGRectMake(mainView.center.x, mainView.center.y, 20, 20);
     self = [super initWithFrame:frame];
     
@@ -43,8 +49,12 @@
         self.layer.cornerRadius = self.bounds.size.width / 2;
         self.clipsToBounds = YES;
         _isAnimating = NO;
+        _mainView = mainView;
+        _indexDot = index;
         
         self.center = [self centerAtIndex:index];
+        _originCenter = self.center;
+        
         _originalTransform3D = [self transform3DAtIndex:index];
         self.layer.transform = _originalTransform3D;
     }
@@ -63,15 +73,14 @@
     // Animate
     if (!_isAnimating)
     {
+        // Set bool
+        _isAnimating = YES;
+        
         // First animate
         [self animate];
         
         // Run loop
-        _timer = [NSTimer scheduledTimerWithTimeInterval:3.5f target:self selector:@selector(animate) userInfo:nil repeats:HUGE_VAL];
-    }
-    else
-    {
-        NSAssert(YES, @"Fe Dot Ten is animating !");
+        _timer = [NSTimer scheduledTimerWithTimeInterval:2.7f target:self selector:@selector(animate) userInfo:nil repeats:HUGE_VAL];
     }
 }
 -(void) stop
@@ -82,43 +91,40 @@
     if (_timer && _isAnimating)
     {
         [_timer invalidate];
+        NSLog(@"Timer invalidate");
         _isAnimating = NO;
     }
 }
 -(void) animate
 {
-    /*
-    [UIView animateWithDuration:kDurationDot
-                          delay:1.6
-                        options:UIViewAnimationOptionCurveEaseOut
-                     animations:^{
-                         self.layer.transform = CATransform3DIdentity;
-                     } completion:^(BOOL finished) {
-                         [UIView animateWithDuration:kDurationDot delay:1.6f options:UIViewAnimationOptionCurveEaseOut animations:^{
-                             self.layer.transform = _originalTransform3D;
-                             
-                         } completion:^(BOOL finished) {
-                             
-                         }];
-                     }];
-*/
     [UIView animateWithDuration:kDurationDot
                           delay:0
                         options:UIViewAnimationOptionCurveEaseOut
                      animations:^{
                          self.layer.transform = CATransform3DIdentity;
                      } completion:^(BOOL finished) {
-                         [UIView animateWithDuration:kDurationDot delay:1.6f options:UIViewAnimationOptionCurveEaseOut animations:^{
+                         [UIView animateWithDuration:kDurationDot delay:1.2f options:UIViewAnimationOptionCurveEaseOut animations:^{
                              self.layer.transform = _originalTransform3D;
                              
                          } completion:^(BOOL finished) {
-                             [UIView animateWithDuration:0 delay:1.6f options:UIViewAnimationOptionCurveEaseOut animations:^{
+                             [UIView animateWithDuration:0 delay:1.2f options:UIViewAnimationOptionCurveEaseOut animations:^{
                                  
                              } completion:^(BOOL finished) {
                                  
                              }];
                          }];
                      }];
+}
+-(void) reset
+{
+    [_timer invalidate];
+    
+    self.layer.transform = CATransform3DIdentity;
+    
+    self.center = _originCenter;
+    
+    _originalTransform3D = [self transform3DAtIndex:_indexDot];
+    self.layer.transform = _originalTransform3D;
 }
 
 #pragma mark Helper method

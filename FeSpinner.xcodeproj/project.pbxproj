@@ -28,6 +28,7 @@
 		BAE08740183CE8A500B12AB6 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAE0873F183CE8A500B12AB6 /* QuartzCore.framework */; };
 		BAE08743183CE91800B12AB6 /* FXBlurView.m in Sources */ = {isa = PBXBuildFile; fileRef = BAE08742183CE91800B12AB6 /* FXBlurView.m */; };
 		BAE0874E183CFC0B00B12AB6 /* UIColor+flat.m in Sources */ = {isa = PBXBuildFile; fileRef = BAE0874D183CFC0B00B12AB6 /* UIColor+flat.m */; };
+		BAF4008118609BBC008F7E4D /* Neou-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BAF4008018609BBC008F7E4D /* Neou-Thin.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,6 +72,7 @@
 		BAE08742183CE91800B12AB6 /* FXBlurView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FXBlurView.m; sourceTree = "<group>"; };
 		BAE0874C183CFC0B00B12AB6 /* UIColor+flat.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+flat.h"; sourceTree = "<group>"; };
 		BAE0874D183CFC0B00B12AB6 /* UIColor+flat.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+flat.m"; sourceTree = "<group>"; };
+		BAF4008018609BBC008F7E4D /* Neou-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Neou-Thin.ttf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -161,6 +163,7 @@
 		BAE08709183CE85100B12AB6 /* FeSpinner */ = {
 			isa = PBXGroup;
 			children = (
+				BAF4007F18609BAB008F7E4D /* Resource */,
 				BA847717183DF0DE009A5272 /* test.png */,
 				BAE0873B183CE88D00B12AB6 /* FeSpinner */,
 				BAE08712183CE85100B12AB6 /* FeAppDelegate.h */,
@@ -220,6 +223,14 @@
 				BAE08742183CE91800B12AB6 /* FXBlurView.m */,
 			);
 			name = "Blur View";
+			sourceTree = "<group>";
+		};
+		BAF4007F18609BAB008F7E4D /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				BAF4008018609BBC008F7E4D /* Neou-Thin.ttf */,
+			);
+			name = Resource;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -299,6 +310,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BAF4008118609BBC008F7E4D /* Neou-Thin.ttf in Resources */,
 				BAE0871A183CE85100B12AB6 /* Main_iPad.storyboard in Resources */,
 				BA847718183DF0DE009A5272 /* test.png in Resources */,
 				BAE0871F183CE85100B12AB6 /* Images.xcassets in Resources */,

@@ -28,7 +28,8 @@
     
     
     _spinnerTenDot = [[FeSpinnerTenDot alloc] initWithView:_containerView withBlur:NO];
-    
+    _spinnerTenDot.titleLabelText = @"LOADING";
+    _spinnerTenDot.fontTitleLabel = [UIFont fontWithName:@"Neou-Thin" size:22];
 }
 
 - (void)didReceiveMemoryWarning
@@ -39,11 +40,21 @@
 
 - (IBAction)start:(id)sender
 {
+    
     [_spinnerTenDot show];
+    
+    [self performBlock:^{
+        [_spinnerTenDot dismiss];
+    } afterDelay:10.0f];
+}
+- (void)performBlock:(void(^)())block afterDelay:(NSTimeInterval)delay {
+    dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delay * NSEC_PER_SEC));
+    dispatch_after(popTime, dispatch_get_main_queue(), block);
 }
 
 - (IBAction)stop:(id)sender
 {
-    [_spinnerTenDot dismiss];
+    //[_spinnerTenDot dismiss];
+    _spinnerTenDot.titleLabelText = @"Plz waiting";
 }
 @end

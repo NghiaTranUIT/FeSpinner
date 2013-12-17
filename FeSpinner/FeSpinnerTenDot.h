@@ -10,11 +10,16 @@
 
 @interface FeSpinnerTenDot : UIView
 -(id) initWithView:(UIView *) view withBlur:(BOOL) blur;
-@property (assign, nonatomic) BOOL isShouldBlur;
+
+// BOOL
+@property (assign, nonatomic, readonly) BOOL isShouldBlur;
+@property (assign, nonatomic) BOOL isAnimating;
+
+// Title
+@property (strong, nonatomic) NSString *titleLabelText;
+@property (strong, nonatomic) UIFont *fontTitleLabel;
 
 -(void) show;
-
--(void) hide;
 
 -(void) dismiss;
 @end
