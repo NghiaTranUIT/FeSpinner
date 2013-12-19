@@ -30,7 +30,7 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     
-    _waveLoadingIndicator = [[FeWaveLoadingIndicator alloc] initWithView:self.view title:@"LOADING" backgroundColor:[UIColor colorWithRed:34.0f/255.0f green:34.0f/255.0f  blue:34.0f/255.0f  alpha:1] foregroundColor:[UIColor whiteColor]];
+    _waveLoadingIndicator = [[FeWaveLoadingIndicator alloc] initWithView:self.view title:@"HELLO" backgroundColor:[UIColor colorWithRed:34.0f/255.0f green:34.0f/255.0f  blue:34.0f/255.0f  alpha:1] foregroundColor:[UIColor whiteColor]];
     
     [self.view addSubview:_waveLoadingIndicator];
     

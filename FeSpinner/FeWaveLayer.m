@@ -117,16 +117,17 @@
     CGMutablePathRef pathRef = CGPathCreateMutable();
     CGPathMoveToPoint(pathRef, nil, startPoint.x, startPoint.y);
     
-    /*
+    
     CGPathAddQuadCurveToPoint(pathRef, nil, quadCurvePoint_1.x, quadCurvePoint_1.y, endQuadCurvePoint_2.x, endQuadCurvePoint_2.y);
     CGPathAddCurveToPoint(pathRef, nil, controlPoint_3.x, controlPoint_3.y, controlPoint_4.x, controlPoint_4.y, endControlPoint_5.x, endControlPoint_5.y);
     CGPathAddQuadCurveToPoint(pathRef, nil, quadCurvePoint_6.x, quadCurvePoint_6.y, endQuadCurvePoint_7.x, endQuadCurvePoint_7.y);
     CGPathAddQuadCurveToPoint(pathRef, nil, quadCurvePoint_8.x, quadCurvePoint_8.y, endQuadCurvePoint_9.x, endQuadCurvePoint_9.y);
     CGPathAddCurveToPoint(pathRef, nil, controlPoint_10.x, controlPoint_10.y, controlPoint_11.x, controlPoint_11.y, endControlPoint_12.x, endControlPoint_12.y);
-    */
+    
     //******************
     // Smooth Drawing
     
+    /*
     controlPoint_3 = CGPointMake((endQuadCurvePoint_2.x + controlPoint_4.x) / 2, (endQuadCurvePoint_2.y + controlPoint_4.y) / 2);
     quadCurvePoint_6 = CGPointMake((endControlPoint_5.x + endQuadCurvePoint_7.x) / 2, (endControlPoint_5.y + endQuadCurvePoint_7.y) / 2);
     endQuadCurvePoint_9 = CGPointMake((quadCurvePoint_8.x + controlPoint_10.x) / 2, (quadCurvePoint_8.y + controlPoint_10.y) / 2);
@@ -137,7 +138,7 @@
     CGPathAddCurveToPoint(pathRef, nil, endQuadCurvePoint_7.x, endQuadCurvePoint_7.y, quadCurvePoint_8.x, quadCurvePoint_8.y, endQuadCurvePoint_9.x, endQuadCurvePoint_9.y);
     CGPathAddCurveToPoint(pathRef, nil, controlPoint_10.x, controlPoint_10.y, controlPoint_11.x, controlPoint_11.y, endControlPoint_12.x, endControlPoint_12.y);
     
-    
+    */
     
     
     // Close Path

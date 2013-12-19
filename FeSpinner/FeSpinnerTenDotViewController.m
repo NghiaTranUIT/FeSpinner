@@ -70,8 +70,8 @@
 {
     if (index < _arrTitile.count)
     {
-        index++;
         _spinner.titleLabelText = _arrTitile[index];
+        index++;
         
     }
     else
