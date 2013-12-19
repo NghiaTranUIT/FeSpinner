@@ -32,6 +32,10 @@
 // Label
 @property (strong, nonatomic) UILabel *label;
 
+// BOOL
+@property (assign, nonatomic) BOOL isShouldBlur;
+@property (assign, nonatomic) BOOL isAnimating;
+
 //****************************
 // Common init
 -(void) commonInit;
@@ -91,9 +95,11 @@
         _backgroundBlur.blurRadius = 40;
         _backgroundBlur.tintColor = [UIColor colorWithHexCode:@"#32ce55"];
         _backgroundBlur.dynamic = NO;
+        [_backgroundBlur.layer displayIfNeeded];
         
         // add background
-        [self addSubview:_backgroundStatic];
+        [_containerView addSubview:_backgroundBlur];
+        _backgroundBlur.hidden = YES;
         
     }
     else
@@ -130,6 +136,7 @@
 }
 -(void) initLabel
 {
+    // init Label
     _label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 200, 100)];
     _label.textColor = [UIColor whiteColor];
     _label.text = _titleLabelText;
@@ -207,11 +214,23 @@
     self.hidden = NO;
     self.alpha = 0;
     
+    if (_isShouldBlur)
+    {
+        _backgroundBlur.alpha = 0;
+        _backgroundBlur.hidden = NO;
+        [_containerView insertSubview:_backgroundBlur belowSubview:self];
+    }
+    
     [UIView animateWithDuration:0.5f delay:0
                         options:UIViewAnimationOptionCurveEaseIn
                      animations:^
     {
                          self.alpha = 1;
+        
+        if (_isShouldBlur)
+        {
+            _backgroundBlur.alpha = 1;
+        }
                      } completion:^(BOOL finished)
     {
         _isAnimating = YES;
@@ -235,6 +254,11 @@
     [UIView animateWithDuration:0.4f delay:0
                         options:UIViewAnimationOptionCurveEaseIn animations:^{
                             self.alpha = 0;
+                            
+                            if (_isShouldBlur)
+                            {
+                                _backgroundBlur.alpha = 0;
+                            }
                         } completion:^(BOOL finished) {
                             for (NSInteger i = 0 ; i < kMaxTenDot ; i++)
                             {
@@ -244,9 +268,47 @@
                             }
                             
                             _isAnimating = NO;
+                            
+                            if (_isShouldBlur)
+                                [_backgroundBlur removeFromSuperview];
+                            
                             [self removeFromSuperview];
+                            
+                            
                         }];
     
+    
+}
+-(void) showWhileExecutingBlock:(Block)block
+{
+    // Check block != nil
+    if (block != nil)
+    {
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), ^
+        {
+            block();
+            
+            // Update UI
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [self dismiss];
+            });
+        });
+    }
+}
+-(void) showWhileExecutingTarget:(id)target action:(SEL)selector
+{
+    // Check Selector is responded
+    if ([target respondsToSelector:selector])
+    {
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), ^{
+            [target performSelector:selector withObject:nil];
+            
+            // Update UI
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [self dismiss];
+            });
+        });;
+    }
     
 }
 @end

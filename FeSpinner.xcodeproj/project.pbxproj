@@ -8,8 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		BA5D0F8D185B635500A5F726 /* FeTenDot.m in Sources */ = {isa = PBXBuildFile; fileRef = BA5D0F8C185B635500A5F726 /* FeTenDot.m */; };
+		BA65E74A1861C10800E78E64 /* CabinCondensed-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BA65E7491861C10800E78E64 /* CabinCondensed-Bold.ttf */; };
+		BA65E74D1861DE5500E78E64 /* FeWaveLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = BA65E74C1861DE5500E78E64 /* FeWaveLayer.m */; };
 		BA847718183DF0DE009A5272 /* test.png in Resources */ = {isa = PBXBuildFile; fileRef = BA847717183DF0DE009A5272 /* test.png */; };
 		BAB5ABB01848C90700CBCBBD /* FeSpinnerTenDot.m in Sources */ = {isa = PBXBuildFile; fileRef = BAB5ABAF1848C90700CBCBBD /* FeSpinnerTenDot.m */; };
+		BABFC6F718614504007C61D3 /* FeSpinnerTenDotViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BABFC6F618614504007C61D3 /* FeSpinnerTenDotViewController.m */; };
+		BABFC6FB18614B33007C61D3 /* FeWaveLoadingIndicatorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BABFC6FA18614B33007C61D3 /* FeWaveLoadingIndicatorViewController.m */; };
+		BABFC6FF18614B82007C61D3 /* FeWaveLoadingIndicator.m in Sources */ = {isa = PBXBuildFile; fileRef = BABFC6FE18614B82007C61D3 /* FeWaveLoadingIndicator.m */; };
 		BAE08704183CE85100B12AB6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAE08703183CE85100B12AB6 /* Foundation.framework */; };
 		BAE08706183CE85100B12AB6 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAE08705183CE85100B12AB6 /* CoreGraphics.framework */; };
 		BAE08708183CE85100B12AB6 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAE08707183CE85100B12AB6 /* UIKit.framework */; };
@@ -29,6 +34,7 @@
 		BAE08743183CE91800B12AB6 /* FXBlurView.m in Sources */ = {isa = PBXBuildFile; fileRef = BAE08742183CE91800B12AB6 /* FXBlurView.m */; };
 		BAE0874E183CFC0B00B12AB6 /* UIColor+flat.m in Sources */ = {isa = PBXBuildFile; fileRef = BAE0874D183CFC0B00B12AB6 /* UIColor+flat.m */; };
 		BAF4008118609BBC008F7E4D /* Neou-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BAF4008018609BBC008F7E4D /* Neou-Thin.ttf */; };
+		BAF400831860A133008F7E4D /* winter.jpg in Resources */ = {isa = PBXBuildFile; fileRef = BAF400821860A133008F7E4D /* winter.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,9 +50,18 @@
 /* Begin PBXFileReference section */
 		BA5D0F8B185B635500A5F726 /* FeTenDot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeTenDot.h; sourceTree = "<group>"; };
 		BA5D0F8C185B635500A5F726 /* FeTenDot.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeTenDot.m; sourceTree = "<group>"; };
+		BA65E7491861C10800E78E64 /* CabinCondensed-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "CabinCondensed-Bold.ttf"; sourceTree = "<group>"; };
+		BA65E74B1861DE5500E78E64 /* FeWaveLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeWaveLayer.h; sourceTree = "<group>"; };
+		BA65E74C1861DE5500E78E64 /* FeWaveLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeWaveLayer.m; sourceTree = "<group>"; };
 		BA847717183DF0DE009A5272 /* test.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = test.png; sourceTree = "<group>"; };
 		BAB5ABAE1848C90700CBCBBD /* FeSpinnerTenDot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeSpinnerTenDot.h; sourceTree = "<group>"; };
 		BAB5ABAF1848C90700CBCBBD /* FeSpinnerTenDot.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeSpinnerTenDot.m; sourceTree = "<group>"; };
+		BABFC6F518614504007C61D3 /* FeSpinnerTenDotViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeSpinnerTenDotViewController.h; sourceTree = "<group>"; };
+		BABFC6F618614504007C61D3 /* FeSpinnerTenDotViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeSpinnerTenDotViewController.m; sourceTree = "<group>"; };
+		BABFC6F918614B33007C61D3 /* FeWaveLoadingIndicatorViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeWaveLoadingIndicatorViewController.h; sourceTree = "<group>"; };
+		BABFC6FA18614B33007C61D3 /* FeWaveLoadingIndicatorViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeWaveLoadingIndicatorViewController.m; sourceTree = "<group>"; };
+		BABFC6FD18614B82007C61D3 /* FeWaveLoadingIndicator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeWaveLoadingIndicator.h; sourceTree = "<group>"; };
+		BABFC6FE18614B82007C61D3 /* FeWaveLoadingIndicator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeWaveLoadingIndicator.m; sourceTree = "<group>"; };
 		BAE08700183CE85100B12AB6 /* FeSpinner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FeSpinner.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BAE08703183CE85100B12AB6 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		BAE08705183CE85100B12AB6 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -73,6 +88,7 @@
 		BAE0874C183CFC0B00B12AB6 /* UIColor+flat.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+flat.h"; sourceTree = "<group>"; };
 		BAE0874D183CFC0B00B12AB6 /* UIColor+flat.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+flat.m"; sourceTree = "<group>"; };
 		BAF4008018609BBC008F7E4D /* Neou-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Neou-Thin.ttf"; sourceTree = "<group>"; };
+		BAF400821860A133008F7E4D /* winter.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = winter.jpg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +119,7 @@
 		BA0E9FB5185C03BE0056A74E /* Type */ = {
 			isa = PBXGroup;
 			children = (
+				BABFC6FC18614B41007C61D3 /* Wave Loading Indicator */,
 				BAB5ABAD1848C87400CBCBBD /* Ten Dot */,
 			);
 			name = Type;
@@ -127,6 +144,44 @@
 				BA5D0F8C185B635500A5F726 /* FeTenDot.m */,
 			);
 			name = "Ten Dot";
+			sourceTree = "<group>";
+		};
+		BABFC6F318614494007C61D3 /* View Controller */ = {
+			isa = PBXGroup;
+			children = (
+				BABFC6F818614B1D007C61D3 /* Wave Loding Indicator */,
+				BABFC6F41861449B007C61D3 /* Spinner Ten Dot */,
+			);
+			name = "View Controller";
+			sourceTree = "<group>";
+		};
+		BABFC6F41861449B007C61D3 /* Spinner Ten Dot */ = {
+			isa = PBXGroup;
+			children = (
+				BABFC6F518614504007C61D3 /* FeSpinnerTenDotViewController.h */,
+				BABFC6F618614504007C61D3 /* FeSpinnerTenDotViewController.m */,
+			);
+			name = "Spinner Ten Dot";
+			sourceTree = "<group>";
+		};
+		BABFC6F818614B1D007C61D3 /* Wave Loding Indicator */ = {
+			isa = PBXGroup;
+			children = (
+				BABFC6F918614B33007C61D3 /* FeWaveLoadingIndicatorViewController.h */,
+				BABFC6FA18614B33007C61D3 /* FeWaveLoadingIndicatorViewController.m */,
+			);
+			name = "Wave Loding Indicator";
+			sourceTree = "<group>";
+		};
+		BABFC6FC18614B41007C61D3 /* Wave Loading Indicator */ = {
+			isa = PBXGroup;
+			children = (
+				BABFC6FD18614B82007C61D3 /* FeWaveLoadingIndicator.h */,
+				BABFC6FE18614B82007C61D3 /* FeWaveLoadingIndicator.m */,
+				BA65E74B1861DE5500E78E64 /* FeWaveLayer.h */,
+				BA65E74C1861DE5500E78E64 /* FeWaveLayer.m */,
+			);
+			name = "Wave Loading Indicator";
 			sourceTree = "<group>";
 		};
 		BAE086F7183CE85100B12AB6 = {
@@ -163,9 +218,10 @@
 		BAE08709183CE85100B12AB6 /* FeSpinner */ = {
 			isa = PBXGroup;
 			children = (
-				BAF4007F18609BAB008F7E4D /* Resource */,
-				BA847717183DF0DE009A5272 /* test.png */,
 				BAE0873B183CE88D00B12AB6 /* FeSpinner */,
+				BABFC6F318614494007C61D3 /* View Controller */,
+				BAF400821860A133008F7E4D /* winter.jpg */,
+				BA847717183DF0DE009A5272 /* test.png */,
 				BAE08712183CE85100B12AB6 /* FeAppDelegate.h */,
 				BAE08713183CE85100B12AB6 /* FeAppDelegate.m */,
 				BAE08715183CE85100B12AB6 /* Main_iPhone.storyboard */,
@@ -210,6 +266,7 @@
 		BAE0873B183CE88D00B12AB6 /* FeSpinner */ = {
 			isa = PBXGroup;
 			children = (
+				BAF4007F18609BAB008F7E4D /* Resource */,
 				BA0E9FB5185C03BE0056A74E /* Type */,
 				BA53DA291848DDF600DD1DA8 /* Tool */,
 			);
@@ -228,6 +285,7 @@
 		BAF4007F18609BAB008F7E4D /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				BA65E7491861C10800E78E64 /* CabinCondensed-Bold.ttf */,
 				BAF4008018609BBC008F7E4D /* Neou-Thin.ttf */,
 			);
 			name = Resource;
@@ -311,7 +369,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				BAF4008118609BBC008F7E4D /* Neou-Thin.ttf in Resources */,
+				BA65E74A1861C10800E78E64 /* CabinCondensed-Bold.ttf in Resources */,
 				BAE0871A183CE85100B12AB6 /* Main_iPad.storyboard in Resources */,
+				BAF400831860A133008F7E4D /* winter.jpg in Resources */,
 				BA847718183DF0DE009A5272 /* test.png in Resources */,
 				BAE0871F183CE85100B12AB6 /* Images.xcassets in Resources */,
 				BAE08717183CE85100B12AB6 /* Main_iPhone.storyboard in Resources */,
@@ -334,13 +394,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BABFC6FF18614B82007C61D3 /* FeWaveLoadingIndicator.m in Sources */,
+				BABFC6FB18614B33007C61D3 /* FeWaveLoadingIndicatorViewController.m in Sources */,
 				BAE08710183CE85100B12AB6 /* main.m in Sources */,
+				BABFC6F718614504007C61D3 /* FeSpinnerTenDotViewController.m in Sources */,
 				BAE08743183CE91800B12AB6 /* FXBlurView.m in Sources */,
 				BAE0871D183CE85100B12AB6 /* FeViewController.m in Sources */,
 				BAE0874E183CFC0B00B12AB6 /* UIColor+flat.m in Sources */,
 				BAB5ABB01848C90700CBCBBD /* FeSpinnerTenDot.m in Sources */,
 				BA5D0F8D185B635500A5F726 /* FeTenDot.m in Sources */,
 				BAE08714183CE85100B12AB6 /* FeAppDelegate.m in Sources */,
+				BA65E74D1861DE5500E78E64 /* FeWaveLayer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

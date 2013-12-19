@@ -4,6 +4,7 @@
 <dict>
 	<key>UIAppFonts</key>
 	<array>
+		<string>CabinCondensed-Bold.ttf</string>
 		<string>Neou-Thin.ttf</string>
 	</array>
 	<key>CFBundleDevelopmentRegion</key>
