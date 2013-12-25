@@ -9,6 +9,7 @@
 #import "FeWaveLoadingIndicatorViewController.h"
 #import "FeWaveLoadingIndicator.h"
 #import "FeWaveLayer.h"
+#import "FeWaveView.h"
 
 @interface FeWaveLoadingIndicatorViewController ()
 @property (strong, nonatomic) FeWaveLoadingIndicator *waveLoadingIndicator;
@@ -40,6 +41,10 @@
     
     [waveLayer setNeedsDisplay];
     */
+    FeWaveView *waveView = [[FeWaveView alloc] initWithFrame:CGRectMake(50, 100, 300,100)];
+    [self.view addSubview:waveView];
+    [waveView setNeedsDisplay];
+    
 }
 
 - (void)didReceiveMemoryWarning
