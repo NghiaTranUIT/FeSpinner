@@ -57,6 +57,8 @@
         
         _originalTransform3D = [self transform3DAtIndex:index];
         self.layer.transform = _originalTransform3D;
+        
+        self.userInteractionEnabled = NO;
     }
     
     return self;
@@ -91,7 +93,6 @@
     if (_timer && _isAnimating)
     {
         [_timer invalidate];
-        NSLog(@"Timer invalidate");
         _isAnimating = NO;
     }
 }

@@ -10,6 +10,7 @@
 #import "FeWaveLoadingIndicator.h"
 #import "FeWaveLayer.h"
 #import "FeWaveView.h"
+#import <QuartzCore/QuartzCore.h>
 
 @interface FeWaveLoadingIndicatorViewController ()
 @property (strong, nonatomic) FeWaveLoadingIndicator *waveLoadingIndicator;
@@ -35,15 +36,8 @@
     
     [self.view addSubview:_waveLoadingIndicator];
     
-    /*
-    FeWaveLayer *waveLayer = [[FeWaveLayer alloc] initWithFrame:self.view.bounds];
-    [self.view.layer addSublayer:waveLayer];
     
-    [waveLayer setNeedsDisplay];
-    */
-    FeWaveView *waveView = [[FeWaveView alloc] initWithFrame:CGRectMake(50, 100, 300,100)];
-    [self.view addSubview:waveView];
-    [waveView setNeedsDisplay];
+    
     
 }
 

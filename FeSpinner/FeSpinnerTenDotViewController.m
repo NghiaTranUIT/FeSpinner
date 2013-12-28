@@ -9,7 +9,7 @@
 #import "FeSpinnerTenDotViewController.h"
 #import "FeSpinnerTenDot.h"
 
-@interface FeSpinnerTenDotViewController ()
+@interface FeSpinnerTenDotViewController () <FeSpinnerTenDotDelegate>
 {
     NSInteger index;
 }
@@ -18,9 +18,9 @@
 @property (strong, nonatomic) NSTimer *timer;
 
 - (IBAction)start:(id)sender;
-- (IBAction)blur:(id)sender;
 - (IBAction)dismiss:(id)sender;
 -(void) changeTitle;
+-(void) longTask;
 @end
 
 @implementation FeSpinnerTenDotViewController
@@ -38,18 +38,21 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+    UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 320, 640)];
+    imageView.image = [UIImage imageNamed:@"winter.jpg"];
+    imageView.contentMode = UIViewContentModeScaleAspectFill;
+    
     
     //*********
     index = 0;
     _arrTitile = @[@"LOADING",@"PLZ WAITING",@"CALM DOWN",@"SUCCESSFUL"];
     
-    UIView *container = [self.view viewWithTag:100];
+    [self.view insertSubview:imageView atIndex:0];
     
-    _spinner = [[FeSpinnerTenDot alloc] initWithView:container withBlur:NO];
+    _spinner = [[FeSpinnerTenDot alloc] initWithView:self.view withBlur:YES];
     _spinner.titleLabelText = _arrTitile[index];
     _spinner.fontTitleLabel = [UIFont fontWithName:@"Neou-Thin" size:36];
-    
-    
+    _spinner.delegate = self;
 }
 
 - (void)didReceiveMemoryWarning
@@ -60,35 +63,44 @@
 
 - (IBAction)start:(id)sender
 {
-    [_timer invalidate];
-    index = 0;
+    UIButton *btn = (UIButton *) sender;
+    btn.enabled = NO;
     
-    [_spinner show];
-    _timer = [NSTimer scheduledTimerWithTimeInterval:2.0f target:self selector:@selector(changeTitle) userInfo:nil repeats:YES];
-}
--(void) changeTitle
-{
-    if (index < _arrTitile.count)
+    if (!_timer)
     {
-        index++;
-        _spinner.titleLabelText = _arrTitile[index];
-        
+        _timer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(changeTitle) userInfo:nil repeats:YES];
     }
-    else
-    {
+    
+    [_spinner showWhileExecutingSelector:@selector(longTask) onTarget:self withObject:nil completion:^{
         [_timer invalidate];
+        _timer = nil;
+        
         index = 0;
-        [self dismiss:self];
-    }
+        btn.enabled = YES;
+    }];
 }
-- (IBAction)blur:(id)sender
+-(void) longTask
 {
-    
+    // Do a long take
+    sleep(5);
 }
-
 - (IBAction)dismiss:(id)sender
 {
     [_timer invalidate];
     [_spinner dismiss];
+}
+-(void) changeTitle
+{
+    NSLog(@"index = %d",index);
+    
+    if (index >= _arrTitile.count)
+        return;
+    
+    _spinner.titleLabelText = _arrTitile[index];
+    index++;
+}
+-(void) FeSpinnerTenDotDidDismiss:(FeSpinnerTenDot *)sender
+{
+    NSLog(@"did dismiss");
 }
 @end

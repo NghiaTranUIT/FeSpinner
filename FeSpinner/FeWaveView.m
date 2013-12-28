@@ -28,22 +28,23 @@
     CGContextSetLineCap(context, kCGLineCapRound);
     
     CGMutablePathRef path = CGPathCreateMutable();
-    float x=100;
+
+    float yc = 10;//The height of a crest.
+    float w = 0;//starting x value.
     float y = rect.size.height;
-    
-    float yc=0;
-    float w=0;
-    while (w<=rect.size.width)
-    {
-        CGPathMoveToPoint(path, nil, w,y/2);
-        CGPathAddQuadCurveToPoint(path, nil, w+x/4, -yc,w+ x/2, y/2);
-        CGPathMoveToPoint(path, nil, w+x/2,y/2);
-        CGPathAddQuadCurveToPoint(path, nil, w+3*x/4, y+yc, w+x, y/2);
-        CGContextAddPath(context, path);
-        CGContextDrawPath(context, kCGPathStroke);
+    float width = rect.size.width;
+    int cycles = 2;//number of waves
+    float x = width/cycles;
+
+    while (w <= width) {
+        CGPathMoveToPoint(path, NULL, w,y/2);
+        CGPathAddQuadCurveToPoint(path, NULL, w+x/4, y/2 - yc, w+x/2, y/2);
+        CGPathAddQuadCurveToPoint(path, NULL, w+3*x/4, y/2 + yc, w+x, y/2);
         w+=x;
     }
-    //CGContextStrokePath(context);
+    CGContextAddPath(context, path);
+    CGContextDrawPath(context, kCGPathStroke);
+    
 }
 
 

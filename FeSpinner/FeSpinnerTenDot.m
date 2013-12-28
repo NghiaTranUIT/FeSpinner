@@ -14,6 +14,12 @@
 #define kPagingLabel 30
 
 @interface FeSpinnerTenDot ()
+{
+    id targetForExecuting;
+    SEL methodForExecuting;
+    id objectForExecuting;
+    dispatch_block_t completionBlock;
+}
 // Blur View
 @property (strong, nonatomic) FXBlurView *backgroundBlur;
 
@@ -43,6 +49,12 @@
 -(void) initDot;
 -(void) initLabel;
 -(void) resetLabel;
+
+// clean up method, target, object
+-(void) cleanUp;
+
+// Executing method
+-(void) executingMethod;
 @end
 @implementation FeSpinnerTenDot
 
@@ -66,8 +78,8 @@
         
         // BOOl
         _isAnimating = NO;
-        
         self.hidden = YES;
+        self.alpha = 0;
 
     }
     return self;
@@ -97,8 +109,7 @@
         _backgroundBlur.dynamic = NO;
         [_backgroundBlur.layer displayIfNeeded];
         
-        // add background
-        [_containerView addSubview:_backgroundBlur];
+        // Hide background
         _backgroundBlur.hidden = YES;
         
     }
@@ -106,8 +117,6 @@
     {
         _backgroundStatic = [[UIView alloc] initWithFrame:_containerView.bounds];
         _backgroundStatic.backgroundColor = [UIColor colorWithHexCode:@"#32ce55"];
-        
-        [self addSubview:_backgroundStatic];
     }
 
 }
@@ -176,6 +185,7 @@
     
     _label.center = CGPointMake(self.center.x, self.center.y  + kPagingLabel + 30 + _label.bounds.size.height / 2);
 }
+
 #pragma mark Setter / getter
 -(void) setTitleLabelText:(NSString *)titleLabelText
 {
@@ -210,7 +220,10 @@
     if (_isAnimating)
         return;
     
+    // Add Ten Spinner to container
     [_containerView addSubview:self];
+    
+    //Set hidden
     self.hidden = NO;
     self.alpha = 0;
     
@@ -219,6 +232,16 @@
         _backgroundBlur.alpha = 0;
         _backgroundBlur.hidden = NO;
         [_containerView insertSubview:_backgroundBlur belowSubview:self];
+    }
+    else
+    {
+        [self insertSubview:_backgroundStatic atIndex:0];
+    }
+    
+    // Call Delegate
+    if ([_delegate respondsToSelector:@selector(FeSpinnerTenDotWillShow:)])
+    {
+        [_delegate FeSpinnerTenDotWillShow:self];
     }
     
     [UIView animateWithDuration:0.5f delay:0
@@ -234,6 +257,13 @@
                      } completion:^(BOOL finished)
     {
         _isAnimating = YES;
+        // Call Delegate
+        if ([_delegate respondsToSelector:@selector(FeSpinnerTenDotDidShow:)])
+        {
+            [_delegate FeSpinnerTenDotDidShow:self];
+        }
+        
+        
         
         CGFloat delay = 0;
         for (NSInteger i = 0 ; i < kMaxTenDot ; i++)
@@ -272,43 +302,88 @@
                             if (_isShouldBlur)
                                 [_backgroundBlur removeFromSuperview];
                             
+                            // Call delegate
+                            if ([_delegate respondsToSelector:@selector(FeSpinnerTenDotDidDismiss:)])
+                            {
+                                [_delegate FeSpinnerTenDotDidDismiss:self];
+                            }
+                            
                             [self removeFromSuperview];
-                            
-                            
+                            [self cleanUp];
                         }];
     
     
 }
--(void) showWhileExecutingBlock:(Block)block
+-(void) showWhileExecutingBlock:(dispatch_block_t)block
+{
+    [self showWhileExecutingBlock:block completion:nil];
+}
+-(void) showWhileExecutingSelector:(SEL)selector onTarget:(id)target withObject:(id)object
+{
+    [self showWhileExecutingSelector:selector onTarget:target withObject:object completion:nil];
+    
+}
+-(void) showWhileExecutingBlock:(dispatch_block_t)block completion:(dispatch_block_t)completion
 {
     // Check block != nil
     if (block != nil)
     {
+        [self show];
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), ^
-        {
-            block();
-            
-            // Update UI
-            dispatch_async(dispatch_get_main_queue(), ^{
-                [self dismiss];
-            });
-        });
+                       {
+                           block();
+                           
+                           // Update UI
+                           dispatch_async(dispatch_get_main_queue(), ^{
+                               completion();
+                               [self dismiss];
+                           });
+                       });
     }
 }
--(void) showWhileExecutingTarget:(id)target action:(SEL)selector
+-(void) showWhileExecutingSelector:(SEL)selector onTarget:(id)target withObject:(id)object completion:(dispatch_block_t)completion
 {
     // Check Selector is responded
     if ([target respondsToSelector:selector])
     {
-        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), ^{
-            [target performSelector:selector withObject:nil];
-            
-            // Update UI
-            dispatch_async(dispatch_get_main_queue(), ^{
-                [self dismiss];
-            });
-        });;
+        methodForExecuting = selector;
+        targetForExecuting = target;
+        objectForExecuting = object;
+        completionBlock = completion;
+        
+        [self show];
+        [NSThread detachNewThreadSelector:@selector(executingMethod) toTarget:self withObject:nil];
     }
-    
+}
+#pragma mark Helper method
+-(void) executingMethod
+{
+    @autoreleasepool {
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Warc-performSelector-leaks"
+		// Start executing the requested task
+		[targetForExecuting performSelector:methodForExecuting withObject:objectForExecuting];
+#pragma clang diagnostic pop
+		// Task completed, update view in main thread (note: view operations should
+		// be done only in the main thread)
+        dispatch_async(dispatch_get_main_queue(), ^{
+            completionBlock();
+            [self performSelectorOnMainThread:@selector(cleanUp) withObject:nil waitUntilDone:NO];
+        });
+		
+	}
+}
+-(void) cleanUp
+{
+    NSLog(@"Clean up");
+    if (objectForExecuting)
+        objectForExecuting = nil;
+    if (methodForExecuting)
+        methodForExecuting = nil;
+    if (targetForExecuting)
+        targetForExecuting = nil;
+    if (completionBlock)
+        completionBlock = nil;
+    [self dismiss];
 }
 @end

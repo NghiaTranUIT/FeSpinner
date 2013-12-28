@@ -7,12 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
+@protocol FeSpinnerTenDotDelegate;
 
-typedef void (^Block)();
 @interface FeSpinnerTenDot : UIView
 
 // Init Fe Spinner View Ten Dot
 -(id) initWithView:(UIView *) view withBlur:(BOOL) blur;
+
+// Delegate
+@property (weak, nonatomic) id<FeSpinnerTenDotDelegate> delegate;
 
 // Title
 @property (strong, nonatomic) NSString *titleLabelText;
@@ -21,9 +24,20 @@ typedef void (^Block)();
 
 -(void) show;
 
--(void) showWhileExecutingBlock:(Block) block;
+-(void) showWhileExecutingBlock:(dispatch_block_t) block;
 
--(void) showWhileExecutingTarget:(id) target action:(SEL) selector;
+-(void) showWhileExecutingBlock:(dispatch_block_t)block completion:(dispatch_block_t) completion;
+
+-(void) showWhileExecutingSelector:(SEL) selector onTarget:(id) target withObject:(id) object;
+
+-(void) showWhileExecutingSelector:(SEL)selector onTarget:(id)target withObject:(id)object completion:(dispatch_block_t) completion;
 
 -(void) dismiss;
+@end
+
+@protocol FeSpinnerTenDotDelegate <NSObject>
+@optional
+-(void) FeSpinnerTenDotWillShow:(FeSpinnerTenDot *) sender;
+-(void) FeSpinnerTenDotDidShow:(FeSpinnerTenDot *) sender;
+-(void) FeSpinnerTenDotDidDismiss:(FeSpinnerTenDot *)sender;
 @end

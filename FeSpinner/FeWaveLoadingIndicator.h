@@ -12,6 +12,9 @@
 // percent of Indicator
 @property (assign, nonatomic, readonly) NSInteger percent;
 
+// BOOl
+@property (assign, nonatomic, readonly) BOOL isShowing;
+
 // Init Fe WaveLoading Indicator
 -(id) initWithView:(UIView *) view title:(NSString *) title backgroundColor:(UIColor *) bgColor foregroundColor:(UIColor *) foreColor;
 

@@ -30,6 +30,9 @@
 // Mask layer
 @property (strong, nonatomic) FeWaveLayer *waveLayer;
 
+// New percent
+@property (assign, nonatomic) CGFloat newPercent;
+
 //*************************
 -(void) commonInit;
 -(void) initLable;
@@ -58,6 +61,9 @@
         
         // init Mask
         [self initMaskLayer];
+        
+        // set hidden = YES;
+        _isShowing = NO;
     }
     
     return self;
@@ -71,6 +77,7 @@
     
     // Percent
     _percent = 0;
+    _newPercent = -1;
     
 }
 -(void) initLable
@@ -107,9 +114,11 @@
 }
 -(void) initMaskLayer
 {
-    CGRect frame = CGRectMake(0, 0, _foreLabel.bounds.size.width,_foreLabel.bounds.size.height);
+    CGRect frame = CGRectMake(0, 0, _foreLabel.bounds.size.width * 2, _foreLabel.bounds.size.height);
     _waveLayer = [[FeWaveLayer alloc ] initWithFrame:frame];
-
+    //[self.layer addSublayer:_waveLayer];
+    //[_foreLabel.layer addSublayer:_waveLayer];
+    
     // Set Clips to Bounds = NO
     _foreLabel.clipsToBounds = NO;
     
@@ -118,19 +127,45 @@
     
     // Redraw itself
     [_waveLayer setNeedsDisplay];
+    
+    [_waveLayer starAnimate];
 }
 
 #pragma mark Action
 -(void) show
 {
+    if (_isShowing)
+        return;
     
+    self.hidden = NO;
+    [UIView animateWithDuration:0.3f
+                          delay:0 options:UIViewAnimationOptionCurveEaseIn
+                     animations:^{
+                         self.alpha = 0;
+                     } completion:^(BOOL finished) {
+                         [_waveLayer starAnimate];
+                     }];
 }
 -(void) dismiss
 {
+    if (!_isShowing)
+        return;
     
+    [UIView animateWithDuration:0.2f
+                          delay:0 options:UIViewAnimationOptionCurveEaseOut animations:^{
+                              self.alpha = 0;
+                          } completion:^(BOOL finished) {
+                              [_waveLayer stopAnimate];
+                              
+                              // remove from superview
+                              [self removeFromSuperview];
+                          }];
 }
 -(void) setPercent:(CGFloat)percent animate:(BOOL)animate
 {
+    if (percent < 0 || percent > 1)
+        return;
+    
     if (_percent == percent)
         return;
     

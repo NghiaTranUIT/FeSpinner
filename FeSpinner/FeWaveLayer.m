@@ -12,60 +12,23 @@
 
 @interface FeWaveLayer ()
 {
-    //*******************
-    // Control point
-    // Curve
-    // Quad Curve
-    // 1
-    CGPoint quadCurvePoint_1;
-    CGPoint endQuadCurvePoint_2;
     
-    // 2
-    CGPoint controlPoint_3;
-    CGPoint controlPoint_4;
-    CGPoint endControlPoint_5;
-    
-    // 3
-    CGPoint quadCurvePoint_6;
-    CGPoint endQuadCurvePoint_7;
-    
-    // 4
-    CGPoint quadCurvePoint_8;
-    CGPoint endQuadCurvePoint_9;
-    
-    // 5
-    CGPoint controlPoint_10;
-    CGPoint controlPoint_11;
-    CGPoint endControlPoint_12;
-    
-    // Close path
-    // Low Right
-    CGPoint lowRightPoint;
-    
-    // Low Left
-    CGPoint lowLeftPoint;
-    
-    // *********************
-    // Start / end point
-    CGPoint startPoint;
-    CGPoint endPoint;
-    
-    // Index
-    NSInteger index;
-    
-    // Increase / Decrease
-    BOOL isIncrease;
 }
-@property (strong, nonatomic) CADisplayLink *displayLink;
-@property (assign, nonatomic) BOOL isAnimating;
+@property (strong, nonatomic) CABasicAnimation *waveAnimation;
+@property (strong, nonatomic) CABasicAnimation *loadingAnimation;
 
-@property (strong, nonatomic) UIBezierPath *path;
+// Time loading, depend on current height loading;
+@property (assign, nonatomic) CGFloat durationLoading;
 
-// Caculator control Point
--(void) calculatorPoint;
--(CGFloat) factorWidth:(CGFloat) number;
--(CGFloat) factorHeight:(CGFloat) number;
--(void) smoothPath;
+/////////////////////////////////
+// Common init
+-(void) commonInit;
+
+// init some CABasicAnimation
+-(void) initBasicAnimation;
+
+// calculator durationLoading
+-(void) calculatorDurationLoading;
 @end
 
 @implementation FeWaveLayer
@@ -78,24 +41,47 @@
     {
         self.frame = frame;
         
-        //self.allowsEdgeAntialiasing = YES;
-        self.magnificationFilter = kCAFilterNearest;
+        [self commonInit];
         
-        _isAnimating = NO;
-        index = 0;
-        isIncrease = YES;
-        
-        _displayLink = [CADisplayLink displayLinkWithTarget:self selector:@selector(setNeedsDisplay)];
-        _displayLink.frameInterval = 2.0f;
-        [self setNeedsDisplayOnBoundsChange:YES];
-        
-        startPoint = CGPointMake(0, frame.size.height / 2);
-        endPoint = CGPointMake(frame.size.width, frame.size.height /2);
-        
-        lowRightPoint = CGPointMake(self.frame.size.width, self.frame.size.height);
-        lowLeftPoint = CGPointMake(0, self.frame.size.height);
+        // init some BAsic Animation
+        [self initBasicAnimation];
     }
     return self;
+}
+-(void) commonInit
+{
+    // Should Anti alize
+    self.allowsEdgeAntialiasing = YES;
+    self.magnificationFilter = kCAFilterNearest;
+    
+    // BOOL
+    _isWaving = NO;
+    _isLoading = NO;
+    
+    _durationLoading = 1;
+}
+-(void) initBasicAnimation
+{
+    // Wave animation
+    // Like wave
+    _waveAnimation = [CABasicAnimation animationWithKeyPath:@"position"];
+    _waveAnimation.toValue = [NSValue valueWithCGPoint:CGPointMake(self.position.x - self.bounds.size.width / 2, self.position.y)];
+    _waveAnimation.duration = 3.0;
+    _waveAnimation.repeatCount = HUGE_VAL;
+    
+    // Calculator time duration
+    [self calculatorDurationLoading];
+    
+    // Loading animation
+    // animate percent
+    _loadingAnimation = [CABasicAnimation animationWithKeyPath:@"position.y"];
+    //_loadingAnimation.toValue = [NSNumber numberWithInt:];
+    _loadingAnimation.duration = _durationLoading;
+    _loadingAnimation.repeatCount = HUGE_VAL;
+}
+-(void) calculatorDurationLoading
+{
+    
 }
 -(void) drawInContext:(CGContextRef)ctx
 {
@@ -103,111 +89,45 @@
     CGContextSetShouldAntialias(ctx, YES);
     
     
-    if (!_isAnimating)
-    {
-        [_displayLink addToRunLoop:[NSRunLoop mainRunLoop] forMode:NSDefaultRunLoopMode];
-        _isAnimating = YES;
-        return;
-    }
-    // Calculator Point
-    [self calculatorPoint];
-    
     //**************
     // Draw it self
-    CGMutablePathRef pathRef = CGPathCreateMutable();
-    CGPathMoveToPoint(pathRef, nil, startPoint.x, startPoint.y);
+    CGMutablePathRef path = CGPathCreateMutable();
     
-    /*
-    CGPathAddQuadCurveToPoint(pathRef, nil, quadCurvePoint_1.x, quadCurvePoint_1.y, endQuadCurvePoint_2.x, endQuadCurvePoint_2.y);
-    CGPathAddCurveToPoint(pathRef, nil, controlPoint_3.x, controlPoint_3.y, controlPoint_4.x, controlPoint_4.y, endControlPoint_5.x, endControlPoint_5.y);
-    CGPathAddQuadCurveToPoint(pathRef, nil, quadCurvePoint_6.x, quadCurvePoint_6.y, endQuadCurvePoint_7.x, endQuadCurvePoint_7.y);
-    CGPathAddQuadCurveToPoint(pathRef, nil, quadCurvePoint_8.x, quadCurvePoint_8.y, endQuadCurvePoint_9.x, endQuadCurvePoint_9.y);
-    CGPathAddCurveToPoint(pathRef, nil, controlPoint_10.x, controlPoint_10.y, controlPoint_11.x, controlPoint_11.y, endControlPoint_12.x, endControlPoint_12.y);
-    */
-    //******************
-    // Smooth Drawing
+    float yc = 10;//The height of a crest.
+    float w = 0;//starting x value.
+    float y = self.bounds.size.height;
+    float width = self.bounds.size.width;
+    int cycles = 2;//number of waves
+    float x = width/cycles;
+    CGPathMoveToPoint(path, NULL, w,y/2);
     
-    controlPoint_3 = CGPointMake((endQuadCurvePoint_2.x + controlPoint_4.x) / 2, (endQuadCurvePoint_2.y + controlPoint_4.y) / 2);
-    quadCurvePoint_6 = CGPointMake((endControlPoint_5.x + endQuadCurvePoint_7.x) / 2, (endControlPoint_5.y + endQuadCurvePoint_7.y) / 2);
-    endQuadCurvePoint_9 = CGPointMake((quadCurvePoint_8.x + controlPoint_10.x) / 2, (quadCurvePoint_8.y + controlPoint_10.y) / 2);
+    while (w <= width) {
+        //CGPathMoveToPoint(path, NULL, w,y/2);
+        CGPathAddQuadCurveToPoint(path, NULL, w+x/4, y/2 - yc, w+x/2, y/2);
+        CGPathAddQuadCurveToPoint(path, NULL, w+3*x/4, y/2 + yc, w+x, y/2);
+        w+=x;
+    }
     
+    CGPathAddLineToPoint(path, nil, self.bounds.size.width,self.bounds.size.height / 2);
     
-    CGPathAddCurveToPoint(pathRef, nil, quadCurvePoint_1.x, quadCurvePoint_1.y, endQuadCurvePoint_2.x, endQuadCurvePoint_2.y, controlPoint_3.x, controlPoint_3.y);
-    CGPathAddCurveToPoint(pathRef, nil, controlPoint_4.x, controlPoint_4.y, endControlPoint_5.x, endControlPoint_5.y, quadCurvePoint_6.x, quadCurvePoint_6.y);
-    CGPathAddCurveToPoint(pathRef, nil, endQuadCurvePoint_7.x, endQuadCurvePoint_7.y, quadCurvePoint_8.x, quadCurvePoint_8.y, endQuadCurvePoint_9.x, endQuadCurvePoint_9.y);
-    CGPathAddCurveToPoint(pathRef, nil, controlPoint_10.x, controlPoint_10.y, controlPoint_11.x, controlPoint_11.y, endControlPoint_12.x, endControlPoint_12.y);
+    CGPathAddLineToPoint(path, nil, self.bounds.size.width,self.bounds.size.height);
+    CGPathAddLineToPoint(path, nil, 0, self.bounds.size.height);
+    CGPathAddLineToPoint(path, nil, 0, self.bounds.size.height / 2);
+    CGPathCloseSubpath(path);
     
-    
-    
-    
-    // Close Path
-    CGPathAddLineToPoint(pathRef, nil, lowRightPoint.x, lowRightPoint.y);
-    CGPathAddLineToPoint(pathRef, nil, lowLeftPoint.x, lowLeftPoint.y);
-    CGPathCloseSubpath(pathRef);
-    
-    // Add path to Context
-    CGContextAddPath(ctx, pathRef);
     CGContextSetStrokeColorWithColor(ctx, [UIColor whiteColor].CGColor);
     CGContextSetLineWidth(ctx, 1);
+    CGContextAddPath(ctx, path);
     CGContextSetFillColorWithColor(ctx, [UIColor whiteColor].CGColor);
     CGContextFillPath(ctx);
-    
-    CGContextStrokePath(ctx);
-    
-    if (isIncrease)
-        index ++;
-    else
-        index --;
-    
-    if ((index >= kMaxIndex / 2) && isIncrease)
-    {
-        index = kMaxIndex / 2;
-        isIncrease = NO;
-    }
-    else
-    if ((index <= - (kMaxIndex / 2)) && !isIncrease)
-    {
-        index = - (kMaxIndex / 2);
-        isIncrease = YES;
-    }
-    
+    CGContextDrawPath(ctx, kCGPathStroke);
 }
--(void) calculatorPoint
+-(void) starAnimate
 {
-    CGFloat width = self.frame.size.width;
-    CGFloat height = self.frame.size.height;
-    
-    quadCurvePoint_1 = CGPointMake([self factorWidth:30.0f] * width, [self factorHeight:129.0f] * height + index);
-    endQuadCurvePoint_2 = CGPointMake([self factorWidth:77.0f] * width, [self factorHeight:157.0f] * height -index);
-    
-    controlPoint_3 = CGPointMake([self factorWidth:190.0f] * width, [self factorHeight:210.0f] * height + index);
-    controlPoint_4 = CGPointMake([self factorWidth:200.0f] * width, [self factorHeight:70.0f] * height - index);
-    endControlPoint_5 = CGPointMake([self factorWidth:303.0f] * width, [self factorHeight:125.0f] * height + index);
-    
-    quadCurvePoint_6 = CGPointMake([self factorWidth:340.0f] * width, [self factorHeight:150.0f] * height - index);
-    endQuadCurvePoint_7 =  CGPointMake([self factorWidth:350.0f] * width, [self factorWidth:150.0f] * height + index);
-    
-    quadCurvePoint_8 = CGPointMake([self factorWidth:380.0f] * width, [self factorHeight:155.0f] * height - index);
-    endQuadCurvePoint_9 =  CGPointMake([self factorWidth:410.0f] * width, [self factorWidth:145.0f] * height + index);
-    
-    controlPoint_10 = CGPointMake([self factorWidth:500.0f] * width, [self factorHeight:100.0f] * height - index);
-    controlPoint_11 = CGPointMake([self factorWidth:540.0f] * width, [self factorHeight:190.0f] * height + index);
-    endControlPoint_12 = CGPointMake([self factorWidth:580.0f] * width, [self factorHeight:165.0f] * height - index);
-    
+        //[self addAnimation:anim forKey:@"position"];
 }
--(CGFloat) factorHeight:(CGFloat)number
+-(void) setPercent:(CGFloat)percent animate:(BOOL)animate
 {
-    CGFloat factor = number / 320.0f;
-    return factor;
-}
--(CGFloat) factorWidth:(CGFloat)number
-{
-    CGFloat factor = number / 480.0f;
-    return factor;
-}
--(void) smoothPath
-{
-    // Mamual
     
 }
 @end
