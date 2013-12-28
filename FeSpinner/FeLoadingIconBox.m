@@ -177,18 +177,6 @@
 }
 -(void) animate
 {
-    /*
-    [UIView animateKeyframesWithDuration:0.55f delay:0 options:UIViewKeyframeAnimationOptionCalculationModeLinear animations:^{
-        [UIView addKeyframeWithRelativeStartTime:0 relativeDuration:0.275 animations:^{
-            self.backgroundColor = [UIColor colorWithRed:1 green:1 blue:1 alpha:0.2f];
-        }];
-        [UIView addKeyframeWithRelativeStartTime:0.275 relativeDuration:0.275 animations:^{
-            self.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.2f];
-        }];
-    } completion:^(BOOL finished) {
-        
-    }];
-     */
     [UIView animateWithDuration:0.275f delay:0 options:UIViewAnimationOptionCurveLinear animations:^{
         self.backgroundColor = [UIColor colorWithRed:1 green:1 blue:1 alpha:0.2f];
     } completion:^(BOOL finished) {

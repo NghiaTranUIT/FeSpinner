@@ -29,7 +29,7 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     
-    _loadingIcon = [[FeLoadingIcon alloc] initWithView:self.view];
+    _loadingIcon = [[FeLoadingIcon alloc] initWithView:self.view blur:NO backgroundColors:nil];
     
 }
 

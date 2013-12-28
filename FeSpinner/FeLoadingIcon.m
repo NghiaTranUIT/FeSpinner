@@ -9,21 +9,35 @@
 #import "FeLoadingIcon.h"
 #import "FeLoadingIconBox.h"
 #import "UIColor+flat.h"
+#import "FXBlurView.h"
+
+#define kDurationPerColor 2.0f
 
 @interface FeLoadingIcon ()
 {
-    
+    id targetForExecuting;
+    SEL methodForExecuting;
+    id objectForExecuting;
+    dispatch_block_t completionBlock;
 }
 @property (weak, nonatomic) UIView *containerView;
+@property (strong, nonatomic) UIView *bigBoxView;
+
+@property (strong, nonatomic) UIView *backgroundStatic;
+@property (strong, nonatomic) FXBlurView *backgroundBlur;
 
 @property (strong, nonatomic) NSMutableArray *arrBox;
 @property (strong, nonatomic) NSArray *arrColor;
 @property (strong, nonatomic) NSTimer *timer;
+
 // ***********
 -(void) commonInit;
+-(void) initBackgroundWithBlur:(BOOL) blur;
 -(void) initBox;
 -(void) initColor;
 -(void) animteColor;
+-(void) cleanUp;
+-(void) executeSelector;
 @end
 @implementation FeLoadingIcon
 
@@ -36,9 +50,9 @@
     return self;
 }
 
--(id) initWithView:(UIView *)view
+-(id) initWithView:(UIView *)view blur:(BOOL)blur backgroundColors:(NSArray *)arrColor
 {
-    CGRect frame = CGRectMake(0, 0, 100, 100);
+    CGRect frame = CGRectMake(0, 0, view.bounds.size.width, view.bounds.size.height);
     self = [super initWithFrame:frame];
     if (self)
     {
@@ -46,34 +60,68 @@
         _isAnimating = NO;
         
         [self commonInit];
+        [self initBackgroundWithBlur:blur];
+        
+        // init color as default
+        if (!arrColor)
+            [self initColor];
+        else
+            _arrColor = arrColor;
+        
+        // init small Box
         [self initBox];
-        [self initColor];
     }
     return self;
 }
 -(void) commonInit
 {
-    // Set center
-    self.center = _containerView.center;
     [_containerView addSubview:self];
-    self.hidden = NO;
-    
-    // BOOl
-    _isAnimating = NO;
-    
-    _arrBox = [[NSMutableArray alloc ]initWithCapacity:16];
+    self.hidden = YES;
+    self.alpha = 0;
     
     
-    self.layer.cornerRadius = 40.0f;
-    self.clipsToBounds = YES;
+}
+-(void) initBackgroundWithBlur:(BOOL)blur
+{
+    _isBlur = blur;
+    
+    if (blur)
+    {
+        _backgroundBlur = [[FXBlurView alloc] initWithFrame:_containerView.bounds];
+        _backgroundBlur.blurRadius = 40;
+        _backgroundBlur.tintColor = [UIColor colorWithHexCode:@"#32ce55"];
+        _backgroundBlur.dynamic = NO;
+        [_backgroundBlur.layer displayIfNeeded];
+        
+        // Hide background
+        _backgroundBlur.hidden = YES;
+    }
+    else
+    {
+        _backgroundStatic = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.bounds.size.width, self.bounds.size.height)];
+        _backgroundStatic.userInteractionEnabled = NO;
+        _backgroundStatic.backgroundColor = [UIColor flatCarrotColor];
+    }
 }
 -(void) initBox
 {
+    // init Big Box
+    _bigBoxView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 100, 100)];
+    _bigBoxView.center = self.center;
+    _bigBoxView.layer.cornerRadius = 40.0f;
+    _bigBoxView.clipsToBounds = YES;
+    _bigBoxView.alpha = 0;
+    
+    [self addSubview:_bigBoxView];
+    
+    // init small box
+    _arrBox = [[NSMutableArray alloc ]initWithCapacity:16];
     for (NSInteger i = 1; i <= 16; i++)
     {
         FeLoadingIconBox *box = [[FeLoadingIconBox alloc] initBoxAtIndex:i];
-        [self addSubview:box];
+        [_bigBoxView addSubview:box];
         
+        // add small to big box
         [_arrBox addObject:box];
     }
 }
@@ -88,47 +136,91 @@
         return;
     
     self.hidden = NO;
+    self.alpha = 0;
     
-    [self animteColor];
-    _timer = [NSTimer scheduledTimerWithTimeInterval:8.0f target:self selector:@selector(animteColor) userInfo:nil repeats:YES];
-    
-    
-    for (NSInteger i = 1; i <= 16; i++)
+    // Add background
+    if (_isBlur)
     {
-        FeLoadingIconBox *box = _arrBox[i-1];
-        CGFloat delay = [self delayAtIndex:i];
-        
-        [box performSelector:@selector(playAnimate) withObject:nil afterDelay:delay];
+        _backgroundBlur.alpha = 0;
+        _backgroundBlur.hidden = NO;
+        [_containerView insertSubview:_backgroundBlur belowSubview:self];
+    }
+    else
+    {
+        [self insertSubview:_backgroundStatic atIndex:0];
+    }
+    // call delegate
+    if ([_delegate respondsToSelector:@selector(FeLoadingIconWillShow:)])
+    {
+        [_delegate FeLoadingIconWillShow:self];
     }
     
-    _isAnimating = YES;
+    // animatin
+    [UIView animateWithDuration:0.5f delay:0 options:UIViewAnimationOptionCurveEaseIn
+                     animations:^{
+                         self.alpha = 1;
+                         
+                         if (_isBlur)
+                         {
+                             _backgroundBlur.alpha = 1;
+                         }
+                     } completion:^(BOOL finished) {
+                         
+                         _isAnimating = YES;
+                         
+                         // Call delgate method
+                         if ([_delegate respondsToSelector:@selector(FeLoadingIconDidShow:)])
+                         {
+                             [_delegate FeLoadingIconDidShow:self];
+                         }
+                         
+                         // animate color
+                         [self animteColor];
+                         
+                         // animate Big Box
+                         [UIView animateWithDuration:[self delayAtIndex:0] animations:^{
+                             _bigBoxView.alpha = 1;
+                         } completion:^(BOOL finished) {
+                             
+                         }];
+                         
+                         // animate small Box
+                         for (NSInteger i = 1; i <= 16; i++)
+                         {
+                             FeLoadingIconBox *box = _arrBox[i-1];
+                             CGFloat delay = [self delayAtIndex:i];
+                             
+                             [box performSelector:@selector(playAnimate) withObject:nil afterDelay:delay];
+                         }
+                         
+                         
+                         
+                     }];
+    
+    
 }
 -(void) animteColor
 {
-    [UIView animateWithDuration:1.6f delay:0 options:UIViewAnimationOptionCurveLinear animations:^{
-        self.backgroundColor = _arrColor[0];
-    } completion:^(BOOL finished) {
-        [UIView animateWithDuration:1.6f delay:0 options:UIViewAnimationOptionCurveLinear animations:^{
-            self.backgroundColor = _arrColor[1];
-        } completion:^(BOOL finished) {
-            [UIView animateWithDuration:1.6f delay:0 options:UIViewAnimationOptionCurveLinear animations:^{
-                self.backgroundColor = _arrColor[2];
-            } completion:^(BOOL finished) {
-                [UIView animateWithDuration:1.6f delay:0 options:UIViewAnimationOptionCurveLinear animations:^{
-                    self.backgroundColor = _arrColor[3];
-                } completion:^(BOOL finished) {
-                    [UIView animateWithDuration:1.6f delay:0 options:UIViewAnimationOptionCurveLinear animations:^{
-                        self.backgroundColor = _arrColor[4];
-                    } completion:^(BOOL finished) {
-                        
-                    }];
-                    
-                }];
-                
-            }];
-            
-        }];
-    }];
+    // Sum duration of each box
+    CGFloat allDuration = kDurationPerColor * _arrColor.count;
+    
+    [UIView animateKeyframesWithDuration:allDuration delay:0 options:UIViewKeyframeAnimationOptionAutoreverse | UIViewKeyframeAnimationOptionRepeat | UIViewKeyframeAnimationOptionCalculationModeLinear
+                              animations:^{
+                                  for (NSInteger i = 0; i < _arrColor.count; i++)
+                                  {
+                                      CGFloat percentStartTime = (kDurationPerColor * i) / allDuration;
+                                      CGFloat percentDuration = kDurationPerColor / allDuration;
+                                      
+                                      // Add keyframe
+                                      [UIView addKeyframeWithRelativeStartTime:percentStartTime relativeDuration:percentDuration animations:^{
+                                          _bigBoxView.backgroundColor = _arrColor[i];
+                                      }];
+                                  }
+                                  
+                                  
+                              } completion:^(BOOL finished) {
+                                  
+                              }];
 }
 -(CGFloat) delayAtIndex:(NSInteger) index
 {
@@ -223,12 +315,109 @@
 {
     if (!_isAnimating)
         return;
-    
-    for (NSInteger i = 1; i <= 16; i++)
-    {
-        FeLoadingIconBox *box = _arrBox[i-1];
+    [UIView animateWithDuration:0.5f animations:^{
+        self.alpha = 0;
+    } completion:^(BOOL finished) {
         
-        [box stopAnimate];
+        // Stop big box
+        [_bigBoxView.layer removeAllAnimations];
+        
+        // Stop small Box
+        for (NSInteger i = 1; i <= 16; i++)
+        {
+            FeLoadingIconBox *box = _arrBox[i-1];
+            
+            [box stopAnimate];
+        }
+        
+        // Call delgate method
+        if ([_delegate respondsToSelector:@selector(FeLoadingIconDidDismiss:)])
+        {
+            [_delegate FeLoadingIconDidDismiss:self];
+        }
+        
+        [self removeFromSuperview];
+        
+        _isAnimating = NO;
+        
+    }];
+    
+   
+}
+-(void) showWhileExecutingBlock:(dispatch_block_t)block
+{
+    [self showWhileExecutingBlock:block completion:nil];
+}
+-(void) showWhileExecutingBlock:(dispatch_block_t)block completion:(dispatch_block_t)completion
+{
+    if (block)
+    {
+        [self show];
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 1), ^{
+            // execute block
+            block();
+            
+            // Update UI in main thread
+            dispatch_async(dispatch_get_main_queue(), ^{
+                // execute completion block
+                completion();
+                
+                // dismiss
+                [self dismiss];
+            });
+        });
     }
+}
+-(void) showWhileExecutingSelector:(SEL)selector onTarget:(id)target withObject:(id)object
+{
+    [self showWhileExecutingSelector:selector onTarget:target withObject:object completion:nil];
+}
+-(void) showWhileExecutingSelector:(SEL)selector onTarget:(id)target withObject:(id)object completion:(dispatch_block_t)completion
+{
+    if ([target respondsToSelector:selector])
+    {
+        methodForExecuting = selector;
+        targetForExecuting = target;
+        objectForExecuting = object;
+        completionBlock = completion;
+        
+        // Run
+        [self show];
+        
+        // execute selector in background thread
+        [NSThread detachNewThreadSelector:@selector(executeSelector) toTarget:self withObject:nil];
+    }
+}
+-(void) executeSelector
+{
+    @autoreleasepool {
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Warc-performSelector-leaks"
+        
+		// Start executing the requested task
+		[targetForExecuting performSelector:methodForExecuting withObject:objectForExecuting];
+#pragma clang diagnostic pop
+        
+		// Task completed, update view in main thread (note: view operations should
+		// be done only in the main thread)
+        dispatch_async(dispatch_get_main_queue(), ^{
+            completionBlock();
+            [self performSelectorOnMainThread:@selector(cleanUp) withObject:nil waitUntilDone:NO];
+        });
+		
+	}
+}
+-(void) cleanUp
+{
+    NSLog(@"Clean up");
+    if (objectForExecuting)
+        objectForExecuting = nil;
+    if (methodForExecuting)
+        methodForExecuting = nil;
+    if (targetForExecuting)
+        targetForExecuting = nil;
+    if (completionBlock)
+        completionBlock = nil;
+    [self dismiss];
 }
 @end

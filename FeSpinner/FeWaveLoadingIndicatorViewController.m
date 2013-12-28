@@ -36,9 +36,6 @@
     
     [self.view addSubview:_waveLoadingIndicator];
     
-    
-    
-    
 }
 
 - (void)didReceiveMemoryWarning
