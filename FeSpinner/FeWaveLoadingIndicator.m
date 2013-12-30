@@ -32,6 +32,7 @@
 
 // New percent
 @property (assign, nonatomic) CGFloat newPercent;
+@property (assign, nonatomic) BOOL isReady;
 
 //*************************
 -(void) commonInit;
@@ -64,6 +65,7 @@
         
         // set hidden = YES;
         _isShowing = NO;
+        _isReady = YES;
     }
     
     return self;
@@ -82,6 +84,8 @@
 }
 -(void) initLable
 {
+    
+    
     // Background Label
     _bgLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 100, 100)];
     _bgLabel.font = [UIFont fontWithName:@"CabinCondensed-Bold" size:kFontSize];
@@ -107,6 +111,14 @@
     [_foreLabel sizeToFit];
     _foreLabel.center = self.center;
     
+    //
+    
+    _foreLabel.frame = CGRectInset(_foreLabel.frame, 0, 20);
+    _bgLabel.frame = CGRectInset(_bgLabel.frame, 0, 20);
+    
+    _foreLabel.center = self.center;
+    _bgLabel.center = self.center;
+    
     //*********
     [self addSubview:_bgLabel];
     [self addSubview:_foreLabel];
@@ -114,21 +126,18 @@
 }
 -(void) initMaskLayer
 {
-    CGRect frame = CGRectMake(0, 0, _foreLabel.bounds.size.width * 2, _foreLabel.bounds.size.height);
+    CGRect frame = CGRectMake(0,0, _foreLabel.bounds.size.width * 2, _foreLabel.bounds.size.height * 2);
     _waveLayer = [[FeWaveLayer alloc ] initWithFrame:frame];
-    //[self.layer addSublayer:_waveLayer];
-    //[_foreLabel.layer addSublayer:_waveLayer];
     
     // Set Clips to Bounds = NO
     _foreLabel.clipsToBounds = NO;
     
     // Set waveLayer as ForeLabel's Mask
     _foreLabel.layer.mask = _waveLayer;
+    //[_foreLabel.layer addSublayer:_waveLayer];
     
     // Redraw itself
     [_waveLayer setNeedsDisplay];
-    
-    [_waveLayer starAnimate];
 }
 
 #pragma mark Action
@@ -137,11 +146,13 @@
     if (_isShowing)
         return;
     
+    self.alpha = 0;
     self.hidden = NO;
+    
     [UIView animateWithDuration:0.3f
                           delay:0 options:UIViewAnimationOptionCurveEaseIn
                      animations:^{
-                         self.alpha = 0;
+                         self.alpha = 1;
                      } completion:^(BOOL finished) {
                          [_waveLayer starAnimate];
                      }];
@@ -169,6 +180,20 @@
     if (_percent == percent)
         return;
     
-    [_waveLayer setPercent:percent animate:animate];
+    if (_isReady)
+    {
+        _newPercent = percent;
+        
+        __weak FeWaveLoadingIndicator *weakSelf = self;
+        
+        [_waveLayer setPercent:_newPercent animate:animate completionBlock:^(BOOL finished) {
+            weakSelf.isReady = finished;
+        }];
+        _isReady = NO;
+    }
+    else
+    {
+        _newPercent = percent;
+    }
 }
 @end

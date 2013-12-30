@@ -12,7 +12,8 @@
 
 @interface FeWaveLayer ()
 {
-    
+    FeWaveLayerBlock block;
+    CGFloat dtHeigt;
 }
 @property (strong, nonatomic) CABasicAnimation *waveAnimation;
 @property (strong, nonatomic) CABasicAnimation *loadingAnimation;
@@ -58,7 +59,11 @@
     _isWaving = NO;
     _isLoading = NO;
     
-    _durationLoading = 1;
+    // Set percent = 0
+    _currentPercent = 0;
+    
+    // Time default for loading waving;
+    _durationLoading = 8;
 }
 -(void) initBasicAnimation
 {
@@ -66,7 +71,7 @@
     // Like wave
     _waveAnimation = [CABasicAnimation animationWithKeyPath:@"position"];
     _waveAnimation.toValue = [NSValue valueWithCGPoint:CGPointMake(self.position.x - self.bounds.size.width / 2, self.position.y)];
-    _waveAnimation.duration = 3.0;
+    _waveAnimation.duration = 2.4f;
     _waveAnimation.repeatCount = HUGE_VAL;
     
     // Calculator time duration
@@ -75,9 +80,12 @@
     // Loading animation
     // animate percent
     _loadingAnimation = [CABasicAnimation animationWithKeyPath:@"position.y"];
-    //_loadingAnimation.toValue = [NSNumber numberWithInt:];
+    _loadingAnimation.toValue = [NSNumber numberWithInt:0];
     _loadingAnimation.duration = _durationLoading;
-    _loadingAnimation.repeatCount = HUGE_VAL;
+    _loadingAnimation.repeatCount = 1;
+    _loadingAnimation.removedOnCompletion = NO;
+    _loadingAnimation.fillMode = kCAFillModeForwards;
+    _loadingAnimation.delegate = self;
 }
 -(void) calculatorDurationLoading
 {
@@ -97,7 +105,7 @@
     float w = 0;//starting x value.
     float y = self.bounds.size.height;
     float width = self.bounds.size.width;
-    int cycles = 2;//number of waves
+    int cycles = 4;//number of waves
     float x = width/cycles;
     CGPathMoveToPoint(path, NULL, w,y/2);
     
@@ -110,8 +118,8 @@
     
     CGPathAddLineToPoint(path, nil, self.bounds.size.width,self.bounds.size.height / 2);
     
-    CGPathAddLineToPoint(path, nil, self.bounds.size.width,self.bounds.size.height);
-    CGPathAddLineToPoint(path, nil, 0, self.bounds.size.height);
+    CGPathAddLineToPoint(path, nil, self.bounds.size.width,self.bounds.size.height );
+    CGPathAddLineToPoint(path, nil, 0, self.bounds.size.height );
     CGPathAddLineToPoint(path, nil, 0, self.bounds.size.height / 2);
     CGPathCloseSubpath(path);
     
@@ -124,10 +132,61 @@
 }
 -(void) starAnimate
 {
-        //[self addAnimation:anim forKey:@"position"];
+    [self addAnimation:_waveAnimation forKey:@"position"];
+    
 }
--(void) setPercent:(CGFloat)percent animate:(BOOL)animate
+-(void) stopAnimate
 {
     
+}
+-(void) configureLoadingAnimationWithPercent:(CGFloat) percent
+{
+    CGFloat dtPercent = percent - _currentPercent;
+    dtHeigt = dtPercent * (self.bounds.size.height / 2);
+    
+    _durationLoading = dtPercent * 8;
+    
+    _loadingAnimation = [CABasicAnimation animationWithKeyPath:@"position.y"];
+    _loadingAnimation.toValue = [NSNumber numberWithInt:self.position.y - dtHeigt];
+    _loadingAnimation.duration = _durationLoading;
+    _loadingAnimation.delegate = self;
+    _loadingAnimation.repeatCount = 1;
+    _loadingAnimation.removedOnCompletion = NO;
+    _loadingAnimation.fillMode = kCAFillModeForwards;
+    
+}
+-(void) setPercent:(CGFloat)percent animate:(BOOL)animate completionBlock:(FeWaveLayerBlock)completion
+{
+    NSLog(@"animate to percent = %f",percent);
+    
+    [self configureLoadingAnimationWithPercent:percent];
+    _currentPercent = percent;
+    
+    block = completion;
+    //[self addAnimation:_loadingAnimation forKey:@"position.y"];
+    [UIView animateWithDuration:_durationLoading animations:^{
+        self.position = CGPointMake(self.position.x, self.position.y - dtHeigt);
+    } completion:^(BOOL finished) {
+        NSLog(@"compleiton");
+        completion(YES);
+    }];
+    
+    /*
+    [CATransaction begin]; {
+        [CATransaction setCompletionBlock:^{
+            completion(YES);
+            NSLog(@"compleiton");
+        }];
+        [self addAnimation:_loadingAnimation forKey:@"position.y"];
+    } [CATransaction commit];
+ */
+}
+-(void) animationDidStop:(CAAnimation *)anim finished:(BOOL)flag
+{
+    NSLog(@"compleiton");
+    [self removeAnimationForKey:@"position.y"];
+    
+    block(YES);
+    block = nil;
 }
 @end

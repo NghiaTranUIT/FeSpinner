@@ -7,6 +7,7 @@
 //
 
 #import <QuartzCore/QuartzCore.h>
+typedef void (^FeWaveLayerBlock)(BOOL finished);
 
 @interface FeWaveLayer : CAShapeLayer
 // Determine wave is Loading ( 0 -> 100%)
@@ -15,8 +16,10 @@
 // Determine wave is waving
 @property (assign, nonatomic, readonly) BOOL isWaving;
 
+@property (assign, nonatomic, readonly) CGFloat currentPercent;
+
 -(id) initWithFrame:(CGRect )frame;
--(void) setPercent:(CGFloat) percent animate:(BOOL)animate;
+-(void) setPercent:(CGFloat) percent animate:(BOOL)animate completionBlock:(FeWaveLayerBlock) completion;
 -(void) starAnimate;
 -(void) stopAnimate;
 
