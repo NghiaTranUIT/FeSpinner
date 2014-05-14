@@ -4,8 +4,7 @@ FeSpinner
 The collection Spinner for iOS app.
 
 ======================
-REQUIREMENT
-
+## REQUIREMENT
 FeSpinner work on any version iOS and compatible with ARC or non-ARC.
 But your project should include some Apple's framework.
 
@@ -15,17 +14,18 @@ But your project should include some Apple's framework.
 + QuartzCore.framework
 
 ======================
-ADD FESPINNER TO YOUR PROJECT
+## ADD FESPINNER TO YOUR PROJECT
 
 Just simply copy file .h and .m in each type spinner you like.
 
 ======================
-HOW TO USE
+##  HOW TO USE
 
 FeSpinner is very similar MBProgessHUB.
 
 FeSpinner have some helpful method.
 
+```objc
 -(id) initWithView:(UIView *) view blur:(BOOL) blur backgroundColors:(NSArray *) arrColor;
 
 -(void) show;
@@ -39,10 +39,11 @@ FeSpinner have some helpful method.
 -(void) showWhileExecutingSelector:(SEL)selector onTarget:(id)target withObject:(id)object completion:(dispatch_block_t) completion;
 
 -(void) dismiss;
-
+```
 =======================
-Sreenshot & Demo video
+## Sreenshot & Demo video
 
-[![Alt text for your video](http://img.youtube.com/vi/T-D1KVIuvjA/0.jpg)](http://www.youtube.com/watch?v=T-D1KVIuvjA)
+#### Ten Dots
+[![TenDots](http://nghiatran.me/wp-content/uploads/2014/05/TenDots.png)](https://www.youtube.com/watch?v=UAt2lu_Vxr4)
 
 
