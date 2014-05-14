@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BA569A3118772E0700AC585D /* FeThreeDotGlow.m in Sources */ = {isa = PBXBuildFile; fileRef = BA569A3018772E0700AC585D /* FeThreeDotGlow.m */; };
+		BA569A351877319300AC585D /* FeThreeDotGlowViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BA569A341877319300AC585D /* FeThreeDotGlowViewController.m */; };
 		BA5BF1F11867004100B94432 /* FeWaveView.m in Sources */ = {isa = PBXBuildFile; fileRef = BA5BF1F01867004100B94432 /* FeWaveView.m */; };
 		BA5D0F8D185B635500A5F726 /* FeTenDot.m in Sources */ = {isa = PBXBuildFile; fileRef = BA5D0F8C185B635500A5F726 /* FeTenDot.m */; };
 		BA65E74A1861C10800E78E64 /* CabinCondensed-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BA65E7491861C10800E78E64 /* CabinCondensed-Bold.ttf */; };
@@ -61,6 +63,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		BA569A2F18772E0700AC585D /* FeThreeDotGlow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeThreeDotGlow.h; sourceTree = "<group>"; };
+		BA569A3018772E0700AC585D /* FeThreeDotGlow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeThreeDotGlow.m; sourceTree = "<group>"; };
+		BA569A331877319300AC585D /* FeThreeDotGlowViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeThreeDotGlowViewController.h; sourceTree = "<group>"; };
+		BA569A341877319300AC585D /* FeThreeDotGlowViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeThreeDotGlowViewController.m; sourceTree = "<group>"; };
 		BA5BF1EF1867004100B94432 /* FeWaveView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeWaveView.h; sourceTree = "<group>"; };
 		BA5BF1F01867004100B94432 /* FeWaveView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeWaveView.m; sourceTree = "<group>"; };
 		BA5D0F8B185B635500A5F726 /* FeTenDot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeTenDot.h; sourceTree = "<group>"; };
@@ -157,6 +163,7 @@
 		BA0E9FB5185C03BE0056A74E /* Type */ = {
 			isa = PBXGroup;
 			children = (
+				BA569A2D18772DEA00AC585D /* ThreeDotGlow */,
 				BA760A281871C04C004FDD1C /* VietNamLoader */,
 				BA841B0D186FD3E400089BFA /* LoveLoader */,
 				BACB3DE418633B0400898335 /* Loading icon */,
@@ -174,6 +181,24 @@
 				BAE0874D183CFC0B00B12AB6 /* UIColor+flat.m */,
 			);
 			name = Tool;
+			sourceTree = "<group>";
+		};
+		BA569A2D18772DEA00AC585D /* ThreeDotGlow */ = {
+			isa = PBXGroup;
+			children = (
+				BA569A2F18772E0700AC585D /* FeThreeDotGlow.h */,
+				BA569A3018772E0700AC585D /* FeThreeDotGlow.m */,
+			);
+			name = ThreeDotGlow;
+			sourceTree = "<group>";
+		};
+		BA569A321877318000AC585D /* Three Dot Glow */ = {
+			isa = PBXGroup;
+			children = (
+				BA569A331877319300AC585D /* FeThreeDotGlowViewController.h */,
+				BA569A341877319300AC585D /* FeThreeDotGlowViewController.m */,
+			);
+			name = "Three Dot Glow";
 			sourceTree = "<group>";
 		};
 		BA760A281871C04C004FDD1C /* VietNamLoader */ = {
@@ -242,6 +267,7 @@
 		BABFC6F318614494007C61D3 /* View Controller */ = {
 			isa = PBXGroup;
 			children = (
+				BA569A321877318000AC585D /* Three Dot Glow */,
 				BA760A2F1871C985004FDD1C /* Viet Nam Loader */,
 				BAA685EA186FF055008D828A /* Love Loader */,
 				BAA323221863DA96007DC8F0 /* Neon Saving */,
@@ -458,6 +484,9 @@
 				LastUpgradeCheck = 0500;
 				ORGANIZATIONNAME = fe;
 				TargetAttributes = {
+					BAE086FF183CE85100B12AB6 = {
+						DevelopmentTeam = D54Y88Y9CY;
+					};
 					BAE08723183CE85100B12AB6 = {
 						TestTargetID = BAE086FF183CE85100B12AB6;
 					};
@@ -522,12 +551,14 @@
 				BABFC6FB18614B33007C61D3 /* FeWaveLoadingIndicatorViewController.m in Sources */,
 				BA841B13186FD42800089BFA /* FeParticleLayer.m in Sources */,
 				BAE08710183CE85100B12AB6 /* main.m in Sources */,
+				BA569A351877319300AC585D /* FeThreeDotGlowViewController.m in Sources */,
 				BABFC6F718614504007C61D3 /* FeSpinnerTenDotViewController.m in Sources */,
 				BAE08743183CE91800B12AB6 /* FXBlurView.m in Sources */,
 				BA760A321871C99A004FDD1C /* FeVietNamLoaderViewController.m in Sources */,
 				BA760A2B1871C062004FDD1C /* FeVietNamLoader.m in Sources */,
 				BA8475AA187082AB009D217E /* FeParticleCell.m in Sources */,
 				BAE0871D183CE85100B12AB6 /* FeViewController.m in Sources */,
+				BA569A3118772E0700AC585D /* FeThreeDotGlow.m in Sources */,
 				BACB3DEA18633B3D00898335 /* FeLoadingIconBox.m in Sources */,
 				BAE0874E183CFC0B00B12AB6 /* UIColor+flat.m in Sources */,
 				BAB5ABB01848C90700CBCBBD /* FeSpinnerTenDot.m in Sources */,
@@ -673,10 +704,15 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "FeSpinner/FeSpinner-Prefix.pch";
 				INFOPLIST_FILE = "FeSpinner/FeSpinner-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -686,10 +722,15 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "FeSpinner/FeSpinner-Prefix.pch";
 				INFOPLIST_FILE = "FeSpinner/FeSpinner-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

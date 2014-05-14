@@ -9,8 +9,13 @@
 #import <QuartzCore/QuartzCore.h>
 
 @interface FeVietNamBar : CALayer
+// init Vietnam Bar at index
 -(id) initAtIndex:(NSInteger) index colors:(NSArray *) colors;
+
+// Start animation
 -(void) startAnimation;
+
+// Stop animation
 -(void) stopAnimation;
 @end
 /*

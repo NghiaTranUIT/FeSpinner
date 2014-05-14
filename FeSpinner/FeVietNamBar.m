@@ -10,19 +10,29 @@
 #import "UIColor+flat.h"
 
 @interface FeVietNamBar()
+// First, second, third color for animating
 @property (weak, nonatomic) UIColor *firstColor;
 @property (weak, nonatomic) UIColor *secondColor;
 @property (weak, nonatomic) UIColor *thirdColor;
 
+// Group animation
 @property (strong, nonatomic) CAAnimationGroup *animationGroup;
 @property (assign, nonatomic, readonly) NSInteger indexBar;
 
+// init something
 -(void) commonInit;
+
+// Calculator frame for VietnamBar at index
 -(CGRect) frameAtIndex:(NSInteger) index;
+
+// Animation
 -(void) animate;
+
+// Calculator and return CAAnimationGroup for animating
 -(CAAnimationGroup *) animationGroupAtIndex:(NSInteger) index;
 @end
 @implementation FeVietNamBar
+#pragma mark Init
 -(id) initAtIndex:(NSInteger)index colors:(NSArray *)colors
 {
     self = [super init];
@@ -213,6 +223,8 @@
     
     return frame;
 }
+
+#pragma mark Action
 -(CAAnimationGroup *) animationGroupAtIndex:(NSInteger)index
 {
     CAAnimationGroup *group;

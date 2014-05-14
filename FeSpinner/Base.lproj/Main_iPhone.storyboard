@@ -129,6 +129,25 @@
                                             <segue destination="k0U-uq-HCq" kind="push" id="bUK-q3-2KR"/>
                                         </connections>
                                     </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="qrV-aZ-znT">
+                                        <rect key="frame" x="0.0" y="264" width="320" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="qrV-aZ-znT" id="BoQ-U5-08k">
+                                            <rect key="frame" x="0.0" y="0.0" width="287" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Three Dot Glow" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="jwA-6q-fgY">
+                                                    <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="Vh7-ok-E6w" kind="push" id="XoF-SD-K9V"/>
+                                        </connections>
+                                    </tableViewCell>
                                 </cells>
                             </tableViewSection>
                         </sections>
@@ -274,6 +293,21 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Jae-vX-uC5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="536" y="871"/>
+        </scene>
+        <!--Fe Three Dot Glow View Controller-->
+        <scene sceneID="UDT-Rs-zF1">
+            <objects>
+                <viewController id="Vh7-ok-E6w" customClass="FeThreeDotGlowViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8y3-a6-32s">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="04A-9D-NCP"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kqO-ho-D9m" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="952" y="651"/>
         </scene>
         <!--Fe Spinner Ten Dot View Controller - Spinner Ten Dot-->
         <scene sceneID="ufC-wZ-h7g">
