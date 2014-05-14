@@ -88,6 +88,9 @@
 {
     [_timer invalidate];
     [_spinner dismiss];
+    
+    // pop
+    [self.navigationController popViewControllerAnimated:YES];
 }
 -(void) changeTitle
 {

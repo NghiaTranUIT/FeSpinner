@@ -9,24 +9,14 @@
 /* Begin PBXBuildFile section */
 		BA569A3118772E0700AC585D /* FeThreeDotGlow.m in Sources */ = {isa = PBXBuildFile; fileRef = BA569A3018772E0700AC585D /* FeThreeDotGlow.m */; };
 		BA569A351877319300AC585D /* FeThreeDotGlowViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BA569A341877319300AC585D /* FeThreeDotGlowViewController.m */; };
-		BA5BF1F11867004100B94432 /* FeWaveView.m in Sources */ = {isa = PBXBuildFile; fileRef = BA5BF1F01867004100B94432 /* FeWaveView.m */; };
 		BA5D0F8D185B635500A5F726 /* FeTenDot.m in Sources */ = {isa = PBXBuildFile; fileRef = BA5D0F8C185B635500A5F726 /* FeTenDot.m */; };
 		BA65E74A1861C10800E78E64 /* CabinCondensed-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BA65E7491861C10800E78E64 /* CabinCondensed-Bold.ttf */; };
-		BA65E74D1861DE5500E78E64 /* FeWaveLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = BA65E74C1861DE5500E78E64 /* FeWaveLayer.m */; };
 		BA760A2B1871C062004FDD1C /* FeVietNamLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = BA760A2A1871C062004FDD1C /* FeVietNamLoader.m */; };
 		BA760A2E1871C080004FDD1C /* FeVietNamBar.m in Sources */ = {isa = PBXBuildFile; fileRef = BA760A2D1871C080004FDD1C /* FeVietNamBar.m */; };
 		BA760A321871C99A004FDD1C /* FeVietNamLoaderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BA760A311871C99A004FDD1C /* FeVietNamLoaderViewController.m */; };
-		BA841B10186FD40600089BFA /* FeLoveLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = BA841B0F186FD40600089BFA /* FeLoveLoader.m */; };
-		BA841B13186FD42800089BFA /* FeParticleLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = BA841B12186FD42800089BFA /* FeParticleLayer.m */; };
-		BA841B17186FEF7200089BFA /* bgLoveLoader.jpg in Resources */ = {isa = PBXBuildFile; fileRef = BA841B16186FEF7200089BFA /* bgLoveLoader.jpg */; };
-		BA8475AA187082AB009D217E /* FeParticleCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BA8475A9187082AB009D217E /* FeParticleCell.m */; };
 		BA847718183DF0DE009A5272 /* test.png in Resources */ = {isa = PBXBuildFile; fileRef = BA847717183DF0DE009A5272 /* test.png */; };
-		BAA323251863DAE1007DC8F0 /* FeNeonSavingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BAA323241863DAE1007DC8F0 /* FeNeonSavingViewController.m */; };
-		BAA685ED186FF069008D828A /* FeLoveLoaderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BAA685EC186FF069008D828A /* FeLoveLoaderViewController.m */; };
 		BAB5ABB01848C90700CBCBBD /* FeSpinnerTenDot.m in Sources */ = {isa = PBXBuildFile; fileRef = BAB5ABAF1848C90700CBCBBD /* FeSpinnerTenDot.m */; };
 		BABFC6F718614504007C61D3 /* FeSpinnerTenDotViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BABFC6F618614504007C61D3 /* FeSpinnerTenDotViewController.m */; };
-		BABFC6FB18614B33007C61D3 /* FeWaveLoadingIndicatorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BABFC6FA18614B33007C61D3 /* FeWaveLoadingIndicatorViewController.m */; };
-		BABFC6FF18614B82007C61D3 /* FeWaveLoadingIndicator.m in Sources */ = {isa = PBXBuildFile; fileRef = BABFC6FE18614B82007C61D3 /* FeWaveLoadingIndicator.m */; };
 		BACB3DE718633B2A00898335 /* FeLoadingIcon.m in Sources */ = {isa = PBXBuildFile; fileRef = BACB3DE618633B2A00898335 /* FeLoadingIcon.m */; };
 		BACB3DEA18633B3D00898335 /* FeLoadingIconBox.m in Sources */ = {isa = PBXBuildFile; fileRef = BACB3DE918633B3D00898335 /* FeLoadingIconBox.m */; };
 		BACB3DEE186349FC00898335 /* FeLoadingBoxViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BACB3DED186349FC00898335 /* FeLoadingBoxViewController.m */; };
@@ -67,39 +57,20 @@
 		BA569A3018772E0700AC585D /* FeThreeDotGlow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeThreeDotGlow.m; sourceTree = "<group>"; };
 		BA569A331877319300AC585D /* FeThreeDotGlowViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeThreeDotGlowViewController.h; sourceTree = "<group>"; };
 		BA569A341877319300AC585D /* FeThreeDotGlowViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeThreeDotGlowViewController.m; sourceTree = "<group>"; };
-		BA5BF1EF1867004100B94432 /* FeWaveView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeWaveView.h; sourceTree = "<group>"; };
-		BA5BF1F01867004100B94432 /* FeWaveView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeWaveView.m; sourceTree = "<group>"; };
 		BA5D0F8B185B635500A5F726 /* FeTenDot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeTenDot.h; sourceTree = "<group>"; };
 		BA5D0F8C185B635500A5F726 /* FeTenDot.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeTenDot.m; sourceTree = "<group>"; };
 		BA65E7491861C10800E78E64 /* CabinCondensed-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "CabinCondensed-Bold.ttf"; sourceTree = "<group>"; };
-		BA65E74B1861DE5500E78E64 /* FeWaveLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeWaveLayer.h; sourceTree = "<group>"; };
-		BA65E74C1861DE5500E78E64 /* FeWaveLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeWaveLayer.m; sourceTree = "<group>"; };
 		BA760A291871C062004FDD1C /* FeVietNamLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeVietNamLoader.h; sourceTree = "<group>"; };
 		BA760A2A1871C062004FDD1C /* FeVietNamLoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeVietNamLoader.m; sourceTree = "<group>"; };
 		BA760A2C1871C080004FDD1C /* FeVietNamBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeVietNamBar.h; sourceTree = "<group>"; };
 		BA760A2D1871C080004FDD1C /* FeVietNamBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeVietNamBar.m; sourceTree = "<group>"; };
 		BA760A301871C99A004FDD1C /* FeVietNamLoaderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeVietNamLoaderViewController.h; sourceTree = "<group>"; };
 		BA760A311871C99A004FDD1C /* FeVietNamLoaderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeVietNamLoaderViewController.m; sourceTree = "<group>"; };
-		BA841B0E186FD40600089BFA /* FeLoveLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeLoveLoader.h; sourceTree = "<group>"; };
-		BA841B0F186FD40600089BFA /* FeLoveLoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeLoveLoader.m; sourceTree = "<group>"; };
-		BA841B11186FD42800089BFA /* FeParticleLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeParticleLayer.h; sourceTree = "<group>"; };
-		BA841B12186FD42800089BFA /* FeParticleLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeParticleLayer.m; sourceTree = "<group>"; };
-		BA841B16186FEF7200089BFA /* bgLoveLoader.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = bgLoveLoader.jpg; sourceTree = "<group>"; };
-		BA8475A8187082AB009D217E /* FeParticleCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeParticleCell.h; sourceTree = "<group>"; };
-		BA8475A9187082AB009D217E /* FeParticleCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeParticleCell.m; sourceTree = "<group>"; };
 		BA847717183DF0DE009A5272 /* test.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = test.png; sourceTree = "<group>"; };
-		BAA323231863DAE1007DC8F0 /* FeNeonSavingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeNeonSavingViewController.h; sourceTree = "<group>"; };
-		BAA323241863DAE1007DC8F0 /* FeNeonSavingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeNeonSavingViewController.m; sourceTree = "<group>"; };
-		BAA685EB186FF069008D828A /* FeLoveLoaderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeLoveLoaderViewController.h; sourceTree = "<group>"; };
-		BAA685EC186FF069008D828A /* FeLoveLoaderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeLoveLoaderViewController.m; sourceTree = "<group>"; };
 		BAB5ABAE1848C90700CBCBBD /* FeSpinnerTenDot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeSpinnerTenDot.h; sourceTree = "<group>"; };
 		BAB5ABAF1848C90700CBCBBD /* FeSpinnerTenDot.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeSpinnerTenDot.m; sourceTree = "<group>"; };
 		BABFC6F518614504007C61D3 /* FeSpinnerTenDotViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeSpinnerTenDotViewController.h; sourceTree = "<group>"; };
 		BABFC6F618614504007C61D3 /* FeSpinnerTenDotViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeSpinnerTenDotViewController.m; sourceTree = "<group>"; };
-		BABFC6F918614B33007C61D3 /* FeWaveLoadingIndicatorViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeWaveLoadingIndicatorViewController.h; sourceTree = "<group>"; };
-		BABFC6FA18614B33007C61D3 /* FeWaveLoadingIndicatorViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeWaveLoadingIndicatorViewController.m; sourceTree = "<group>"; };
-		BABFC6FD18614B82007C61D3 /* FeWaveLoadingIndicator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeWaveLoadingIndicator.h; sourceTree = "<group>"; };
-		BABFC6FE18614B82007C61D3 /* FeWaveLoadingIndicator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeWaveLoadingIndicator.m; sourceTree = "<group>"; };
 		BACB3DE518633B2A00898335 /* FeLoadingIcon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeLoadingIcon.h; sourceTree = "<group>"; };
 		BACB3DE618633B2A00898335 /* FeLoadingIcon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeLoadingIcon.m; sourceTree = "<group>"; };
 		BACB3DE818633B3D00898335 /* FeLoadingIconBox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeLoadingIconBox.h; sourceTree = "<group>"; };
@@ -165,9 +136,7 @@
 			children = (
 				BA569A2D18772DEA00AC585D /* ThreeDotGlow */,
 				BA760A281871C04C004FDD1C /* VietNamLoader */,
-				BA841B0D186FD3E400089BFA /* LoveLoader */,
 				BACB3DE418633B0400898335 /* Loading icon */,
-				BABFC6FC18614B41007C61D3 /* Wave Loading Indicator */,
 				BAB5ABAD1848C87400CBCBBD /* Ten Dot */,
 			);
 			name = Type;
@@ -221,38 +190,6 @@
 			name = "Viet Nam Loader";
 			sourceTree = "<group>";
 		};
-		BA841B0D186FD3E400089BFA /* LoveLoader */ = {
-			isa = PBXGroup;
-			children = (
-				BA841B16186FEF7200089BFA /* bgLoveLoader.jpg */,
-				BA841B0E186FD40600089BFA /* FeLoveLoader.h */,
-				BA841B0F186FD40600089BFA /* FeLoveLoader.m */,
-				BA841B11186FD42800089BFA /* FeParticleLayer.h */,
-				BA841B12186FD42800089BFA /* FeParticleLayer.m */,
-				BA8475A8187082AB009D217E /* FeParticleCell.h */,
-				BA8475A9187082AB009D217E /* FeParticleCell.m */,
-			);
-			name = LoveLoader;
-			sourceTree = "<group>";
-		};
-		BAA323221863DA96007DC8F0 /* Neon Saving */ = {
-			isa = PBXGroup;
-			children = (
-				BAA323231863DAE1007DC8F0 /* FeNeonSavingViewController.h */,
-				BAA323241863DAE1007DC8F0 /* FeNeonSavingViewController.m */,
-			);
-			name = "Neon Saving";
-			sourceTree = "<group>";
-		};
-		BAA685EA186FF055008D828A /* Love Loader */ = {
-			isa = PBXGroup;
-			children = (
-				BAA685EB186FF069008D828A /* FeLoveLoaderViewController.h */,
-				BAA685EC186FF069008D828A /* FeLoveLoaderViewController.m */,
-			);
-			name = "Love Loader";
-			sourceTree = "<group>";
-		};
 		BAB5ABAD1848C87400CBCBBD /* Ten Dot */ = {
 			isa = PBXGroup;
 			children = (
@@ -269,10 +206,7 @@
 			children = (
 				BA569A321877318000AC585D /* Three Dot Glow */,
 				BA760A2F1871C985004FDD1C /* Viet Nam Loader */,
-				BAA685EA186FF055008D828A /* Love Loader */,
-				BAA323221863DA96007DC8F0 /* Neon Saving */,
 				BACB3DEB186349E700898335 /* Loading Box */,
-				BABFC6F818614B1D007C61D3 /* Wave Loding Indicator */,
 				BABFC6F41861449B007C61D3 /* Spinner Ten Dot */,
 			);
 			name = "View Controller";
@@ -285,28 +219,6 @@
 				BABFC6F618614504007C61D3 /* FeSpinnerTenDotViewController.m */,
 			);
 			name = "Spinner Ten Dot";
-			sourceTree = "<group>";
-		};
-		BABFC6F818614B1D007C61D3 /* Wave Loding Indicator */ = {
-			isa = PBXGroup;
-			children = (
-				BABFC6F918614B33007C61D3 /* FeWaveLoadingIndicatorViewController.h */,
-				BABFC6FA18614B33007C61D3 /* FeWaveLoadingIndicatorViewController.m */,
-			);
-			name = "Wave Loding Indicator";
-			sourceTree = "<group>";
-		};
-		BABFC6FC18614B41007C61D3 /* Wave Loading Indicator */ = {
-			isa = PBXGroup;
-			children = (
-				BABFC6FD18614B82007C61D3 /* FeWaveLoadingIndicator.h */,
-				BABFC6FE18614B82007C61D3 /* FeWaveLoadingIndicator.m */,
-				BA65E74B1861DE5500E78E64 /* FeWaveLayer.h */,
-				BA65E74C1861DE5500E78E64 /* FeWaveLayer.m */,
-				BA5BF1EF1867004100B94432 /* FeWaveView.h */,
-				BA5BF1F01867004100B94432 /* FeWaveView.m */,
-			);
-			name = "Wave Loading Indicator";
 			sourceTree = "<group>";
 		};
 		BACB3DE418633B0400898335 /* Loading icon */ = {
@@ -481,7 +393,7 @@
 			isa = PBXProject;
 			attributes = {
 				CLASSPREFIX = Fe;
-				LastUpgradeCheck = 0500;
+				LastUpgradeCheck = 0510;
 				ORGANIZATIONNAME = fe;
 				TargetAttributes = {
 					BAE086FF183CE85100B12AB6 = {
@@ -522,7 +434,6 @@
 				BAF400831860A133008F7E4D /* winter.jpg in Resources */,
 				BA847718183DF0DE009A5272 /* test.png in Resources */,
 				BAE0871F183CE85100B12AB6 /* Images.xcassets in Resources */,
-				BA841B17186FEF7200089BFA /* bgLoveLoader.jpg in Resources */,
 				BAE08717183CE85100B12AB6 /* Main_iPhone.storyboard in Resources */,
 				BAE0870E183CE85100B12AB6 /* InfoPlist.strings in Resources */,
 			);
@@ -543,20 +454,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BA5BF1F11867004100B94432 /* FeWaveView.m in Sources */,
 				BACB3DE718633B2A00898335 /* FeLoadingIcon.m in Sources */,
-				BAA323251863DAE1007DC8F0 /* FeNeonSavingViewController.m in Sources */,
-				BABFC6FF18614B82007C61D3 /* FeWaveLoadingIndicator.m in Sources */,
 				BACB3DEE186349FC00898335 /* FeLoadingBoxViewController.m in Sources */,
-				BABFC6FB18614B33007C61D3 /* FeWaveLoadingIndicatorViewController.m in Sources */,
-				BA841B13186FD42800089BFA /* FeParticleLayer.m in Sources */,
 				BAE08710183CE85100B12AB6 /* main.m in Sources */,
 				BA569A351877319300AC585D /* FeThreeDotGlowViewController.m in Sources */,
 				BABFC6F718614504007C61D3 /* FeSpinnerTenDotViewController.m in Sources */,
 				BAE08743183CE91800B12AB6 /* FXBlurView.m in Sources */,
 				BA760A321871C99A004FDD1C /* FeVietNamLoaderViewController.m in Sources */,
 				BA760A2B1871C062004FDD1C /* FeVietNamLoader.m in Sources */,
-				BA8475AA187082AB009D217E /* FeParticleCell.m in Sources */,
 				BAE0871D183CE85100B12AB6 /* FeViewController.m in Sources */,
 				BA569A3118772E0700AC585D /* FeThreeDotGlow.m in Sources */,
 				BACB3DEA18633B3D00898335 /* FeLoadingIconBox.m in Sources */,
@@ -565,9 +470,6 @@
 				BA5D0F8D185B635500A5F726 /* FeTenDot.m in Sources */,
 				BA760A2E1871C080004FDD1C /* FeVietNamBar.m in Sources */,
 				BAE08714183CE85100B12AB6 /* FeAppDelegate.m in Sources */,
-				BA65E74D1861DE5500E78E64 /* FeWaveLayer.m in Sources */,
-				BA841B10186FD40600089BFA /* FeLoveLoader.m in Sources */,
-				BAA685ED186FF069008D828A /* FeLoveLoaderViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -629,7 +531,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -669,7 +570,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -709,7 +609,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "FeSpinner/FeSpinner-Prefix.pch";
 				INFOPLIST_FILE = "FeSpinner/FeSpinner-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = 1;
@@ -727,7 +627,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "FeSpinner/FeSpinner-Prefix.pch";
 				INFOPLIST_FILE = "FeSpinner/FeSpinner-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = 1;
@@ -738,7 +638,6 @@
 		BAE08739183CE85100B12AB6 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/FeSpinner.app/FeSpinner";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
@@ -761,7 +660,6 @@
 		BAE0873A183CE85100B12AB6 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/FeSpinner.app/FeSpinner";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
