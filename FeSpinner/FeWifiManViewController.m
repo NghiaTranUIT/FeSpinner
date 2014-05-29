@@ -10,7 +10,9 @@
 #import "FeWifiManHub.h"
 
 @interface FeWifiManViewController ()
-@property (strong, nonatomic) FeWifiManHub *wifiManHub;
+@property (strong, nonatomic) FeWifiManHub *wifiManHubLoader;
+@property (strong, nonatomic) FeWifiManHub *wifiManHubPercent;
+
 @end
 
 @implementation FeWifiManViewController
@@ -29,14 +31,28 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    _wifiManHub = [[FeWifiManHub alloc] initWithView:self.view];
-    [self.navigationController.view addSubview:_wifiManHub];
+    // Loader
+    /*
+    _wifiManHubLoader = [[FeWifiManHub alloc] initWithView:self.view withMode:FeWifiManHubModeOnlyLoader];
+    [self.navigationController.view addSubview:_wifiManHubLoader];
     
+    [_wifiManHubLoader showWhileExecutingBlock:^{
+        [self myTask];
+    } completion:^{
+        NSLog(@"Completion");
+    }];
+    */
     
-    [_wifiManHub showWhileExecutingBlock:^{
+    // Percent
+    _wifiManHubPercent = [[FeWifiManHub alloc] initWithView:self.view withMode:FeWifiManHubModeOnlyPercent];
+    [self.navigationController.view addSubview:_wifiManHubPercent];
+    
+    [_wifiManHubPercent showWhileExecutingBlock:^{
         [self myProgressTask];
     } completion:^{
         NSLog(@"Completion");
+        
+        
     }];
 }
 
@@ -53,8 +69,13 @@
         NSLog(@"percent = %.2f",progress);\
         
         // Set percent
-		_wifiManHub.percent = progress;
+		_wifiManHubPercent.percent = progress;
 		usleep(50000);
 	}
+}
+
+- (void)myTask {
+	// Do something usefull in here instead of sleeping ...
+	sleep(12);
 }
 @end

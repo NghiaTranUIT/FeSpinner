@@ -20,6 +20,7 @@
 }
 @property (strong, nonatomic) UIImageView *wifimanImageView_colored;
 @property (strong, nonatomic) UIImageView *wifiManImageView_grayScale;
+@property (strong, nonatomic) CALayer *contentLayer;
 
 @property (strong, nonatomic) UILabel *titleLbl;
 @property (strong, nonatomic) UILabel *subTitleLbl;
@@ -34,11 +35,11 @@
 -(void) initWifimanImageView;
 -(void) initMaskLayer;
 -(void) initTitle;
-
+-(void) initWifiManHub;
 @end
 @implementation FeWifiManHub
 
--(id) initWithView:(UIView *)view
+-(id) initWithView:(UIView *)view withMode:(FeWifiManHubMode)mode
 {
     self = [super init];
     if (self)
@@ -46,16 +47,24 @@
         _containerView = view;
         self.frame = CGRectMake(0, 0, 181, 147);
         self.center = view.center;
+        _currentMode = mode;
         
         self.hidden = YES;
         
         [self initCommon];
         
-        [self initWifimanImageView];
-        
         [self initTitle];
         
-        [self initMaskLayer];
+        if (_currentMode == FeWifiManHubModeOnlyPercent)
+        {
+            [self initWifimanImageView];
+            
+            [self initMaskLayer];
+        }
+        else
+        {
+            [self initWifiManHub];
+        }
     }
     return self;
 }
@@ -114,7 +123,24 @@
     
     _wifimanImageView_colored.layer.mask = _maskLayer;
 }
-
+-(void) initWifiManHub
+{
+    CGRect frame = CGRectMake(48, 12, kFe_WifiMan_Width, kFe_WifiMan_Height);
+    UIImage *imageColored = [UIImage imageNamed:@"WifiMan_Sign_1"];
+    
+    /*
+    // Colored
+    _wifimanImageView_colored = [[UIImageView alloc] initWithFrame:frame];
+    _wifimanImageView_colored.image = imageColored;
+    [self addSubview:_wifimanImageView_colored];
+     */
+    
+    _contentLayer = [CALayer layer];
+    _contentLayer.frame = frame;
+    _contentLayer.backgroundColor = [UIColor clearColor].CGColor;
+    _contentLayer.contents = (id)imageColored.CGImage;
+    [self.layer addSublayer:_contentLayer];
+}
 #pragma mark Action
 -(void) show
 {
@@ -123,6 +149,24 @@
     
     _isAnimate = YES;
     self.hidden = NO;
+    CAKeyframeAnimation *anim = [CAKeyframeAnimation animationWithKeyPath:@"contents"];
+    NSArray *times = [NSArray arrayWithObjects:[NSNumber numberWithFloat:0.0], [NSNumber numberWithFloat:0.25], [NSNumber numberWithFloat:0.5], [NSNumber numberWithFloat:0.75],[NSNumber numberWithFloat:1.0f], nil];
+    [anim setKeyTimes:times];
+    
+    UIImage *image_1 = [UIImage imageNamed:@"WifiMan_Sign_1"];
+    UIImage *image_2 = [UIImage imageNamed:@"WifiMan_Sign_2"];
+    UIImage *image_3 = [UIImage imageNamed:@"WifiMan_Sign_3"];
+    UIImage *image_4 = [UIImage imageNamed:@"WifiMan_Sign_4"];
+    
+    NSArray *values = @[(id)image_1.CGImage,(id)image_2.CGImage,(id)image_3.CGImage,(id)image_4.CGImage,(id)image_1.CGImage];
+    
+    [anim setValues:values];
+    [anim setDuration:3.0f];
+    [anim setKeyTimes:times];
+    anim.repeatCount = MAXFLOAT;
+    
+    [_contentLayer addAnimation:anim forKey:@"content"];
+    
 }
 -(void) dismiss
 {
@@ -210,7 +254,7 @@
     if (_percent == percent)
         return;
     
-    if (percent < 0 || percent > 1)
+    if (percent < 0 || percent > 1 || _currentMode != FeWifiManHubModeOnlyPercent)
         return;
     
     _percent = percent;

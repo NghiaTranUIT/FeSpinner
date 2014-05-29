@@ -7,12 +7,16 @@
 //
 
 #import <UIKit/UIKit.h>
-
+typedef NS_ENUM(NSInteger, FeWifiManHubMode){
+    FeWifiManHubModeOnlyLoader,
+    FeWifiManHubModeOnlyPercent
+};
 @interface FeWifiManHub : UIView
 @property (assign, readonly, nonatomic) BOOL isAnimate;
 @property (assign, nonatomic) CGFloat percent;
+@property (assign, readonly, nonatomic) FeWifiManHubMode currentMode;
 
--(id) initWithView:(UIView *) view;
+-(id) initWithView:(UIView *) view withMode:(FeWifiManHubMode) mode;
 
 -(void) show;
 

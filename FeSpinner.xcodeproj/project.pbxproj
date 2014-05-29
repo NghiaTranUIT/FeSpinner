@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BA36C6C21936D4F600E317D8 /* WifiMan_Sign_4@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BA36C6BE1936D4F600E317D8 /* WifiMan_Sign_4@2x.png */; };
+		BA36C6C31936D4F600E317D8 /* WifiMan_Sign_3@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BA36C6BF1936D4F600E317D8 /* WifiMan_Sign_3@2x.png */; };
+		BA36C6C41936D4F600E317D8 /* WifiMan_Sign_2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BA36C6C01936D4F600E317D8 /* WifiMan_Sign_2@2x.png */; };
+		BA36C6C51936D4F600E317D8 /* WifiMan_Sign_1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BA36C6C11936D4F600E317D8 /* WifiMan_Sign_1@2x.png */; };
 		BA569A3118772E0700AC585D /* FeThreeDotGlow.m in Sources */ = {isa = PBXBuildFile; fileRef = BA569A3018772E0700AC585D /* FeThreeDotGlow.m */; };
 		BA569A351877319300AC585D /* FeThreeDotGlowViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BA569A341877319300AC585D /* FeThreeDotGlowViewController.m */; };
 		BA5D0F8D185B635500A5F726 /* FeTenDot.m in Sources */ = {isa = PBXBuildFile; fileRef = BA5D0F8C185B635500A5F726 /* FeTenDot.m */; };
@@ -60,6 +64,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		BA36C6BE1936D4F600E317D8 /* WifiMan_Sign_4@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "WifiMan_Sign_4@2x.png"; sourceTree = "<group>"; };
+		BA36C6BF1936D4F600E317D8 /* WifiMan_Sign_3@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "WifiMan_Sign_3@2x.png"; sourceTree = "<group>"; };
+		BA36C6C01936D4F600E317D8 /* WifiMan_Sign_2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "WifiMan_Sign_2@2x.png"; sourceTree = "<group>"; };
+		BA36C6C11936D4F600E317D8 /* WifiMan_Sign_1@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "WifiMan_Sign_1@2x.png"; sourceTree = "<group>"; };
 		BA569A2F18772E0700AC585D /* FeThreeDotGlow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeThreeDotGlow.h; sourceTree = "<group>"; };
 		BA569A3018772E0700AC585D /* FeThreeDotGlow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeThreeDotGlow.m; sourceTree = "<group>"; };
 		BA569A331877319300AC585D /* FeThreeDotGlowViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeThreeDotGlowViewController.h; sourceTree = "<group>"; };
@@ -383,6 +391,10 @@
 		BAF4007F18609BAB008F7E4D /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				BA36C6BE1936D4F600E317D8 /* WifiMan_Sign_4@2x.png */,
+				BA36C6BF1936D4F600E317D8 /* WifiMan_Sign_3@2x.png */,
+				BA36C6C01936D4F600E317D8 /* WifiMan_Sign_2@2x.png */,
+				BA36C6C11936D4F600E317D8 /* WifiMan_Sign_1@2x.png */,
 				BA968648193642DC0006E46E /* wifimanhub_grayscale@2x.png */,
 				BA968649193642DC0006E46E /* wifimanhub@2x.png */,
 				BA65E7491861C10800E78E64 /* CabinCondensed-Bold.ttf */,
@@ -477,11 +489,15 @@
 				BAF400831860A133008F7E4D /* winter.jpg in Resources */,
 				BA96864B193642DC0006E46E /* wifimanhub@2x.png in Resources */,
 				BA847718183DF0DE009A5272 /* test.png in Resources */,
+				BA36C6C21936D4F600E317D8 /* WifiMan_Sign_4@2x.png in Resources */,
 				BAE0871F183CE85100B12AB6 /* Images.xcassets in Resources */,
 				BA96864A193642DC0006E46E /* wifimanhub_grayscale@2x.png in Resources */,
+				BA36C6C31936D4F600E317D8 /* WifiMan_Sign_3@2x.png in Resources */,
 				BA968647193642B30006E46E /* FeWifiManHub.xib in Resources */,
 				BA96863D193642610006E46E /* photo-2.PNG in Resources */,
 				BAE08717183CE85100B12AB6 /* Main_iPhone.storyboard in Resources */,
+				BA36C6C51936D4F600E317D8 /* WifiMan_Sign_1@2x.png in Resources */,
+				BA36C6C41936D4F600E317D8 /* WifiMan_Sign_2@2x.png in Resources */,
 				BAE0870E183CE85100B12AB6 /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
