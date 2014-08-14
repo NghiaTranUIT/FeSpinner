@@ -197,10 +197,12 @@
     if (YES) // Container Animation
     {
         _containerAnimation = [CAKeyframeAnimation animationWithKeyPath:@"transform.rotation.z"];
+        _containerAnimation.timingFunction = [CAMediaTimingFunction functionWithControlPoints:0.2f :1 :0.8f :0.0f];
         _containerAnimation.duration = kFe_HourGlass_Duration;
         _containerAnimation.repeatCount = HUGE_VAL;
-        _containerAnimation.keyTimes = @[@0.9f, @1.0f];
+        _containerAnimation.keyTimes = @[@0.8f, @1.0f];
         _containerAnimation.values = @[[NSNumber numberWithFloat:0.0f], [NSNumber numberWithFloat:M_PI]];
+        //_containerAnimation.calculationMode = kCAAnimationCubic;
     }
 }
 #pragma mark - Action
