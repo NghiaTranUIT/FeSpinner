@@ -32,6 +32,7 @@
     // Do any additional setup after loading the view.
     
     // Loader
+    
     /*
     _wifiManHubLoader = [[FeWifiManHub alloc] initWithView:self.view withMode:FeWifiManHubModeOnlyLoader];
     [self.navigationController.view addSubview:_wifiManHubLoader];
@@ -54,6 +55,7 @@
         
         
     }];
+     
 }
 
 - (void)didReceiveMemoryWarning
