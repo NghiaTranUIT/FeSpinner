@@ -1,23 +1,19 @@
 //
-//  FeWifiManHub.h
+//  FeCandyLoader.h
 //  FeSpinner
 //
-//  Created by Nghia Tran on 5/28/14.
+//  Created by Nghia Tran on 8/14/14.
 //  Copyright (c) 2014 fe. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
-typedef NS_ENUM(NSInteger, FeWifiManHubMode){
-    FeWifiManHubModeOnlyLoader,
-    FeWifiManHubModeOnlyPercent
-};
-@interface FeWifiManHub : UIView
 
-@property (assign, readonly, nonatomic) BOOL isAnimate;
-@property (assign, nonatomic) CGFloat percent;
-@property (assign, readonly, nonatomic) FeWifiManHubMode currentMode;
+@interface FeHourGlass : UIView
 
--(id) initWithView:(UIView *) view withMode:(FeWifiManHubMode) mode;
+// is running
+@property (assign, readonly, nonatomic) BOOL isShowing;
+
+-(instancetype) initWithView:(UIView *) view;
 
 -(void) show;
 

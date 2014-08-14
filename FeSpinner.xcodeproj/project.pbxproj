@@ -25,12 +25,14 @@
 		BA968647193642B30006E46E /* FeWifiManHub.xib in Resources */ = {isa = PBXBuildFile; fileRef = BA968646193642B30006E46E /* FeWifiManHub.xib */; };
 		BA96864A193642DC0006E46E /* wifimanhub_grayscale@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BA968648193642DC0006E46E /* wifimanhub_grayscale@2x.png */; };
 		BA96864B193642DC0006E46E /* wifimanhub@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BA968649193642DC0006E46E /* wifimanhub@2x.png */; };
+		BAAEB782199CA72500B5C4FA /* FeHourGlass.m in Sources */ = {isa = PBXBuildFile; fileRef = BAAEB781199CA72500B5C4FA /* FeHourGlass.m */; };
 		BAB5ABB01848C90700CBCBBD /* FeSpinnerTenDot.m in Sources */ = {isa = PBXBuildFile; fileRef = BAB5ABAF1848C90700CBCBBD /* FeSpinnerTenDot.m */; };
 		BABFC6F718614504007C61D3 /* FeSpinnerTenDotViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BABFC6F618614504007C61D3 /* FeSpinnerTenDotViewController.m */; };
 		BACB3DE718633B2A00898335 /* FeLoadingIcon.m in Sources */ = {isa = PBXBuildFile; fileRef = BACB3DE618633B2A00898335 /* FeLoadingIcon.m */; };
 		BACB3DEA18633B3D00898335 /* FeLoadingIconBox.m in Sources */ = {isa = PBXBuildFile; fileRef = BACB3DE918633B3D00898335 /* FeLoadingIconBox.m */; };
 		BACB3DEE186349FC00898335 /* FeLoadingBoxViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BACB3DED186349FC00898335 /* FeLoadingBoxViewController.m */; };
 		BACC09101923D5CD00E503F7 /* Feasd.m in Sources */ = {isa = PBXBuildFile; fileRef = BACC090F1923D5CD00E503F7 /* Feasd.m */; };
+		BAD706FA199D0A1B001D7FDE /* FeHourGlassViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BAD706F9199D0A1B001D7FDE /* FeHourGlassViewController.m */; };
 		BAE08704183CE85100B12AB6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAE08703183CE85100B12AB6 /* Foundation.framework */; };
 		BAE08706183CE85100B12AB6 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAE08705183CE85100B12AB6 /* CoreGraphics.framework */; };
 		BAE08708183CE85100B12AB6 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAE08707183CE85100B12AB6 /* UIKit.framework */; };
@@ -90,6 +92,8 @@
 		BA968646193642B30006E46E /* FeWifiManHub.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FeWifiManHub.xib; sourceTree = "<group>"; };
 		BA968648193642DC0006E46E /* wifimanhub_grayscale@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "wifimanhub_grayscale@2x.png"; sourceTree = "<group>"; };
 		BA968649193642DC0006E46E /* wifimanhub@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "wifimanhub@2x.png"; sourceTree = "<group>"; };
+		BAAEB780199CA72500B5C4FA /* FeHourGlass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeHourGlass.h; sourceTree = "<group>"; };
+		BAAEB781199CA72500B5C4FA /* FeHourGlass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeHourGlass.m; sourceTree = "<group>"; };
 		BAB5ABAE1848C90700CBCBBD /* FeSpinnerTenDot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeSpinnerTenDot.h; sourceTree = "<group>"; };
 		BAB5ABAF1848C90700CBCBBD /* FeSpinnerTenDot.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeSpinnerTenDot.m; sourceTree = "<group>"; };
 		BABFC6F518614504007C61D3 /* FeSpinnerTenDotViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeSpinnerTenDotViewController.h; sourceTree = "<group>"; };
@@ -102,6 +106,8 @@
 		BACB3DED186349FC00898335 /* FeLoadingBoxViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeLoadingBoxViewController.m; sourceTree = "<group>"; };
 		BACC090E1923D5CD00E503F7 /* Feasd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Feasd.h; sourceTree = "<group>"; };
 		BACC090F1923D5CD00E503F7 /* Feasd.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Feasd.m; sourceTree = "<group>"; };
+		BAD706F8199D0A1B001D7FDE /* FeHourGlassViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeHourGlassViewController.h; sourceTree = "<group>"; };
+		BAD706F9199D0A1B001D7FDE /* FeHourGlassViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeHourGlassViewController.m; sourceTree = "<group>"; };
 		BAE08700183CE85100B12AB6 /* FeSpinner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FeSpinner.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BAE08703183CE85100B12AB6 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		BAE08705183CE85100B12AB6 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -159,6 +165,7 @@
 		BA0E9FB5185C03BE0056A74E /* Type */ = {
 			isa = PBXGroup;
 			children = (
+				BAAEB77F199CA6FE00B5C4FA /* Candy Loader */,
 				BA968642193642940006E46E /* WifiManHub */,
 				BA569A2D18772DEA00AC585D /* ThreeDotGlow */,
 				BA760A281871C04C004FDD1C /* VietNamLoader */,
@@ -235,6 +242,24 @@
 			name = WifiManHub;
 			sourceTree = "<group>";
 		};
+		BAAEB77E199CA6D200B5C4FA /* HourGlass */ = {
+			isa = PBXGroup;
+			children = (
+				BAD706F8199D0A1B001D7FDE /* FeHourGlassViewController.h */,
+				BAD706F9199D0A1B001D7FDE /* FeHourGlassViewController.m */,
+			);
+			name = HourGlass;
+			sourceTree = "<group>";
+		};
+		BAAEB77F199CA6FE00B5C4FA /* Candy Loader */ = {
+			isa = PBXGroup;
+			children = (
+				BAAEB780199CA72500B5C4FA /* FeHourGlass.h */,
+				BAAEB781199CA72500B5C4FA /* FeHourGlass.m */,
+			);
+			name = "Candy Loader";
+			sourceTree = "<group>";
+		};
 		BAB5ABAD1848C87400CBCBBD /* Ten Dot */ = {
 			isa = PBXGroup;
 			children = (
@@ -249,6 +274,7 @@
 		BABFC6F318614494007C61D3 /* View Controller */ = {
 			isa = PBXGroup;
 			children = (
+				BAAEB77E199CA6D200B5C4FA /* HourGlass */,
 				BA96863E1936426E0006E46E /* WifiManHub */,
 				BA569A321877318000AC585D /* Three Dot Glow */,
 				BA760A2F1871C985004FDD1C /* Viet Nam Loader */,
@@ -519,6 +545,7 @@
 			files = (
 				BACB3DE718633B2A00898335 /* FeLoadingIcon.m in Sources */,
 				BACB3DEE186349FC00898335 /* FeLoadingBoxViewController.m in Sources */,
+				BAD706FA199D0A1B001D7FDE /* FeHourGlassViewController.m in Sources */,
 				BAE08710183CE85100B12AB6 /* main.m in Sources */,
 				BA569A351877319300AC585D /* FeThreeDotGlowViewController.m in Sources */,
 				BACC09101923D5CD00E503F7 /* Feasd.m in Sources */,
@@ -528,6 +555,7 @@
 				BA760A321871C99A004FDD1C /* FeVietNamLoaderViewController.m in Sources */,
 				BA760A2B1871C062004FDD1C /* FeVietNamLoader.m in Sources */,
 				BAE0871D183CE85100B12AB6 /* FeViewController.m in Sources */,
+				BAAEB782199CA72500B5C4FA /* FeHourGlass.m in Sources */,
 				BA569A3118772E0700AC585D /* FeThreeDotGlow.m in Sources */,
 				BACB3DEA18633B3D00898335 /* FeLoadingIconBox.m in Sources */,
 				BAE0874E183CFC0B00B12AB6 /* UIColor+flat.m in Sources */,
