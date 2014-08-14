@@ -11,11 +11,18 @@
 #import <QuartzCore/QuartzCore.h>
 
 #define kFe_HourGlass_Length 30.0f
+#define kFe_HourGlass_Duration 3.5f
 
 @interface FeHourGlass ()
 {
     CGFloat width;
     CGFloat height;
+    
+    // Target, method, object and block
+    id targetForExecuting;
+    SEL methodForExecuting;
+    id objectForExecuting;
+    dispatch_block_t completionBlock;
 }
 // Top
 @property (strong, nonatomic) CAShapeLayer *topLayer;
@@ -38,6 +45,8 @@
 @property (strong, nonatomic) CAKeyframeAnimation *bottomAnimation;
 
 @property (strong, nonatomic) CAKeyframeAnimation *lineAnimation;
+
+@property(strong, nonatomic) CAKeyframeAnimation *containerAnimation;
 
 ///////////
 // Init
@@ -85,7 +94,7 @@
 -(void) initContainer
 {
     _containerLayer = [CALayer layer];
-    _containerLayer.backgroundColor = [UIColor blackColor].CGColor;
+    _containerLayer.backgroundColor = [UIColor clearColor].CGColor;
     _containerLayer.frame = CGRectMake(0, 0, width, height * 2);
     _containerLayer.anchorPoint = CGPointMake(0.5f, 0.5f);
     _containerLayer.position = CGPointMake(self.bounds.size.width / 2, self.bounds.size.height / 2);
@@ -111,7 +120,8 @@
     _topLayer.strokeColor = [UIColor whiteColor].CGColor;
     _topLayer.lineWidth = 0.0f;
     _topLayer.anchorPoint = CGPointMake(0.5f, 1);
-    _topLayer.position = CGPointMake(<#CGFloat x#>, <#CGFloat y#>)
+    _topLayer.position = CGPointMake(width / 2.0f, height);
+    
     [_containerLayer addSublayer:_topLayer];
 }
 -(void) initBottom
@@ -133,8 +143,10 @@
     _bottomLayer.strokeColor = [UIColor whiteColor].CGColor;
     _bottomLayer.lineWidth = 0.0f;
     _bottomLayer.anchorPoint = CGPointMake(0.5f, 1.0f);
+    _bottomLayer.position = CGPointMake(width / 2.0f, height * 2.0f);
+    _bottomLayer.transform = CATransform3DMakeScale(0, 0, 0);
     
-    //[_containerLayer addSublayer:_bottomLayer];
+    [_containerLayer addSublayer:_bottomLayer];
 }
 -(void) initLine
 {
@@ -152,20 +164,43 @@
     _lineLayer.lineDashPattern = [NSArray arrayWithObjects:[NSNumber numberWithInt:1],[NSNumber numberWithInt:1], nil];
     _lineLayer.lineDashPhase = 3.0f;
     _lineLayer.path = path.CGPath;
-  
+    _lineLayer.strokeEnd = 0.0f;
+    
     [_containerLayer addSublayer:_lineLayer];
 }
 -(void) initAnimation
 {
     if (YES) // Top Animation
     {
-        _topAnimation = [CAKeyframeAnimation animationWithKeyPath:@"transform"];
-        _topAnimation.duration = 5.0f;
-        _topAnimation.repeatCount = MAXFLOAT;
+        _topAnimation = [CAKeyframeAnimation animationWithKeyPath:@"transform.scale"];
+        _topAnimation.duration = kFe_HourGlass_Duration;
+        _topAnimation.repeatCount = HUGE_VAL;
         _topAnimation.keyTimes = @[@0.0f, @0.9f, @1.0f];
-        _topAnimation.values = @[(id)[NSValue valueWithCATransform3D:CATransform3DIdentity],
-                                 (id)[NSValue valueWithCATransform3D:CATransform3DMakeScale(0.0f, 0.0f, 0.0f)],
-                                 (id)[NSValue valueWithCATransform3D:CATransform3DMakeScale(0.0f, 0.0f, 0.0f)]];
+        _topAnimation.values = @[@1.0f, @0.0f, @0.0f];
+    }
+    if (YES) // Bottom Animation
+    {
+        _bottomAnimation = [CAKeyframeAnimation animationWithKeyPath:@"transform.scale"];
+        _bottomAnimation.duration = kFe_HourGlass_Duration;
+        _bottomAnimation.repeatCount = HUGE_VAL;
+        _bottomAnimation.keyTimes = @[@0.1f, @0.9f, @1.0f];
+        _bottomAnimation.values = @[@0.0f, @1.0f, @1.0f];
+    }
+    if (YES) // Bottom Animation
+    {
+        _lineAnimation = [CAKeyframeAnimation animationWithKeyPath:@"strokeEnd"];
+        _lineAnimation.duration = kFe_HourGlass_Duration;
+        _lineAnimation.repeatCount = HUGE_VAL;
+        _lineAnimation.keyTimes = @[@0.0f, @0.1f, @0.9f, @1.0f];
+        _lineAnimation.values = @[@0.0f, @1.0f, @1.0f, @1.0f];
+    }
+    if (YES) // Container Animation
+    {
+        _containerAnimation = [CAKeyframeAnimation animationWithKeyPath:@"transform.rotation.z"];
+        _containerAnimation.duration = kFe_HourGlass_Duration;
+        _containerAnimation.repeatCount = HUGE_VAL;
+        _containerAnimation.keyTimes = @[@0.9f, @1.0f];
+        _containerAnimation.values = @[[NSNumber numberWithFloat:0.0f], [NSNumber numberWithFloat:M_PI]];
     }
 }
 #pragma mark - Action
@@ -177,10 +212,89 @@
     _isShowing =  YES;
     
     [_topLayer addAnimation:_topAnimation forKey:@"TopAnimatin"];
-    
+    [_bottomLayer addAnimation:_bottomAnimation forKey:@"BottomAnimation"];
+    [_lineLayer addAnimation:_lineAnimation forKey:@"LineAnimation"];
+    [_containerLayer addAnimation:_containerAnimation forKey:@"ContainerAnimation"];
 }
 -(void) dismiss
 {
+    if (!_isShowing)
+        return;
+    
+    _isShowing = NO;
     
 }
+-(void) showWhileExecutingBlock:(dispatch_block_t)block
+{
+    [self showWhileExecutingBlock:block completion:nil];
+}
+-(void) showWhileExecutingSelector:(SEL)selector onTarget:(id)target withObject:(id)object
+{
+    [self showWhileExecutingSelector:selector onTarget:target withObject:object completion:nil];
+    
+}
+-(void) showWhileExecutingBlock:(dispatch_block_t)block completion:(dispatch_block_t)completion
+{
+    // Check block != nil
+    if (block != nil)
+    {
+        [self show];
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), ^
+                       {
+                           block();
+                           
+                           // Update UI
+                           dispatch_async(dispatch_get_main_queue(), ^{
+                               completion();
+                               [self dismiss];
+                           });
+                       });
+    }
+}
+-(void) showWhileExecutingSelector:(SEL)selector onTarget:(id)target withObject:(id)object completion:(dispatch_block_t)completion
+{
+    // Check Selector is responded
+    if ([target respondsToSelector:selector])
+    {
+        methodForExecuting = selector;
+        targetForExecuting = target;
+        objectForExecuting = object;
+        completionBlock = completion;
+        
+        [self show];
+        [NSThread detachNewThreadSelector:@selector(executingMethod) toTarget:self withObject:nil];
+    }
+}
+#pragma mark Helper method
+-(void) executingMethod
+{
+    @autoreleasepool {
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Warc-performSelector-leaks"
+		// Start executing the requested task
+		[targetForExecuting performSelector:methodForExecuting withObject:objectForExecuting];
+#pragma clang diagnostic pop
+		// Task completed, update view in main thread (note: view operations should
+		// be done only in the main thread)
+        dispatch_async(dispatch_get_main_queue(), ^{
+            completionBlock();
+            [self performSelectorOnMainThread:@selector(cleanUp) withObject:nil waitUntilDone:NO];
+        });
+		
+	}
+}
+-(void) cleanUp
+{
+    NSLog(@"Clean up");
+    if (objectForExecuting)
+        objectForExecuting = nil;
+    if (methodForExecuting)
+        methodForExecuting = nil;
+    if (targetForExecuting)
+        targetForExecuting = nil;
+    if (completionBlock)
+        completionBlock = nil;
+    [self dismiss];
+}
+
 @end

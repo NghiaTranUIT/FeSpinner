@@ -33,7 +33,7 @@
     
     // Loader
     
-    /*
+    
     _wifiManHubLoader = [[FeWifiManHub alloc] initWithView:self.view withMode:FeWifiManHubModeOnlyLoader];
     [self.navigationController.view addSubview:_wifiManHubLoader];
     
@@ -42,8 +42,9 @@
     } completion:^{
         NSLog(@"Completion");
     }];
-    */
     
+    
+    /*
     // Percent
     _wifiManHubPercent = [[FeWifiManHub alloc] initWithView:self.view withMode:FeWifiManHubModeOnlyPercent];
     [self.navigationController.view addSubview:_wifiManHubPercent];
@@ -55,7 +56,7 @@
         
         
     }];
-     
+ */
 }
 
 - (void)didReceiveMemoryWarning
