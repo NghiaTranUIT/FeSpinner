@@ -129,6 +129,25 @@
                                             <segue destination="a4f-zg-pbw" kind="push" id="LdQ-hY-HGB"/>
                                         </connections>
                                     </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="Zox-88-Jf5">
+                                        <rect key="frame" x="0.0" y="264" width="320" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Zox-88-Jf5" id="l5f-t9-VgX">
+                                            <rect key="frame" x="0.0" y="0.0" width="287" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Equalizer" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="eaG-Hn-Yuv">
+                                                    <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="s1G-v0-uRM" kind="push" id="JR5-rU-T5v"/>
+                                        </connections>
+                                    </tableViewCell>
                                 </cells>
                             </tableViewSection>
                         </sections>
@@ -142,6 +161,21 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pRh-HM-N3U" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="49" y="-79"/>
+        </scene>
+        <!--Fe Equalizer View Controller-->
+        <scene sceneID="782-qR-L8H">
+            <objects>
+                <viewController id="s1G-v0-uRM" customClass="FeEqualizerViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="aTu-HE-N7u">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="RZb-WP-JeC"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iPL-8o-QRw" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-438" y="-761"/>
         </scene>
         <!--Fe Loading Box View Controller - Loading Box-->
         <scene sceneID="mKD-gZ-Rrj">
