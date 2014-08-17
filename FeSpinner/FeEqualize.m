@@ -19,6 +19,12 @@
 @interface FeEqualize ()
 {
     NSString *_title;
+    
+    // Target, method, object and block
+    id targetForExecuting;
+    SEL methodForExecuting;
+    id objectForExecuting;
+    dispatch_block_t completionBlock;
 }
 // Container View
 @property (strong, nonatomic) UIView *containerView;
@@ -105,7 +111,7 @@
         {
             _firstBar = [CAShapeLayer layer];
             _firstBar.frame = CGRectMake(origin.x, origin.y, kFe_Equalize_Width, kFe_Equalize_Width);
-            _firstBar.path = _endBezierPath.CGPath;
+            _firstBar.path = _originalBezierPath.CGPath;
             _firstBar.fillColor = [UIColor colorWithHexCode:@"#0B486B"].CGColor;
             
             
@@ -125,7 +131,7 @@
             _thirdBar = [CAShapeLayer layer];
             _thirdBar.frame = CGRectMake(origin.x, origin.y, kFe_Equalize_Bar_Width, kFe_Equalize_Bar_Height);
             _thirdBar.fillColor = [UIColor colorWithHexCode:@"#79BD9A"].CGColor;
-            _thirdBar.path = _endBezierPath.CGPath;
+            _thirdBar.path = _originalBezierPath.CGPath;
             
             [_containerLayer addSublayer:_thirdBar];
         }
@@ -134,7 +140,7 @@
             _fourthBar = [CAShapeLayer layer];
             _fourthBar.frame = CGRectMake(origin.x, origin.y, kFe_Equalize_Bar_Width, kFe_Equalize_Bar_Height);
             _fourthBar.fillColor = [UIColor colorWithHexCode:@"#A8DBA8"].CGColor;
-            _fourthBar.path = _endBezierPath.CGPath;
+            _fourthBar.path = _originalBezierPath.CGPath;
             
             [_containerLayer addSublayer:_fourthBar];
         }
@@ -239,6 +245,86 @@
     [self performSelector:@selector(addFifthAnimation) withObject:nil afterDelay:0.4f];
 }
 
+-(void) dismiss
+{
+    if (!_isShowing)
+        return;
+    
+    _isShowing = NO;
+    
+}
+-(void) showWhileExecutingBlock:(dispatch_block_t)block
+{
+    [self showWhileExecutingBlock:block completion:nil];
+}
+-(void) showWhileExecutingSelector:(SEL)selector onTarget:(id)target withObject:(id)object
+{
+    [self showWhileExecutingSelector:selector onTarget:target withObject:object completion:nil];
+    
+}
+-(void) showWhileExecutingBlock:(dispatch_block_t)block completion:(dispatch_block_t)completion
+{
+    // Check block != nil
+    if (block != nil)
+    {
+        [self show];
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), ^
+                       {
+                           block();
+                           
+                           // Update UI
+                           dispatch_async(dispatch_get_main_queue(), ^{
+                               completion();
+                               [self dismiss];
+                           });
+                       });
+    }
+}
+-(void) showWhileExecutingSelector:(SEL)selector onTarget:(id)target withObject:(id)object completion:(dispatch_block_t)completion
+{
+    // Check Selector is responded
+    if ([target respondsToSelector:selector])
+    {
+        methodForExecuting = selector;
+        targetForExecuting = target;
+        objectForExecuting = object;
+        completionBlock = completion;
+        
+        [self show];
+        [NSThread detachNewThreadSelector:@selector(executingMethod) toTarget:self withObject:nil];
+    }
+}
+#pragma mark Helper method
+-(void) executingMethod
+{
+    @autoreleasepool {
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Warc-performSelector-leaks"
+		// Start executing the requested task
+		[targetForExecuting performSelector:methodForExecuting withObject:objectForExecuting];
+#pragma clang diagnostic pop
+		// Task completed, update view in main thread (note: view operations should
+		// be done only in the main thread)
+        dispatch_async(dispatch_get_main_queue(), ^{
+            completionBlock();
+            [self performSelectorOnMainThread:@selector(cleanUp) withObject:nil waitUntilDone:NO];
+        });
+		
+	}
+}
+-(void) cleanUp
+{
+    NSLog(@"Clean up");
+    if (objectForExecuting)
+        objectForExecuting = nil;
+    if (methodForExecuting)
+        methodForExecuting = nil;
+    if (targetForExecuting)
+        targetForExecuting = nil;
+    if (completionBlock)
+        completionBlock = nil;
+    [self dismiss];
+}
 #pragma mark - Private
 -(void) addFirstAniamtion
 {
