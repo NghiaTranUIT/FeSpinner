@@ -7,9 +7,10 @@
 //
 
 #import "FeEqualizerViewController.h"
+#import "FeEqualize.h"
 
 @interface FeEqualizerViewController ()
-
+@property (strong, nonatomic) FeEqualize *equalizer;
 @end
 
 @implementation FeEqualizerViewController
@@ -27,6 +28,11 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    _equalizer = [[FeEqualize alloc] initWithView:self.view];
+    [self.view addSubview:_equalizer];
+    
+    [_equalizer show];
 }
 
 - (void)didReceiveMemoryWarning

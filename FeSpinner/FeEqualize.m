@@ -32,6 +32,13 @@
 @property (strong, nonatomic) UIBezierPath *originalBezierPath;
 @property (strong, nonatomic) UIBezierPath *endBezierPath;
 
+// Animation
+@property (strong, nonatomic) CAKeyframeAnimation *firstAnimation;
+@property (strong, nonatomic) CAKeyframeAnimation *secondAnimation;
+@property (strong, nonatomic) CAKeyframeAnimation *thirdAnimation;
+@property (strong, nonatomic) CAKeyframeAnimation *fourthAnimation;
+@property (strong, nonatomic) CAKeyframeAnimation *fifthAnimation;
+
 /////////
 -(void) initCommon;
 -(void) initContainerLayer;
@@ -55,7 +62,7 @@
         
         [self initBars];
         
-        [self initAnimation];
+        //[self initAnimation];
     }
     return self;
 }
@@ -82,7 +89,7 @@
     // Original Path
     _originalBezierPath = [UIBezierPath bezierPath];
     [_originalBezierPath moveToPoint:CGPointMake(0, kFe_Equalize_Bar_Height)];
-    [_originalBezierPath addLineToPoint:CGPointMake(kFe_Equalize_Bar_Width, kFe_Equalize_Bar_Height - 2.0f)];
+    [_originalBezierPath addLineToPoint:CGPointMake(kFe_Equalize_Bar_Width / 2.0f, kFe_Equalize_Bar_Height - 2.0f)];
     [_originalBezierPath addLineToPoint:CGPointMake(kFe_Equalize_Bar_Width, kFe_Equalize_Bar_Height)];
     [_originalBezierPath addLineToPoint:CGPointMake(0, kFe_Equalize_Bar_Height)];
     [_originalBezierPath closePath];
@@ -97,26 +104,52 @@
     
     for (NSInteger i = 0; i < 5 ; i++)
     {
+        CGPoint origin = CGPointMake(kFe_Equalize_Bar_Width * i, 0);
         if (i == 0)
         {
             _firstBar = [CAShapeLayer layer];
-            _firstBar.frame = CGRectMake(<#CGFloat x#>, <#CGFloat y#>, <#CGFloat width#>, <#CGFloat height#>)
+            _firstBar.frame = CGRectMake(origin.x, origin.y, kFe_Equalize_Width, kFe_Equalize_Width);
+            _firstBar.path = _endBezierPath.CGPath;
+            _firstBar.fillColor = [UIColor colorWithHexCode:@"#0B486B"].CGColor;
+            
+            
+            [_containerLayer addSublayer:_firstBar];
         }
         if (i == 1)
         {
+            _secondBar = [CAShapeLayer layer];
+            _secondBar.frame = CGRectMake(origin.x, origin.y, kFe_Equalize_Bar_Width, kFe_Equalize_Bar_Height);
+            _secondBar.fillColor = [UIColor colorWithHexCode:@"#3B8686"].CGColor;
+            _secondBar.path = _originalBezierPath.CGPath;
             
+            [_containerLayer addSublayer:_secondBar];
         }
         if (i == 2)
         {
+            _thirdBar = [CAShapeLayer layer];
+            _thirdBar.frame = CGRectMake(origin.x, origin.y, kFe_Equalize_Bar_Width, kFe_Equalize_Bar_Height);
+            _thirdBar.fillColor = [UIColor colorWithHexCode:@"#79BD9A"].CGColor;
+            _thirdBar.path = _endBezierPath.CGPath;
             
+            [_containerLayer addSublayer:_thirdBar];
         }
         if (i == 3)
         {
+            _fourthBar = [CAShapeLayer layer];
+            _fourthBar.frame = CGRectMake(origin.x, origin.y, kFe_Equalize_Bar_Width, kFe_Equalize_Bar_Height);
+            _fourthBar.fillColor = [UIColor colorWithHexCode:@"#A8DBA8"].CGColor;
+            _fourthBar.path = _endBezierPath.CGPath;
             
+            [_containerLayer addSublayer:_fourthBar];
         }
         if (i == 4)
         {
+            _fifthBar = [CAShapeLayer layer];
+            _fifthBar.frame = CGRectMake(origin.x, origin.y, kFe_Equalize_Bar_Width, kFe_Equalize_Bar_Height);
+            _fifthBar.fillColor = [UIColor colorWithHexCode:@"#CFF09E"].CGColor;
+            _fifthBar.path = _originalBezierPath.CGPath;
             
+            [_containerLayer addSublayer:_fifthBar];
         }
     }
 }
@@ -124,5 +157,14 @@
 -(void) initBezierPath
 {
     
+}
+-(void) show
+{
+    if (_isShowing)
+        return;
+    
+    _isShowing =  YES;
+    
+
 }
 @end
