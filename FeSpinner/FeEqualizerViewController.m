@@ -29,7 +29,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    _equalizer = [[FeEqualize alloc] initWithView:self.view];
+    _equalizer = [[FeEqualize alloc] initWithView:self.view title:@"LOADING"];
     [self.view addSubview:_equalizer];
     
     [_equalizer show];

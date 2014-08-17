@@ -12,7 +12,7 @@
 // is running
 @property (assign, readonly, nonatomic) BOOL isShowing;
 
--(instancetype) initWithView:(UIView *) view;
+-(instancetype) initWithView:(UIView *) view title:(NSString *) title;
 
 -(void) show;
 

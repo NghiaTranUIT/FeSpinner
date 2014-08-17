@@ -30,6 +30,7 @@
 	<true/>
 	<key>UIAppFonts</key>
 	<array>
+		<string>MerriweatherSans-Regular.otf</string>
 		<string>CabinCondensed-Bold.ttf</string>
 		<string>Neou-Thin.ttf</string>
 	</array>

@@ -53,6 +53,7 @@
 		BAE08740183CE8A500B12AB6 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAE0873F183CE8A500B12AB6 /* QuartzCore.framework */; };
 		BAE08743183CE91800B12AB6 /* FXBlurView.m in Sources */ = {isa = PBXBuildFile; fileRef = BAE08742183CE91800B12AB6 /* FXBlurView.m */; };
 		BAE0874E183CFC0B00B12AB6 /* UIColor+flat.m in Sources */ = {isa = PBXBuildFile; fileRef = BAE0874D183CFC0B00B12AB6 /* UIColor+flat.m */; };
+		BAF0C55C19A08F3000F05F48 /* MerriweatherSans-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = BAF0C55B19A08F3000F05F48 /* MerriweatherSans-Regular.otf */; };
 		BAF4008118609BBC008F7E4D /* Neou-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BAF4008018609BBC008F7E4D /* Neou-Thin.ttf */; };
 		BAF400831860A133008F7E4D /* winter.jpg in Resources */ = {isa = PBXBuildFile; fileRef = BAF400821860A133008F7E4D /* winter.jpg */; };
 /* End PBXBuildFile section */
@@ -139,6 +140,7 @@
 		BAE08742183CE91800B12AB6 /* FXBlurView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FXBlurView.m; sourceTree = "<group>"; };
 		BAE0874C183CFC0B00B12AB6 /* UIColor+flat.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+flat.h"; sourceTree = "<group>"; };
 		BAE0874D183CFC0B00B12AB6 /* UIColor+flat.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+flat.m"; sourceTree = "<group>"; };
+		BAF0C55B19A08F3000F05F48 /* MerriweatherSans-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MerriweatherSans-Regular.otf"; sourceTree = "<group>"; };
 		BAF4008018609BBC008F7E4D /* Neou-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Neou-Thin.ttf"; sourceTree = "<group>"; };
 		BAF400821860A133008F7E4D /* winter.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = winter.jpg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -171,6 +173,7 @@
 		BA092802199D204200EDB4B9 /* Equalize */ = {
 			isa = PBXGroup;
 			children = (
+				BAF0C55B19A08F3000F05F48 /* MerriweatherSans-Regular.otf */,
 				BA092803199D205E00EDB4B9 /* FeEqualize.h */,
 				BA092804199D205E00EDB4B9 /* FeEqualize.m */,
 			);
@@ -540,6 +543,7 @@
 				BAE0871A183CE85100B12AB6 /* Main_iPad.storyboard in Resources */,
 				BAF400831860A133008F7E4D /* winter.jpg in Resources */,
 				BA96864B193642DC0006E46E /* wifimanhub@2x.png in Resources */,
+				BAF0C55C19A08F3000F05F48 /* MerriweatherSans-Regular.otf in Resources */,
 				BA847718183DF0DE009A5272 /* test.png in Resources */,
 				BA36C6C21936D4F600E317D8 /* WifiMan_Sign_4@2x.png in Resources */,
 				BAE0871F183CE85100B12AB6 /* Images.xcassets in Resources */,

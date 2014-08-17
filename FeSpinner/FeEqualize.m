@@ -17,6 +17,9 @@
 #define kFe_Equalize_Bar_Height 50.0f
 
 @interface FeEqualize ()
+{
+    NSString *_title;
+}
 // Container View
 @property (strong, nonatomic) UIView *containerView;
 @property (strong, nonatomic) CALayer *containerLayer;
@@ -33,36 +36,45 @@
 @property (strong, nonatomic) UIBezierPath *endBezierPath;
 
 // Animation
-@property (strong, nonatomic) CAKeyframeAnimation *firstAnimation;
-@property (strong, nonatomic) CAKeyframeAnimation *secondAnimation;
-@property (strong, nonatomic) CAKeyframeAnimation *thirdAnimation;
-@property (strong, nonatomic) CAKeyframeAnimation *fourthAnimation;
-@property (strong, nonatomic) CAKeyframeAnimation *fifthAnimation;
+@property (strong, nonatomic) CABasicAnimation *firstAnimation;
+@property (strong, nonatomic) CABasicAnimation *secondAnimation;
+@property (strong, nonatomic) CABasicAnimation *thirdAnimation;
+@property (strong, nonatomic) CABasicAnimation *fourthAnimation;
+@property (strong, nonatomic) CABasicAnimation *fifthAnimation;
 
+// Title
+@property (strong, nonatomic) UILabel *titleLbl;
 /////////
 -(void) initCommon;
 -(void) initContainerLayer;
 -(void) initBars;
 -(void) initBezierPath;
+-(void) initTitle;
 -(void) initAnimation;
 @end
 
 @implementation FeEqualize
 
--(instancetype) initWithView:(UIView *)view
+-(instancetype) initWithView:(UIView *)view title:(NSString *)title
 {
     self = [super init];
     if (self)
     {
+        _title = title;
+        
         _containerView = view;
         
         [self initCommon];
         
         [self initContainerLayer];
         
+        [self initBezierPath];
+        
         [self initBars];
         
-        //[self initAnimation];
+        [self initTitle];
+        
+        [self initAnimation];
     }
     return self;
 }
@@ -86,22 +98,6 @@
 }
 -(void) initBars
 {
-    // Original Path
-    _originalBezierPath = [UIBezierPath bezierPath];
-    [_originalBezierPath moveToPoint:CGPointMake(0, kFe_Equalize_Bar_Height)];
-    [_originalBezierPath addLineToPoint:CGPointMake(kFe_Equalize_Bar_Width / 2.0f, kFe_Equalize_Bar_Height - 2.0f)];
-    [_originalBezierPath addLineToPoint:CGPointMake(kFe_Equalize_Bar_Width, kFe_Equalize_Bar_Height)];
-    [_originalBezierPath addLineToPoint:CGPointMake(0, kFe_Equalize_Bar_Height)];
-    [_originalBezierPath closePath];
-    
-    // end Path
-    _endBezierPath = [UIBezierPath bezierPath];
-    [_endBezierPath moveToPoint:CGPointMake(0, kFe_Equalize_Bar_Height)];
-    [_endBezierPath addLineToPoint:CGPointMake(kFe_Equalize_Bar_Width / 2.0f, 0)];
-    [_endBezierPath addLineToPoint:CGPointMake(kFe_Equalize_Bar_Width, kFe_Equalize_Bar_Height)];
-    [_endBezierPath addLineToPoint:CGPointMake(0, kFe_Equalize_Bar_Height)];
-    [_endBezierPath closePath];
-    
     for (NSInteger i = 0; i < 5 ; i++)
     {
         CGPoint origin = CGPointMake(kFe_Equalize_Bar_Width * i, 0);
@@ -153,11 +149,82 @@
         }
     }
 }
-
 -(void) initBezierPath
 {
+    // Original Path
+    _originalBezierPath = [UIBezierPath bezierPath];
+    [_originalBezierPath moveToPoint:CGPointMake(0, kFe_Equalize_Bar_Height)];
+    [_originalBezierPath addLineToPoint:CGPointMake(kFe_Equalize_Bar_Width / 2.0f, kFe_Equalize_Bar_Height - 2.0f)];
+    [_originalBezierPath addLineToPoint:CGPointMake(kFe_Equalize_Bar_Width, kFe_Equalize_Bar_Height)];
+    [_originalBezierPath addLineToPoint:CGPointMake(0, kFe_Equalize_Bar_Height)];
+    [_originalBezierPath closePath];
     
+    // end Path
+    _endBezierPath = [UIBezierPath bezierPath];
+    [_endBezierPath moveToPoint:CGPointMake(0, kFe_Equalize_Bar_Height)];
+    [_endBezierPath addLineToPoint:CGPointMake(kFe_Equalize_Bar_Width / 2.0f, 0)];
+    [_endBezierPath addLineToPoint:CGPointMake(kFe_Equalize_Bar_Width, kFe_Equalize_Bar_Height)];
+    [_endBezierPath addLineToPoint:CGPointMake(0, kFe_Equalize_Bar_Height)];
+    [_endBezierPath closePath];
+
 }
+-(void) initAnimation
+{
+    // First
+    _firstAnimation = [CABasicAnimation animationWithKeyPath:@"path"];
+    _firstAnimation.fromValue = (id) _originalBezierPath.CGPath;
+    _firstAnimation.toValue = (id) _endBezierPath.CGPath;
+    _firstAnimation.autoreverses = YES;
+    _firstAnimation.duration = 0.5f;
+    _firstAnimation.repeatCount = MAXFLOAT;
+    _firstAnimation.timingFunction = [CAMediaTimingFunction functionWithControlPoints:0.77 :0 :0.175 :1];
+    
+    _secondAnimation = [CABasicAnimation animationWithKeyPath:@"path"];
+    _secondAnimation.fromValue = (id) _originalBezierPath.CGPath;
+    _secondAnimation.toValue = (id) _endBezierPath.CGPath;
+    _secondAnimation.autoreverses = YES;
+    _secondAnimation.duration = 0.5f;
+    _secondAnimation.repeatCount = MAXFLOAT;
+    _secondAnimation.timingFunction = [CAMediaTimingFunction functionWithControlPoints:0.77 :0 :0.175 :1];
+    
+    _thirdAnimation = [CABasicAnimation animationWithKeyPath:@"path"];
+    _thirdAnimation.fromValue = (id) _originalBezierPath.CGPath;
+    _thirdAnimation.toValue = (id) _endBezierPath.CGPath;
+    _thirdAnimation.autoreverses = YES;
+    _thirdAnimation.duration = 0.5f;
+    _thirdAnimation.repeatCount = MAXFLOAT;
+    _thirdAnimation.timingFunction = [CAMediaTimingFunction functionWithControlPoints:0.77 :0 :0.175 :1];
+    
+    _fourthAnimation = [CABasicAnimation animationWithKeyPath:@"path"];
+    _fourthAnimation.fromValue = (id) _originalBezierPath.CGPath;
+    _fourthAnimation.toValue = (id) _endBezierPath.CGPath;
+    _fourthAnimation.autoreverses = YES;
+    _fourthAnimation.duration = 0.5f;
+    _fourthAnimation.repeatCount = MAXFLOAT;
+    _fourthAnimation.timingFunction = [CAMediaTimingFunction functionWithControlPoints:0.77 :0 :0.175 :1];
+    
+    _fifthAnimation = [CABasicAnimation animationWithKeyPath:@"path"];
+    _fifthAnimation.fromValue = (id) _originalBezierPath.CGPath;
+    _fifthAnimation.toValue = (id) _endBezierPath.CGPath;
+    _fifthAnimation.autoreverses = YES;
+    _fifthAnimation.duration = 0.5f;
+    _fifthAnimation.repeatCount = MAXFLOAT;
+    _fifthAnimation.timingFunction = [CAMediaTimingFunction functionWithControlPoints:0.77 :0 :0.175 :1];
+}
+-(void) initTitle
+{
+    _titleLbl = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 100, 100)];
+    _titleLbl.text = _title;
+    _titleLbl.textAlignment = NSTextAlignmentCenter;
+    _titleLbl.textColor = [UIColor colorWithHexCode:@"#CFF09E"];
+    _titleLbl.font = [UIFont boldSystemFontOfSize:20];
+    [_titleLbl sizeToFit];
+    _titleLbl.center = CGPointMake(self.bounds.size.width  / 2.0f, _containerLayer.frame.origin.y + _containerLayer.frame.size.height + 16);
+    
+    [self addSubview:_titleLbl];
+}
+
+#pragma mark - Action
 -(void) show
 {
     if (_isShowing)
@@ -165,6 +232,32 @@
     
     _isShowing =  YES;
     
+    [self performSelector:@selector(addFirstAniamtion) withObject:nil afterDelay:0];
+    [self performSelector:@selector(addSecondAnimation) withObject:nil afterDelay:0.1f];
+    [self performSelector:@selector(addThirdAnimation) withObject:nil afterDelay:0.2f];
+    [self performSelector:@selector(addFourthAnimation) withObject:nil afterDelay:0.3f];
+    [self performSelector:@selector(addFifthAnimation) withObject:nil afterDelay:0.4f];
+}
 
+#pragma mark - Private
+-(void) addFirstAniamtion
+{
+    [_firstBar addAnimation:_firstAnimation forKey:@"firstAnimation"];
+}
+-(void) addSecondAnimation
+{
+    [_secondBar addAnimation:_secondAnimation forKey:@"secondAnimation"];
+}
+-(void) addThirdAnimation
+{
+    [_thirdBar addAnimation:_thirdAnimation forKey:@"thirdAnimatin"];
+}
+-(void) addFourthAnimation
+{
+    [_fourthBar addAnimation:_fourthAnimation forKey:@"fourthAnimation"];
+}
+-(void) addFifthAnimation
+{
+    [_fifthBar addAnimation:_fifthAnimation forKey:@"fifthAnimation"];
 }
 @end
