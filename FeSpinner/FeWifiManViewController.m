@@ -41,6 +41,8 @@
         [self myTask];
     } completion:^{
         NSLog(@"Completion");
+        
+        [self.navigationController popToRootViewControllerAnimated:YES];
     }];
     
     
@@ -57,14 +59,16 @@
         
     }];
  */
-}
+    
+    }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-- (void)myProgressTask {
+- (void)myProgressTask
+{
 	// This just increases the progress indicator in a loop
 	float progress = 0.0f;
 	while (progress < 1.0f) {
@@ -73,12 +77,17 @@
         
         // Set percent
 		_wifiManHubPercent.percent = progress;
-		usleep(50000);
+		usleep(30000);
 	}
 }
 
-- (void)myTask {
+- (void)myTask
+{
 	// Do something usefull in here instead of sleeping ...
-	sleep(12);
+	sleep(6);
+}
+-(void) stopLoader
+{
+    
 }
 @end

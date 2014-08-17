@@ -30,7 +30,14 @@
 	// Do any additional setup after loading the view.
     
     _loadingIcon = [[FeLoadingIcon alloc] initWithView:self.navigationController.view blur:NO backgroundColors:nil];
+    [self.view addSubview:_loadingIcon];
     
+    // Show
+    [_loadingIcon showWhileExecutingBlock:^{
+        [self myTask];
+    } completion:^{
+        [self.navigationController popToRootViewControllerAnimated:YES];
+    }];
 }
 
 - (void)didReceiveMemoryWarning
@@ -38,11 +45,11 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-- (IBAction)start:(id)sender
+
+- (void)myTask
 {
-    [_loadingIcon show];
-}
-- (IBAction)stop:(id)sender {
+	// Do something usefull in here instead of sleeping ...
+	sleep(6);
 }
 
 @end

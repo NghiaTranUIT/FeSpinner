@@ -8,6 +8,7 @@
 
 #import "FeSpinnerTenDotViewController.h"
 #import "FeSpinnerTenDot.h"
+#import "UIColor+flat.h"
 
 @interface FeSpinnerTenDotViewController () <FeSpinnerTenDotDelegate>
 {
@@ -38,21 +39,20 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
-    UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 320, 640)];
-    imageView.image = [UIImage imageNamed:@"winter.jpg"];
-    imageView.contentMode = UIViewContentModeScaleAspectFill;
-    
+
+    self.view.backgroundColor = [UIColor colorWithHexCode:@"#019875"];
     
     //*********
     index = 0;
     _arrTitile = @[@"LOADING",@"PLZ WAITING",@"CALM DOWN",@"SUCCESSFUL"];
     
-    [self.view insertSubview:imageView atIndex:0];
-    
-    _spinner = [[FeSpinnerTenDot alloc] initWithView:self.view withBlur:YES];
+    // init Loader
+    _spinner = [[FeSpinnerTenDot alloc] initWithView:self.view withBlur:NO];
     _spinner.titleLabelText = _arrTitile[index];
     _spinner.fontTitleLabel = [UIFont fontWithName:@"Neou-Thin" size:36];
     _spinner.delegate = self;
+    
+    [self.view addSubview:_spinner];
 }
 
 - (void)didReceiveMemoryWarning
@@ -61,11 +61,16 @@
     // Dispose of any resources that can be recreated.
 }
 
+-(void) viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    
+    [self start:self];
+    
+    [self performSelector:@selector(dismiss:) withObject:nil afterDelay:7.0f];
+}
 - (IBAction)start:(id)sender
 {
-    UIButton *btn = (UIButton *) sender;
-    btn.enabled = NO;
-    
     if (!_timer)
     {
         _timer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(changeTitle) userInfo:nil repeats:YES];
@@ -76,7 +81,6 @@
         _timer = nil;
         
         index = 0;
-        btn.enabled = YES;
     }];
 }
 -(void) longTask

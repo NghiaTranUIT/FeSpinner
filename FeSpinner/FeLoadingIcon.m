@@ -75,7 +75,6 @@
 }
 -(void) commonInit
 {
-    [_containerView addSubview:self];
     self.hidden = YES;
     self.alpha = 0;
     

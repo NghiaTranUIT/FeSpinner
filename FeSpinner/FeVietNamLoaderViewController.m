@@ -32,7 +32,12 @@
     _vietNamLoader = [[FeVietNamLoader alloc] initWithView:self.view blur:NO color:nil];
     [self.view addSubview:_vietNamLoader];
     
-    [_vietNamLoader show];
+    // Start
+    [_vietNamLoader showWhileExecutingBlock:^{
+        [self myTask];
+    } completion:^{
+        [self.navigationController popToRootViewControllerAnimated:YES];
+    }];
 }
 
 - (void)didReceiveMemoryWarning
@@ -40,13 +45,11 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-- (IBAction)start:(id)sender
+
+ - (void)myTask
 {
-    
-}
-- (IBAction)stop:(id)sender
-{
-    [_vietNamLoader dismiss];
+    // Do something usefull in here instead of sleeping ...
+    sleep(6);
 }
 
 @end

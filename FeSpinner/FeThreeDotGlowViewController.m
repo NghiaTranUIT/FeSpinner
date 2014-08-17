@@ -32,13 +32,23 @@
     _threeDot = [[FeThreeDotGlow alloc] initWithView:self.view blur:NO];
     [self.view addSubview:_threeDot];
     
-    [_threeDot show];
+    // Start
+    [_threeDot showWhileExecutingBlock:^{
+        [self myTask];
+    } completion:^{
+        [self.navigationController popToRootViewControllerAnimated:YES];
+    }];
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+- (void)myTask
+{
+    // Do something usefull in here instead of sleeping ...
+    sleep(6);
 }
 
 @end

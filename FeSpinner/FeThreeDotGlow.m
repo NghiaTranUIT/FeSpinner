@@ -10,6 +10,13 @@
 #import "UIColor+flat.h"
 
 @interface FeThreeDotGlow()
+{
+    // Target, method, object and block
+    id targetForExecuting;
+    SEL methodForExecuting;
+    id objectForExecuting;
+    dispatch_block_t completionBlock;
+}
 @property (weak, nonatomic) UIView *container;
 @property (strong, nonatomic) CALayer *containerDotLayer;
 @property (strong, nonatomic) NSMutableArray *arrThreeDots;
@@ -42,7 +49,7 @@
 }
 -(void) commonInit
 {
-    
+    _isShowing = NO;
 }
 -(void) initBackgroundBlur:(BOOL)blur
 {
@@ -143,11 +150,100 @@
 }
 -(void) show
 {
+    if (_isShowing)
+        return;
+    _isShowing  = YES;
+    
     [_containerDotLayer addAnimation:_rotateAnimation forKey:@"transform.rotation"];
     
     for (CALayer *dot in _arrThreeDots) {
         [dot addAnimation:_groupAnimation forKey:@"shadowRadius"];
     }
 }
-
+-(void) dismiss
+{
+    if (!_isShowing)
+        return;
+    
+    _isShowing = NO;
+    
+    // Remove all animations
+    for (CALayer *dot in _arrThreeDots)
+    {
+        [dot removeAllAnimations];
+    }
+    [_containerDotLayer removeAllAnimations];
+}
+-(void) showWhileExecutingBlock:(dispatch_block_t)block
+{
+    [self showWhileExecutingBlock:block completion:nil];
+}
+-(void) showWhileExecutingSelector:(SEL)selector onTarget:(id)target withObject:(id)object
+{
+    [self showWhileExecutingSelector:selector onTarget:target withObject:object completion:nil];
+    
+}
+-(void) showWhileExecutingBlock:(dispatch_block_t)block completion:(dispatch_block_t)completion
+{
+    // Check block != nil
+    if (block != nil)
+    {
+        [self show];
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), ^
+                       {
+                           block();
+                           
+                           // Update UI
+                           dispatch_async(dispatch_get_main_queue(), ^{
+                               completion();
+                               [self dismiss];
+                           });
+                       });
+    }
+}
+-(void) showWhileExecutingSelector:(SEL)selector onTarget:(id)target withObject:(id)object completion:(dispatch_block_t)completion
+{
+    // Check Selector is responded
+    if ([target respondsToSelector:selector])
+    {
+        methodForExecuting = selector;
+        targetForExecuting = target;
+        objectForExecuting = object;
+        completionBlock = completion;
+        
+        [self show];
+        [NSThread detachNewThreadSelector:@selector(executingMethod) toTarget:self withObject:nil];
+    }
+}
+#pragma mark Helper method
+-(void) executingMethod
+{
+    @autoreleasepool {
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Warc-performSelector-leaks"
+		// Start executing the requested task
+		[targetForExecuting performSelector:methodForExecuting withObject:objectForExecuting];
+#pragma clang diagnostic pop
+		// Task completed, update view in main thread (note: view operations should
+		// be done only in the main thread)
+        dispatch_async(dispatch_get_main_queue(), ^{
+            completionBlock();
+            [self performSelectorOnMainThread:@selector(cleanUp) withObject:nil waitUntilDone:NO];
+        });
+		
+	}
+}
+-(void) cleanUp
+{
+    NSLog(@"Clean up");
+    if (objectForExecuting)
+        objectForExecuting = nil;
+    if (methodForExecuting)
+        methodForExecuting = nil;
+    if (targetForExecuting)
+        targetForExecuting = nil;
+    if (completionBlock)
+        completionBlock = nil;
+    [self dismiss];
+}
 @end

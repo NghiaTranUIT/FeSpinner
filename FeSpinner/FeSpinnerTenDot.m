@@ -220,9 +220,6 @@
     if (_isAnimating)
         return;
     
-    // Add Ten Spinner to container
-    [_containerView addSubview:self];
-    
     //Set hidden
     self.hidden = NO;
     self.alpha = 0;

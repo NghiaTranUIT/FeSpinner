@@ -33,8 +33,15 @@
     _hourGlass = [[FeHourGlass alloc] initWithView:self.view];
     [self.view addSubview:_hourGlass];
     
-    [_hourGlass show];
+    [_hourGlass showWhileExecutingBlock:^{
+        [self myTask];
+    } completion:^{
+        [self.navigationController popToRootViewControllerAnimated:YES];
+    }];
 }
-
-
+- (void)myTask
+{
+	// Do something usefull in here instead of sleeping ...
+	sleep(12);
+}
 @end

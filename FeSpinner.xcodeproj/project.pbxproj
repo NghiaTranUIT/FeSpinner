@@ -19,8 +19,6 @@
 		BA760A2B1871C062004FDD1C /* FeVietNamLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = BA760A2A1871C062004FDD1C /* FeVietNamLoader.m */; };
 		BA760A2E1871C080004FDD1C /* FeVietNamBar.m in Sources */ = {isa = PBXBuildFile; fileRef = BA760A2D1871C080004FDD1C /* FeVietNamBar.m */; };
 		BA760A321871C99A004FDD1C /* FeVietNamLoaderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BA760A311871C99A004FDD1C /* FeVietNamLoaderViewController.m */; };
-		BA847718183DF0DE009A5272 /* test.png in Resources */ = {isa = PBXBuildFile; fileRef = BA847717183DF0DE009A5272 /* test.png */; };
-		BA96863D193642610006E46E /* photo-2.PNG in Resources */ = {isa = PBXBuildFile; fileRef = BA96863C193642610006E46E /* photo-2.PNG */; };
 		BA9686411936428B0006E46E /* FeWifiManViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BA9686401936428B0006E46E /* FeWifiManViewController.m */; };
 		BA968645193642A60006E46E /* FeWifiManHub.m in Sources */ = {isa = PBXBuildFile; fileRef = BA968644193642A60006E46E /* FeWifiManHub.m */; };
 		BA968647193642B30006E46E /* FeWifiManHub.xib in Resources */ = {isa = PBXBuildFile; fileRef = BA968646193642B30006E46E /* FeWifiManHub.xib */; };
@@ -55,7 +53,6 @@
 		BAE0874E183CFC0B00B12AB6 /* UIColor+flat.m in Sources */ = {isa = PBXBuildFile; fileRef = BAE0874D183CFC0B00B12AB6 /* UIColor+flat.m */; };
 		BAF0C55C19A08F3000F05F48 /* MerriweatherSans-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = BAF0C55B19A08F3000F05F48 /* MerriweatherSans-Regular.otf */; };
 		BAF4008118609BBC008F7E4D /* Neou-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BAF4008018609BBC008F7E4D /* Neou-Thin.ttf */; };
-		BAF400831860A133008F7E4D /* winter.jpg in Resources */ = {isa = PBXBuildFile; fileRef = BAF400821860A133008F7E4D /* winter.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -88,8 +85,6 @@
 		BA760A2D1871C080004FDD1C /* FeVietNamBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeVietNamBar.m; sourceTree = "<group>"; };
 		BA760A301871C99A004FDD1C /* FeVietNamLoaderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeVietNamLoaderViewController.h; sourceTree = "<group>"; };
 		BA760A311871C99A004FDD1C /* FeVietNamLoaderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeVietNamLoaderViewController.m; sourceTree = "<group>"; };
-		BA847717183DF0DE009A5272 /* test.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = test.png; sourceTree = "<group>"; };
-		BA96863C193642610006E46E /* photo-2.PNG */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "photo-2.PNG"; sourceTree = "<group>"; };
 		BA96863F1936428B0006E46E /* FeWifiManViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeWifiManViewController.h; sourceTree = "<group>"; };
 		BA9686401936428B0006E46E /* FeWifiManViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeWifiManViewController.m; sourceTree = "<group>"; };
 		BA968643193642A60006E46E /* FeWifiManHub.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeWifiManHub.h; sourceTree = "<group>"; };
@@ -142,7 +137,6 @@
 		BAE0874D183CFC0B00B12AB6 /* UIColor+flat.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+flat.m"; sourceTree = "<group>"; };
 		BAF0C55B19A08F3000F05F48 /* MerriweatherSans-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MerriweatherSans-Regular.otf"; sourceTree = "<group>"; };
 		BAF4008018609BBC008F7E4D /* Neou-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Neou-Thin.ttf"; sourceTree = "<group>"; };
-		BAF400821860A133008F7E4D /* winter.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = winter.jpg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -376,11 +370,8 @@
 		BAE08709183CE85100B12AB6 /* FeSpinner */ = {
 			isa = PBXGroup;
 			children = (
-				BA96863C193642610006E46E /* photo-2.PNG */,
 				BAE0873B183CE88D00B12AB6 /* FeSpinner */,
 				BABFC6F318614494007C61D3 /* View Controller */,
-				BAF400821860A133008F7E4D /* winter.jpg */,
-				BA847717183DF0DE009A5272 /* test.png */,
 				BAE08712183CE85100B12AB6 /* FeAppDelegate.h */,
 				BAE08713183CE85100B12AB6 /* FeAppDelegate.m */,
 				BAE08715183CE85100B12AB6 /* Main_iPhone.storyboard */,
@@ -541,16 +532,13 @@
 				BAF4008118609BBC008F7E4D /* Neou-Thin.ttf in Resources */,
 				BA65E74A1861C10800E78E64 /* CabinCondensed-Bold.ttf in Resources */,
 				BAE0871A183CE85100B12AB6 /* Main_iPad.storyboard in Resources */,
-				BAF400831860A133008F7E4D /* winter.jpg in Resources */,
 				BA96864B193642DC0006E46E /* wifimanhub@2x.png in Resources */,
 				BAF0C55C19A08F3000F05F48 /* MerriweatherSans-Regular.otf in Resources */,
-				BA847718183DF0DE009A5272 /* test.png in Resources */,
 				BA36C6C21936D4F600E317D8 /* WifiMan_Sign_4@2x.png in Resources */,
 				BAE0871F183CE85100B12AB6 /* Images.xcassets in Resources */,
 				BA96864A193642DC0006E46E /* wifimanhub_grayscale@2x.png in Resources */,
 				BA36C6C31936D4F600E317D8 /* WifiMan_Sign_3@2x.png in Resources */,
 				BA968647193642B30006E46E /* FeWifiManHub.xib in Resources */,
-				BA96863D193642610006E46E /* photo-2.PNG in Resources */,
 				BAE08717183CE85100B12AB6 /* Main_iPhone.storyboard in Resources */,
 				BA36C6C51936D4F600E317D8 /* WifiMan_Sign_1@2x.png in Resources */,
 				BA36C6C41936D4F600E317D8 /* WifiMan_Sign_2@2x.png in Resources */,

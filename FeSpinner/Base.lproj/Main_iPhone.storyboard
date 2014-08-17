@@ -184,25 +184,6 @@
                     <view key="view" contentMode="scaleToFill" id="EVr-yZ-b9G">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <subviews>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="NEa-FV-YvB">
-                                <rect key="frame" x="0.0" y="524" width="320" height="44"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                                <items>
-                                    <barButtonItem title="Start" id="aYZ-SM-jyp">
-                                        <connections>
-                                            <action selector="start:" destination="4CN-n1-I5j" id="K8l-9F-yGL"/>
-                                        </connections>
-                                    </barButtonItem>
-                                    <barButtonItem width="209" style="plain" systemItem="fixedSpace" id="ToE-5v-DJ8"/>
-                                    <barButtonItem title="Stop" id="613-1k-VXF">
-                                        <connections>
-                                            <action selector="stop:" destination="4CN-n1-I5j" id="FFE-CG-eTb"/>
-                                        </connections>
-                                    </barButtonItem>
-                                </items>
-                            </toolbar>
-                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="Loading Box" id="AUI-a0-ovW"/>
@@ -233,25 +214,6 @@
                     <view key="view" contentMode="scaleToFill" id="mDG-c1-dfS">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <subviews>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="g37-xW-aCg">
-                                <rect key="frame" x="0.0" y="524" width="320" height="44"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                                <items>
-                                    <barButtonItem title="Start" id="xda-BV-jTS">
-                                        <connections>
-                                            <action selector="start:" destination="k0U-uq-HCq" id="TXC-60-pzV"/>
-                                        </connections>
-                                    </barButtonItem>
-                                    <barButtonItem width="209" style="plain" systemItem="fixedSpace" id="5dV-6Q-dKz"/>
-                                    <barButtonItem title="Stop" id="Cih-tq-OkC">
-                                        <connections>
-                                            <action selector="stop:" destination="k0U-uq-HCq" id="3P0-Ya-KkT"/>
-                                        </connections>
-                                    </barButtonItem>
-                                </items>
-                            </toolbar>
-                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="Viet Nam Loader" id="KL6-SW-UNK"/>
@@ -282,12 +244,6 @@
                     <view key="view" contentMode="scaleToFill" id="I7c-Gm-iuH">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="photo-2.PNG" id="JIQ-0S-PHs">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                            </imageView>
-                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="xj1-h1-hzd"/>
@@ -303,32 +259,6 @@
                     <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <subviews>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="0Gy-0m-AAO">
-                                <rect key="frame" x="0.0" y="524" width="320" height="44"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                                <items>
-                                    <barButtonItem title="Start" id="DX7-df-Kxo">
-                                        <connections>
-                                            <action selector="start:" destination="vXZ-lx-hvc" id="Mt3-rv-cAY"/>
-                                        </connections>
-                                    </barButtonItem>
-                                    <barButtonItem width="71" style="plain" systemItem="fixedSpace" id="bzr-0Z-jyE"/>
-                                    <barButtonItem style="plain" id="fMB-x6-mNe">
-                                        <switch key="customView" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" id="Hp0-Vb-xe3">
-                                            <rect key="frame" x="134" y="7" width="51" height="31"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        </switch>
-                                    </barButtonItem>
-                                    <barButtonItem width="59" style="plain" systemItem="fixedSpace" id="x7U-MY-efj"/>
-                                    <barButtonItem title="Dismiss" id="jsb-yu-9rp">
-                                        <connections>
-                                            <action selector="dismiss:" destination="vXZ-lx-hvc" id="D0y-lo-qyD"/>
-                                        </connections>
-                                    </barButtonItem>
-                                </items>
-                            </toolbar>
-                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="Spinner Ten Dot" id="VHa-05-nPJ"/>
@@ -356,9 +286,6 @@
             <point key="canvasLocation" x="-477" y="-79"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="photo-2.PNG" width="640" height="1136"/>
-    </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
