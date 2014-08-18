@@ -148,6 +148,25 @@
                                             <segue destination="s1G-v0-uRM" kind="push" id="JR5-rU-T5v"/>
                                         </connections>
                                     </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="328-bf-nl5">
+                                        <rect key="frame" x="0.0" y="308" width="320" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="328-bf-nl5" id="Qwc-BW-eym">
+                                            <rect key="frame" x="0.0" y="0.0" width="287" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Zero" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Hnr-ce-Yfk">
+                                                    <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="XbE-Ih-g9V" kind="push" id="vxt-up-5b3"/>
+                                        </connections>
+                                    </tableViewCell>
                                 </cells>
                             </tableViewSection>
                         </sections>
@@ -252,6 +271,21 @@
             </objects>
             <point key="canvasLocation" x="-236" y="717"/>
         </scene>
+        <!--Fe Zero Loader View Controller-->
+        <scene sceneID="tOk-SA-sqR">
+            <objects>
+                <viewController id="XbE-Ih-g9V" customClass="FeZeroLoaderViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="mx0-aI-P0W">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="tGd-AH-MKj"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Zbz-O7-GDe" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="360" y="715"/>
+        </scene>
         <!--Fe Spinner Ten Dot View Controller - Spinner Ten Dot-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
@@ -265,7 +299,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="386" y="718"/>
+            <point key="canvasLocation" x="1530" y="-10"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="TK6-in-PmN">

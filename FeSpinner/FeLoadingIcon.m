@@ -349,24 +349,23 @@
 }
 -(void) showWhileExecutingBlock:(dispatch_block_t)block completion:(dispatch_block_t)completion
 {
-    if (block)
+    // Check block != nil
+    if (block != nil)
     {
         [self show];
-        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 1), ^{
-            // execute block
-            block();
-            
-            // Update UI in main thread
-            dispatch_async(dispatch_get_main_queue(), ^{
-                // execute completion block
-                completion();
-                
-                // dismiss
-                [self dismiss];
-            });
-        });
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), ^
+                       {
+                           block();
+                           
+                           // Update UI
+                           dispatch_async(dispatch_get_main_queue(), ^{
+                               completion();
+                               [self dismiss];
+                           });
+                       });
     }
 }
+
 -(void) showWhileExecutingSelector:(SEL)selector onTarget:(id)target withObject:(id)object
 {
     [self showWhileExecutingSelector:selector onTarget:target withObject:object completion:nil];

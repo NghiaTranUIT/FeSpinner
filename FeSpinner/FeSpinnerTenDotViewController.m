@@ -81,6 +81,8 @@
         _timer = nil;
         
         index = 0;
+        
+        [self.navigationController popToRootViewControllerAnimated:YES];
     }];
 }
 -(void) longTask

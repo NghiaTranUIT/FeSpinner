@@ -33,6 +33,8 @@
 		BACB3DEE186349FC00898335 /* FeLoadingBoxViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BACB3DED186349FC00898335 /* FeLoadingBoxViewController.m */; };
 		BACC09101923D5CD00E503F7 /* Feasd.m in Sources */ = {isa = PBXBuildFile; fileRef = BACC090F1923D5CD00E503F7 /* Feasd.m */; };
 		BAD706FA199D0A1B001D7FDE /* FeHourGlassViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BAD706F9199D0A1B001D7FDE /* FeHourGlassViewController.m */; };
+		BAD7FE3719A0E92C00E250D3 /* FeZeroLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = BAD7FE3619A0E92C00E250D3 /* FeZeroLoader.m */; };
+		BAD7FE3B19A0EEE000E250D3 /* FeZeroLoaderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BAD7FE3A19A0EEE000E250D3 /* FeZeroLoaderViewController.m */; };
 		BAE08704183CE85100B12AB6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAE08703183CE85100B12AB6 /* Foundation.framework */; };
 		BAE08706183CE85100B12AB6 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAE08705183CE85100B12AB6 /* CoreGraphics.framework */; };
 		BAE08708183CE85100B12AB6 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAE08707183CE85100B12AB6 /* UIKit.framework */; };
@@ -51,7 +53,6 @@
 		BAE08740183CE8A500B12AB6 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAE0873F183CE8A500B12AB6 /* QuartzCore.framework */; };
 		BAE08743183CE91800B12AB6 /* FXBlurView.m in Sources */ = {isa = PBXBuildFile; fileRef = BAE08742183CE91800B12AB6 /* FXBlurView.m */; };
 		BAE0874E183CFC0B00B12AB6 /* UIColor+flat.m in Sources */ = {isa = PBXBuildFile; fileRef = BAE0874D183CFC0B00B12AB6 /* UIColor+flat.m */; };
-		BAF0C55C19A08F3000F05F48 /* MerriweatherSans-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = BAF0C55B19A08F3000F05F48 /* MerriweatherSans-Regular.otf */; };
 		BAF4008118609BBC008F7E4D /* Neou-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BAF4008018609BBC008F7E4D /* Neou-Thin.ttf */; };
 /* End PBXBuildFile section */
 
@@ -110,6 +111,10 @@
 		BACC090F1923D5CD00E503F7 /* Feasd.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Feasd.m; sourceTree = "<group>"; };
 		BAD706F8199D0A1B001D7FDE /* FeHourGlassViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeHourGlassViewController.h; sourceTree = "<group>"; };
 		BAD706F9199D0A1B001D7FDE /* FeHourGlassViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeHourGlassViewController.m; sourceTree = "<group>"; };
+		BAD7FE3519A0E92C00E250D3 /* FeZeroLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeZeroLoader.h; sourceTree = "<group>"; };
+		BAD7FE3619A0E92C00E250D3 /* FeZeroLoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeZeroLoader.m; sourceTree = "<group>"; };
+		BAD7FE3919A0EEE000E250D3 /* FeZeroLoaderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeZeroLoaderViewController.h; sourceTree = "<group>"; };
+		BAD7FE3A19A0EEE000E250D3 /* FeZeroLoaderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeZeroLoaderViewController.m; sourceTree = "<group>"; };
 		BAE08700183CE85100B12AB6 /* FeSpinner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FeSpinner.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BAE08703183CE85100B12AB6 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		BAE08705183CE85100B12AB6 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -135,7 +140,6 @@
 		BAE08742183CE91800B12AB6 /* FXBlurView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FXBlurView.m; sourceTree = "<group>"; };
 		BAE0874C183CFC0B00B12AB6 /* UIColor+flat.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+flat.h"; sourceTree = "<group>"; };
 		BAE0874D183CFC0B00B12AB6 /* UIColor+flat.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+flat.m"; sourceTree = "<group>"; };
-		BAF0C55B19A08F3000F05F48 /* MerriweatherSans-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MerriweatherSans-Regular.otf"; sourceTree = "<group>"; };
 		BAF4008018609BBC008F7E4D /* Neou-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Neou-Thin.ttf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -167,7 +171,6 @@
 		BA092802199D204200EDB4B9 /* Equalize */ = {
 			isa = PBXGroup;
 			children = (
-				BAF0C55B19A08F3000F05F48 /* MerriweatherSans-Regular.otf */,
 				BA092803199D205E00EDB4B9 /* FeEqualize.h */,
 				BA092804199D205E00EDB4B9 /* FeEqualize.m */,
 			);
@@ -177,6 +180,7 @@
 		BA0E9FB5185C03BE0056A74E /* Type */ = {
 			isa = PBXGroup;
 			children = (
+				BAD7FE3419A0E91B00E250D3 /* Zero */,
 				BA092802199D204200EDB4B9 /* Equalize */,
 				BAAEB77F199CA6FE00B5C4FA /* HourGlass */,
 				BA968642193642940006E46E /* WifiManHub */,
@@ -296,6 +300,7 @@
 		BABFC6F318614494007C61D3 /* View Controller */ = {
 			isa = PBXGroup;
 			children = (
+				BAD7FE3819A0EECF00E250D3 /* Zero */,
 				BAB6330A199DE53700F2925B /* Equalizer */,
 				BAAEB77E199CA6D200B5C4FA /* HourGlass */,
 				BA96863E1936426E0006E46E /* WifiManHub */,
@@ -334,6 +339,24 @@
 				BACB3DED186349FC00898335 /* FeLoadingBoxViewController.m */,
 			);
 			name = "Loading Box";
+			sourceTree = "<group>";
+		};
+		BAD7FE3419A0E91B00E250D3 /* Zero */ = {
+			isa = PBXGroup;
+			children = (
+				BAD7FE3519A0E92C00E250D3 /* FeZeroLoader.h */,
+				BAD7FE3619A0E92C00E250D3 /* FeZeroLoader.m */,
+			);
+			name = Zero;
+			sourceTree = "<group>";
+		};
+		BAD7FE3819A0EECF00E250D3 /* Zero */ = {
+			isa = PBXGroup;
+			children = (
+				BAD7FE3919A0EEE000E250D3 /* FeZeroLoaderViewController.h */,
+				BAD7FE3A19A0EEE000E250D3 /* FeZeroLoaderViewController.m */,
+			);
+			name = Zero;
 			sourceTree = "<group>";
 		};
 		BAE086F7183CE85100B12AB6 = {
@@ -533,7 +556,6 @@
 				BA65E74A1861C10800E78E64 /* CabinCondensed-Bold.ttf in Resources */,
 				BAE0871A183CE85100B12AB6 /* Main_iPad.storyboard in Resources */,
 				BA96864B193642DC0006E46E /* wifimanhub@2x.png in Resources */,
-				BAF0C55C19A08F3000F05F48 /* MerriweatherSans-Regular.otf in Resources */,
 				BA36C6C21936D4F600E317D8 /* WifiMan_Sign_4@2x.png in Resources */,
 				BAE0871F183CE85100B12AB6 /* Images.xcassets in Resources */,
 				BA96864A193642DC0006E46E /* wifimanhub_grayscale@2x.png in Resources */,
@@ -572,6 +594,8 @@
 				BAB6330D199DE54500F2925B /* FeEqualizerViewController.m in Sources */,
 				BABFC6F718614504007C61D3 /* FeSpinnerTenDotViewController.m in Sources */,
 				BAE08743183CE91800B12AB6 /* FXBlurView.m in Sources */,
+				BAD7FE3719A0E92C00E250D3 /* FeZeroLoader.m in Sources */,
+				BAD7FE3B19A0EEE000E250D3 /* FeZeroLoaderViewController.m in Sources */,
 				BA760A321871C99A004FDD1C /* FeVietNamLoaderViewController.m in Sources */,
 				BA760A2B1871C062004FDD1C /* FeVietNamLoader.m in Sources */,
 				BAE0871D183CE85100B12AB6 /* FeViewController.m in Sources */,
