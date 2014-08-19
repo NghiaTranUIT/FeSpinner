@@ -12,6 +12,7 @@
 		BA36C6C31936D4F600E317D8 /* WifiMan_Sign_3@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BA36C6BF1936D4F600E317D8 /* WifiMan_Sign_3@2x.png */; };
 		BA36C6C41936D4F600E317D8 /* WifiMan_Sign_2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BA36C6C01936D4F600E317D8 /* WifiMan_Sign_2@2x.png */; };
 		BA36C6C51936D4F600E317D8 /* WifiMan_Sign_1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BA36C6C11936D4F600E317D8 /* WifiMan_Sign_1@2x.png */; };
+		BA49221319A230660036749B /* FeRollingLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = BA49221219A230660036749B /* FeRollingLoader.m */; };
 		BA569A3118772E0700AC585D /* FeThreeDotGlow.m in Sources */ = {isa = PBXBuildFile; fileRef = BA569A3018772E0700AC585D /* FeThreeDotGlow.m */; };
 		BA569A351877319300AC585D /* FeThreeDotGlowViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BA569A341877319300AC585D /* FeThreeDotGlowViewController.m */; };
 		BA5D0F8D185B635500A5F726 /* FeTenDot.m in Sources */ = {isa = PBXBuildFile; fileRef = BA5D0F8C185B635500A5F726 /* FeTenDot.m */; };
@@ -53,6 +54,7 @@
 		BAE08740183CE8A500B12AB6 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAE0873F183CE8A500B12AB6 /* QuartzCore.framework */; };
 		BAE08743183CE91800B12AB6 /* FXBlurView.m in Sources */ = {isa = PBXBuildFile; fileRef = BAE08742183CE91800B12AB6 /* FXBlurView.m */; };
 		BAE0874E183CFC0B00B12AB6 /* UIColor+flat.m in Sources */ = {isa = PBXBuildFile; fileRef = BAE0874D183CFC0B00B12AB6 /* UIColor+flat.m */; };
+		BAE74BFF19A237EE00E8CEF8 /* FeRollingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BAE74BFE19A237EE00E8CEF8 /* FeRollingViewController.m */; };
 		BAF4008118609BBC008F7E4D /* Neou-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BAF4008018609BBC008F7E4D /* Neou-Thin.ttf */; };
 /* End PBXBuildFile section */
 
@@ -73,6 +75,8 @@
 		BA36C6BF1936D4F600E317D8 /* WifiMan_Sign_3@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "WifiMan_Sign_3@2x.png"; sourceTree = "<group>"; };
 		BA36C6C01936D4F600E317D8 /* WifiMan_Sign_2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "WifiMan_Sign_2@2x.png"; sourceTree = "<group>"; };
 		BA36C6C11936D4F600E317D8 /* WifiMan_Sign_1@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "WifiMan_Sign_1@2x.png"; sourceTree = "<group>"; };
+		BA49221119A230660036749B /* FeRollingLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeRollingLoader.h; sourceTree = "<group>"; };
+		BA49221219A230660036749B /* FeRollingLoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeRollingLoader.m; sourceTree = "<group>"; };
 		BA569A2F18772E0700AC585D /* FeThreeDotGlow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeThreeDotGlow.h; sourceTree = "<group>"; };
 		BA569A3018772E0700AC585D /* FeThreeDotGlow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeThreeDotGlow.m; sourceTree = "<group>"; };
 		BA569A331877319300AC585D /* FeThreeDotGlowViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeThreeDotGlowViewController.h; sourceTree = "<group>"; };
@@ -140,6 +144,8 @@
 		BAE08742183CE91800B12AB6 /* FXBlurView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FXBlurView.m; sourceTree = "<group>"; };
 		BAE0874C183CFC0B00B12AB6 /* UIColor+flat.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+flat.h"; sourceTree = "<group>"; };
 		BAE0874D183CFC0B00B12AB6 /* UIColor+flat.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+flat.m"; sourceTree = "<group>"; };
+		BAE74BFD19A237EE00E8CEF8 /* FeRollingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeRollingViewController.h; sourceTree = "<group>"; };
+		BAE74BFE19A237EE00E8CEF8 /* FeRollingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeRollingViewController.m; sourceTree = "<group>"; };
 		BAF4008018609BBC008F7E4D /* Neou-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Neou-Thin.ttf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -180,6 +186,7 @@
 		BA0E9FB5185C03BE0056A74E /* Type */ = {
 			isa = PBXGroup;
 			children = (
+				BA49221019A230480036749B /* Rolling */,
 				BAD7FE3419A0E91B00E250D3 /* Zero */,
 				BA092802199D204200EDB4B9 /* Equalize */,
 				BAAEB77F199CA6FE00B5C4FA /* HourGlass */,
@@ -190,6 +197,15 @@
 				BAB5ABAD1848C87400CBCBBD /* Ten Dot */,
 			);
 			name = Type;
+			sourceTree = "<group>";
+		};
+		BA49221019A230480036749B /* Rolling */ = {
+			isa = PBXGroup;
+			children = (
+				BA49221119A230660036749B /* FeRollingLoader.h */,
+				BA49221219A230660036749B /* FeRollingLoader.m */,
+			);
+			name = Rolling;
 			sourceTree = "<group>";
 		};
 		BA53DA291848DDF600DD1DA8 /* Tool */ = {
@@ -300,6 +316,7 @@
 		BABFC6F318614494007C61D3 /* View Controller */ = {
 			isa = PBXGroup;
 			children = (
+				BAE74BFC19A237E400E8CEF8 /* Rolling */,
 				BAD7FE3819A0EECF00E250D3 /* Zero */,
 				BAB6330A199DE53700F2925B /* Equalizer */,
 				BAAEB77E199CA6D200B5C4FA /* HourGlass */,
@@ -457,6 +474,15 @@
 			name = "Blur View";
 			sourceTree = "<group>";
 		};
+		BAE74BFC19A237E400E8CEF8 /* Rolling */ = {
+			isa = PBXGroup;
+			children = (
+				BAE74BFD19A237EE00E8CEF8 /* FeRollingViewController.h */,
+				BAE74BFE19A237EE00E8CEF8 /* FeRollingViewController.m */,
+			);
+			name = Rolling;
+			sourceTree = "<group>";
+		};
 		BAF4007F18609BAB008F7E4D /* Resource */ = {
 			isa = PBXGroup;
 			children = (
@@ -594,6 +620,7 @@
 				BAB6330D199DE54500F2925B /* FeEqualizerViewController.m in Sources */,
 				BABFC6F718614504007C61D3 /* FeSpinnerTenDotViewController.m in Sources */,
 				BAE08743183CE91800B12AB6 /* FXBlurView.m in Sources */,
+				BAE74BFF19A237EE00E8CEF8 /* FeRollingViewController.m in Sources */,
 				BAD7FE3719A0E92C00E250D3 /* FeZeroLoader.m in Sources */,
 				BAD7FE3B19A0EEE000E250D3 /* FeZeroLoaderViewController.m in Sources */,
 				BA760A321871C99A004FDD1C /* FeVietNamLoaderViewController.m in Sources */,
@@ -606,6 +633,7 @@
 				BAB5ABB01848C90700CBCBBD /* FeSpinnerTenDot.m in Sources */,
 				BA5D0F8D185B635500A5F726 /* FeTenDot.m in Sources */,
 				BA760A2E1871C080004FDD1C /* FeVietNamBar.m in Sources */,
+				BA49221319A230660036749B /* FeRollingLoader.m in Sources */,
 				BAE08714183CE85100B12AB6 /* FeAppDelegate.m in Sources */,
 				BA968645193642A60006E46E /* FeWifiManHub.m in Sources */,
 			);
