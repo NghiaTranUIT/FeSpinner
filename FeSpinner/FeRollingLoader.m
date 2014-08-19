@@ -10,7 +10,7 @@
 #import "UIColor+flat.h"
 
 #define kFe_Color_DarkShalmon @"E9967A"
-#define kFe_Circle_Width 180.0f
+#define kFe_Circle_Width 120
 #define kFe_Color_Salmon @"#FA8072"
 
 @interface FeRollingLoader ()
@@ -24,14 +24,12 @@
 @property (strong, nonatomic) CAShapeLayer *circleLayer;
 
 // Group
-@property (strong, nonatomic) CAAnimationGroup *group_0;
-@property (strong, nonatomic) CAAnimationGroup *group_25;
-@property (strong, nonatomic) CAAnimationGroup *group_50;
-@property (strong, nonatomic) CAAnimationGroup *group_75;
-@property (strong, nonatomic) CAAnimationGroup *group_100;
+@property (strong, nonatomic) CAKeyframeAnimation *keyframePath;
+@property (strong, nonatomic) CAKeyframeAnimation *keyframeBackground;
+@property (strong, nonatomic) CABasicAnimation *animationTransfrom;
 
 // Keyframe
-@property (strong, nonatomic) CAKeyframeAnimation *keyframeAnimation;
+@property (strong, nonatomic) CAAnimationGroup *groupAnimation;
 
 //////
 -(void) initCommon;
@@ -86,128 +84,58 @@
 
 -(void) initAnimation
 {
-    // 0 %
-    if (YES)
+    if (YES) // Path
     {
-        // Path
-        CGFloat length = kFe_Circle_Width / 2.0f;
-        CABasicAnimation *pathAnimation = [CABasicAnimation animationWithKeyPath:@"path"];
-        CGPathRef path = [self pathRefForCornerRectWithTopLeftRadius:0.55f * length topRight:0.75f * length bottomLeft:0.55f * length bottomRight:0.75f * length];
-        pathAnimation.toValue = (__bridge id)path;
+        // Path 0
+        CGFloat length = kFe_Circle_Width / 2;
+        CGPathRef path_0 = [self pathRefForCornerRectWithTopLeftRadius:0.55f * length topRight:0.75f * length bottomLeft:0.75f * length bottomRight:0.55f * length];
         
-        // Background
-        CABasicAnimation *backgroundAnimation = [CABasicAnimation animationWithKeyPath:@"fillColor"];
-        backgroundAnimation.toValue = (id)[UIColor colorWithHexCode:kFe_Color_DarkShalmon].CGColor;
-        
-        //Transfrom
-        CABasicAnimation *transfromAnimation = [CABasicAnimation animationWithKeyPath:@"transform.rotation.z"];
-        transfromAnimation.toValue = (id)[NSNumber numberWithFloat:0.0f];
-        
-        // Group
-        _group_0 = [CAAnimationGroup animation];
-        _group_0.duration = 1.3f;
-        _group_0.repeatCount = MAXFLOAT;
-        _group_0.animations = @[pathAnimation, backgroundAnimation, transfromAnimation];
-    }
-    // 25 %
-    if (YES)
-    {
-        // Path
-        CGFloat length = kFe_Circle_Width / 2.0f;
-        CABasicAnimation *pathAnimation = [CABasicAnimation animationWithKeyPath:@"path"];
-        CGPathRef path = [self pathRefForCornerRectWithTopLeftRadius:0.65f * length topRight:0.75f * length bottomLeft:0.65f * length bottomRight:0.75f * length];
-        pathAnimation.toValue = (__bridge id)path;
-        
-        // Background
-        CABasicAnimation *backgroundAnimation = [CABasicAnimation animationWithKeyPath:@"fillColor"];
-        backgroundAnimation.toValue = (id)[UIColor colorWithHexCode:kFe_Color_Salmon].CGColor;
-        
-        //Transfrom
-        CABasicAnimation *transfromAnimation = [CABasicAnimation animationWithKeyPath:@"transform.rotation.z"];
-        transfromAnimation.toValue = (id)[NSNumber numberWithFloat:M_PI / 2.0f];
-        
-        // Group
-        _group_25 = [CAAnimationGroup animation];
-        _group_25.duration = 1.3f;
-        _group_25.repeatCount = MAXFLOAT;
-        _group_25.animations = @[pathAnimation, backgroundAnimation, transfromAnimation];
-    }
-    
-    // 50 %
-    if (YES)
-    {
-        // Path
-        CGFloat length = kFe_Circle_Width / 2.0f;
-        CABasicAnimation *pathAnimation = [CABasicAnimation animationWithKeyPath:@"path"];
-        CGPathRef path = [self pathRefForCornerRectWithTopLeftRadius:0.95f * length topRight:0.65f * length bottomLeft:0.95f * length bottomRight:0.65f * length];
-        pathAnimation.toValue = (__bridge id)path;
-        
-        // Background
-        CABasicAnimation *backgroundAnimation = [CABasicAnimation animationWithKeyPath:@"fillColor"];
-        backgroundAnimation.toValue = (id)[UIColor colorWithHexCode:kFe_Color_DarkShalmon].CGColor;
-        
-        //Transfrom
-        CABasicAnimation *transfromAnimation = [CABasicAnimation animationWithKeyPath:@"transform.rotation.z"];
-        transfromAnimation.toValue = (id)[NSNumber numberWithFloat:M_PI];
-        
-        // Group
-        _group_50 = [CAAnimationGroup animation];
-        _group_50.duration = 1.3f;
-        _group_50.repeatCount = MAXFLOAT;
-        _group_50.animations = @[pathAnimation, backgroundAnimation, transfromAnimation];
-    }
-    
-    
-    // 75 %
-    if (YES)
-    {
-        // Path
-        CGFloat length = kFe_Circle_Width / 2.0f;
-        CABasicAnimation *pathAnimation = [CABasicAnimation animationWithKeyPath:@"path"];
-        CGPathRef path = [self pathRefForCornerRectWithTopLeftRadius:0.85f * length topRight:0.95f * length bottomLeft:0.85f * length bottomRight:0.95f * length];
-        pathAnimation.toValue = (__bridge id)path;
-        
-        // Background
-        CABasicAnimation *backgroundAnimation = [CABasicAnimation animationWithKeyPath:@"fillColor"];
-        backgroundAnimation.toValue = (id)[UIColor colorWithHexCode:kFe_Color_Salmon].CGColor;
-        
-        //Transfrom
-        CABasicAnimation *transfromAnimation = [CABasicAnimation animationWithKeyPath:@"transform.rotation.z"];
-        transfromAnimation.toValue = (id)[NSNumber numberWithFloat:M_PI * 3 / 4];
-        
-        // Group
-        _group_75 = [CAAnimationGroup animation];
-        _group_75.duration = 1.3f;
-        _group_75.repeatCount = MAXFLOAT;
-        _group_75.animations = @[pathAnimation, backgroundAnimation, transfromAnimation];
-    }
+        // Path 25
+        CGPathRef path_25 = [self pathRefForCornerRectWithTopLeftRadius:0.65f * length topRight:0.75f * length bottomLeft:0.75f * length bottomRight:0.65f * length];
 
-    
-    // 100 %
-    if (YES)
-    {
-        // Path
-        CGFloat length = kFe_Circle_Width / 2.0f;
-        CABasicAnimation *pathAnimation = [CABasicAnimation animationWithKeyPath:@"path"];
-        CGPathRef path = [self pathRefForCornerRectWithTopLeftRadius:0.55f * length topRight:0.75f * length bottomLeft:0.55f * length bottomRight:0.75f * length];
-        pathAnimation.toValue = (__bridge id)path;
-        
-        // Background
-        CABasicAnimation *backgroundAnimation = [CABasicAnimation animationWithKeyPath:@"fillColor"];
-        backgroundAnimation.toValue = (id)[UIColor colorWithHexCode:kFe_Color_DarkShalmon].CGColor;
-        
-        //Transfrom
-        CABasicAnimation *transfromAnimation = [CABasicAnimation animationWithKeyPath:@"transform.rotation.z"];
-        transfromAnimation.toValue = (id)[NSNumber numberWithFloat:M_PI * 2];
-        
-        // Group
-        _group_100 = [CAAnimationGroup animation];
-        _group_100.duration = 1.3f;
-        _group_100.repeatCount = MAXFLOAT;
-        _group_100.animations = @[pathAnimation, backgroundAnimation, transfromAnimation];
-    }
+        // Path 50
+        CGPathRef path_50 = [self pathRefForCornerRectWithTopLeftRadius:0.95f * length topRight:0.65f * length bottomLeft:0.65f * length bottomRight:0.95f * length];
 
+        // Path 75
+        CGPathRef path_75 = [self pathRefForCornerRectWithTopLeftRadius:0.85f * length topRight:0.95f * length bottomLeft:0.95f * length bottomRight:0.85f * length];
+        
+        // Paht 1-00
+        CGPathRef path_100 = [self pathRefForCornerRectWithTopLeftRadius:0.55f * length topRight:0.75f * length bottomLeft:0.75f * length bottomRight:0.55f * length];
+        
+        _keyframePath = [CAKeyframeAnimation animationWithKeyPath:@"path"];
+        _keyframePath.keyTimes = @[@0.0f, @0.25f, @0.5f, @0.75f, @1.0f];
+        _keyframePath.values = @[(__bridge id) path_0, (__bridge id) path_25, (__bridge id) path_50, (__bridge id) path_75, (__bridge id) path_100];
+        _keyframePath.duration = 1.3f;
+        _keyframePath.repeatCount = MAXFLOAT;
+    }
     
+    if (YES) // Background
+    {
+        _keyframeBackground = [CAKeyframeAnimation animationWithKeyPath:@"fillColor"];
+        _keyframeBackground.keyTimes = @[@0.0f, @0.25f, @0.5f, @0.75f, @1.0f];
+        _keyframeBackground.values = @[(id)[UIColor colorWithHexCode:kFe_Color_DarkShalmon].CGColor,
+                                       (id)[UIColor colorWithHexCode:kFe_Color_Salmon].CGColor,
+                                       (id)[UIColor colorWithHexCode:kFe_Color_DarkShalmon].CGColor,
+                                       (id)[UIColor colorWithHexCode:kFe_Color_Salmon].CGColor,
+                                       (id)[UIColor colorWithHexCode:kFe_Color_DarkShalmon].CGColor];
+        _keyframeBackground.duration = 1.3f;
+        _keyframeBackground.repeatCount = MAXFLOAT;
+    }
+    
+    if (YES)// Transfrom
+    {
+        _animationTransfrom = [CABasicAnimation animationWithKeyPath:@"transform.rotation"];
+        [_animationTransfrom setFromValue:[NSNumber numberWithDouble:0.0f]];
+        [_animationTransfrom setToValue:[NSNumber numberWithDouble:(M_PI * 2.0f)]];
+    }
+    
+    
+    
+    // Group
+    _groupAnimation = [CAAnimationGroup animation];
+    _groupAnimation.duration = 1.3f;
+    _groupAnimation.repeatCount = MAXFLOAT;
+    _groupAnimation.animations = @[_keyframePath, _keyframeBackground, _animationTransfrom];
     
 }
 #pragma mark - Private
@@ -236,6 +164,6 @@
 
 -(void) show
 {
-    [_circleLayer addAnimation:_group_25 forKey:@"rolling"];
+    [_circleLayer addAnimation:_groupAnimation forKey:@"rolling"];
 }
 @end
