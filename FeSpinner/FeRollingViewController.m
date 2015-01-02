@@ -33,8 +33,15 @@
     _rollingLoader = [[FeRollingLoader alloc] initWithView:self.view title:@"LOADING"];
     [self.view addSubview:_rollingLoader];
     
-    [_rollingLoader show];
+    [_rollingLoader showWhileExecutingBlock:^{
+        [self myTask];
+    } completion:^{
+        [self.navigationController popToRootViewControllerAnimated:YES];
+    }];
 }
-
-
+- (void)myTask
+{
+    // Do something usefull in here instead of sleeping ...
+    sleep(12);
+}
 @end
