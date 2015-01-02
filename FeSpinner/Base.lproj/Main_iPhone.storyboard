@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="13E28" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="UWl-8u-77X">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="UWl-8u-77X">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
     </dependencies>
     <scenes>
-        <!--Table View Controller - Fe Spinner-->
+        <!--Fe Spinner-->
         <scene sceneID="mvG-TZ-6ee">
             <objects>
                 <tableViewController id="vh6-fS-Rnm" sceneMemberID="viewController">
@@ -148,25 +149,6 @@
                                             <segue destination="s1G-v0-uRM" kind="push" id="JR5-rU-T5v"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="328-bf-nl5">
-                                        <rect key="frame" x="0.0" y="308" width="320" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="328-bf-nl5" id="Qwc-BW-eym">
-                                            <rect key="frame" x="0.0" y="0.0" width="287" height="43"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Zero" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Hnr-ce-Yfk">
-                                                    <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                        </tableViewCellContentView>
-                                        <connections>
-                                            <segue destination="XbE-Ih-g9V" kind="push" id="vxt-up-5b3"/>
-                                        </connections>
-                                    </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="Haf-Om-nHY">
                                         <rect key="frame" x="0.0" y="352" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
@@ -215,7 +197,7 @@
             </objects>
             <point key="canvasLocation" x="-438" y="-761"/>
         </scene>
-        <!--Fe Loading Box View Controller - Loading Box-->
+        <!--Loading Box-->
         <scene sceneID="mKD-gZ-Rrj">
             <objects>
                 <viewController id="4CN-n1-I5j" customClass="FeLoadingBoxViewController" sceneMemberID="viewController">
@@ -245,7 +227,7 @@
             </objects>
             <point key="canvasLocation" x="562" y="-710"/>
         </scene>
-        <!--Fe Viet Nam Loader View Controller - Viet Nam Loader-->
+        <!--Viet Nam Loader-->
         <scene sceneID="OCV-Rn-Rcw">
             <objects>
                 <viewController id="k0U-uq-HCq" customClass="FeVietNamLoaderViewController" sceneMemberID="viewController">
@@ -305,22 +287,7 @@
             </objects>
             <point key="canvasLocation" x="184" y="640"/>
         </scene>
-        <!--Fe Zero Loader View Controller-->
-        <scene sceneID="tOk-SA-sqR">
-            <objects>
-                <viewController id="XbE-Ih-g9V" customClass="FeZeroLoaderViewController" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="mx0-aI-P0W">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="tGd-AH-MKj"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Zbz-O7-GDe" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="594" y="595"/>
-        </scene>
-        <!--Fe Spinner Ten Dot View Controller - Spinner Ten Dot-->
+        <!--Spinner Ten Dot-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
                 <viewController id="vXZ-lx-hvc" customClass="FeSpinnerTenDotViewController" sceneMemberID="viewController">

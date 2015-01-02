@@ -88,19 +88,19 @@
     {
         // Path 0
         CGFloat length = kFe_Circle_Width / 2;
-        CGPathRef path_0 = [self pathRefForCornerRectWithTopLeftRadius:0.55f * length topRight:0.75f * length bottomLeft:0.75f * length bottomRight:0.55f * length];
+        CGPathRef path_0 = [self pathRefForCornerRectWithTopLeftRadius:0.65f * length topRight:0.85f * length bottomLeft:0.85f * length bottomRight:0.65f * length];
         
         // Path 25
-        CGPathRef path_25 = [self pathRefForCornerRectWithTopLeftRadius:0.65f * length topRight:0.75f * length bottomLeft:0.75f * length bottomRight:0.65f * length];
+        CGPathRef path_25 = [self pathRefForCornerRectWithTopLeftRadius:0.75f * length topRight:0.85f * length bottomLeft:0.85f * length bottomRight:0.75f * length];
 
         // Path 50
-        CGPathRef path_50 = [self pathRefForCornerRectWithTopLeftRadius:0.95f * length topRight:0.65f * length bottomLeft:0.65f * length bottomRight:0.95f * length];
+        CGPathRef path_50 = [self pathRefForCornerRectWithTopLeftRadius:0.95f * length topRight:0.75f * length bottomLeft:0.75f * length bottomRight:0.95f * length];
 
         // Path 75
-        CGPathRef path_75 = [self pathRefForCornerRectWithTopLeftRadius:0.85f * length topRight:0.95f * length bottomLeft:0.95f * length bottomRight:0.85f * length];
+        CGPathRef path_75 = [self pathRefForCornerRectWithTopLeftRadius:0.95f * length topRight:0.95f * length bottomLeft:0.95f * length bottomRight:0.95f * length];
         
         // Paht 1-00
-        CGPathRef path_100 = [self pathRefForCornerRectWithTopLeftRadius:0.55f * length topRight:0.75f * length bottomLeft:0.75f * length bottomRight:0.55f * length];
+        CGPathRef path_100 = [self pathRefForCornerRectWithTopLeftRadius:0.65f * length topRight:0.85f * length bottomLeft:0.85f * length bottomRight:0.65f * length];
         
         _keyframePath = [CAKeyframeAnimation animationWithKeyPath:@"path"];
         _keyframePath.keyTimes = @[@0.0f, @0.25f, @0.5f, @0.75f, @1.0f];
