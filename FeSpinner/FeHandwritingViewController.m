@@ -17,22 +17,26 @@
 
 @implementation FeHandwritingViewController
 
-- (void)viewDidLoad {
+- (void)viewDidLoad
+{
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    self.view.backgroundColor = [UIColor colorWithHexCode:@"ffe200"];
+    self.view.backgroundColor = [UIColor colorWithHexCode:@"#ffe200"];
     
     _handwritingLoader = [[FeHandwriting alloc] initWithView:self.view];
     [self.view addSubview:_handwritingLoader];
-}
-
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
     
+    [_handwritingLoader showWhileExecutingBlock:^{
+        [self myTask];
+    } completion:^{
+        [self.navigationController popToRootViewControllerAnimated:YES];
+    }];
 }
-
+- (void)myTask
+{
+    // Do something usefull in here instead of sleeping ...
+    sleep(12);
+}
 
 @end
