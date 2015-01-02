@@ -15,6 +15,10 @@ But your project should include some Apple's framework.
 
 ## Sreenshot
 
+**Handwriting Loader**
+
+![GIF](http://nghiatran.me/wp-content/uploads/2015/01/Handwriting.gif)
+
 **Rolling Loader**
 
 ![GIF](http://nghiatran.me/wp-content/uploads/2015/01/RollingLoader.gif)
