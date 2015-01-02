@@ -3,6 +3,8 @@ FeSpinner
 
 The collection Spinner for iOS app.
 
+![](http://nghiatran.me/wp-content/uploads/2015/01/iTunesArtwork.png "Rocket Loader Collection")
+
 ======================
 ## REQUIREMENT
 FeSpinner work on any version iOS and compatible with ARC or non-ARC.
@@ -13,36 +15,8 @@ But your project should include some Apple's framework.
 + CoreGraphics.framework
 + QuartzCore.framework
 
-======================
-## ADD FESPINNER TO YOUR PROJECT
-
-Just simply copy file .h and .m in each type spinner you like.
-
-======================
-##  HOW TO USE
-
-FeSpinner is very similar MBProgessHUB.
-
-FeSpinner have some helpful method.
-
-```objc
--(id) initWithView:(UIView *) view blur:(BOOL) blur backgroundColors:(NSArray *) arrColor;
-
--(void) show;
-
--(void) showWhileExecutingBlock:(dispatch_block_t) block;
-
--(void) showWhileExecutingBlock:(dispatch_block_t)block completion:(dispatch_block_t) completion;
-
--(void) showWhileExecutingSelector:(SEL) selector onTarget:(id) target withObject:(id) object;
-
--(void) showWhileExecutingSelector:(SEL)selector onTarget:(id)target withObject:(id)object completion:(dispatch_block_t) completion;
-
--(void) dismiss;
-```
-
 =======================
-## Sreenshot & Demo video
+## Sreenshot
 
 **Rolling Loader**
 
@@ -75,3 +49,32 @@ FeSpinner have some helpful method.
 **Ten Dots Loader**
 
 ![GIF](http://nghiatran.me/wp-content/uploads/2015/01/TenDot.gif)
+
+======================
+## ADD FESPINNER TO YOUR PROJECT
+
+Just simply copy file .h and .m in each type spinner you like.
+
+======================
+##  HOW TO USE
+
+FeSpinner is very similar MBProgessHUB.
+
+FeSpinner have some helpful method.
+
+```objc
+-(id) initWithView:(UIView *) view blur:(BOOL) blur backgroundColors:(NSArray *) arrColor;
+
+-(void) show;
+
+-(void) showWhileExecutingBlock:(dispatch_block_t) block;
+
+-(void) showWhileExecutingBlock:(dispatch_block_t)block completion:(dispatch_block_t) completion;
+
+-(void) showWhileExecutingSelector:(SEL) selector onTarget:(id) target withObject:(id) object;
+
+-(void) showWhileExecutingSelector:(SEL)selector onTarget:(id)target withObject:(id)object completion:(dispatch_block_t) completion;
+
+-(void) dismiss;
+```
+
