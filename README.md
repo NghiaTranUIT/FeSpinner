@@ -4,7 +4,6 @@ The loader collection for iOS app.
 
 ![](http://nghiatran.me/wp-content/uploads/2015/01/iTunesArtwork.png "Rocket Loader Collection")
 
-======================
 ## REQUIREMENT
 FeSpinner work on any version iOS and compatible with ARC or non-ARC.
 But your project should include some Apple's framework.
@@ -14,7 +13,6 @@ But your project should include some Apple's framework.
 + CoreGraphics.framework
 + QuartzCore.framework
 
-=======================
 ## Sreenshot
 
 **Rolling Loader**
@@ -49,12 +47,10 @@ But your project should include some Apple's framework.
 
 ![GIF](http://nghiatran.me/wp-content/uploads/2015/01/TenDot.gif)
 
-======================
-## ADD FESPINNER TO YOUR PROJECT
+## ADD ROCKET LOADER TO YOUR PROJECT
 
-Just simply copy file .h and .m in each type spinner you like.
+Just simply copy file .h and .m in each type loader you like.
 
-======================
 ##  HOW TO USE
 
 FeSpinner is very similar MBProgessHUB.
