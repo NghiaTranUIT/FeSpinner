@@ -168,6 +168,25 @@
                                             <segue destination="vTC-zA-bwR" kind="push" id="aPb-Ti-XrR"/>
                                         </connections>
                                     </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="BeI-27-2Nn">
+                                        <rect key="frame" x="0.0" y="352" width="320" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="BeI-27-2Nn" id="34P-bq-5KS">
+                                            <rect key="frame" x="0.0" y="0.0" width="287" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Handwriting" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Tae-2n-man">
+                                                    <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="sNv-Um-7Mm" kind="push" id="Mfk-KC-8JY"/>
+                                        </connections>
+                                    </tableViewCell>
                                 </cells>
                             </tableViewSection>
                         </sections>
@@ -212,6 +231,21 @@
             </objects>
             <point key="canvasLocation" x="-12" y="-716"/>
         </scene>
+        <!--Fe Handwriting View Controller-->
+        <scene sceneID="7gs-6v-Wk1">
+            <objects>
+                <viewController id="sNv-Um-7Mm" customClass="FeHandwritingViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="QUc-h1-lbe">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="Ifp-xD-3fD"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dvg-tN-Csk" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="444" y="-569"/>
+        </scene>
         <!--Fe Hour Glass View Controller-->
         <scene sceneID="bAT-NG-ohL">
             <objects>
@@ -225,7 +259,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="h9I-gb-QMg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="562" y="-710"/>
+            <point key="canvasLocation" x="-698" y="474"/>
         </scene>
         <!--Viet Nam Loader-->
         <scene sceneID="OCV-Rn-Rcw">

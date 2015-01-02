@@ -29,6 +29,8 @@
 		BAB5ABB01848C90700CBCBBD /* FeSpinnerTenDot.m in Sources */ = {isa = PBXBuildFile; fileRef = BAB5ABAF1848C90700CBCBBD /* FeSpinnerTenDot.m */; };
 		BAB6330D199DE54500F2925B /* FeEqualizerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BAB6330C199DE54500F2925B /* FeEqualizerViewController.m */; };
 		BABFC6F718614504007C61D3 /* FeSpinnerTenDotViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BABFC6F618614504007C61D3 /* FeSpinnerTenDotViewController.m */; };
+		BAC4D7A51A56849600B52EF1 /* FeHandwritingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BAC4D7A41A56849600B52EF1 /* FeHandwritingViewController.m */; };
+		BAC4D7A91A5684B200B52EF1 /* FeHandwriting.m in Sources */ = {isa = PBXBuildFile; fileRef = BAC4D7A81A5684B200B52EF1 /* FeHandwriting.m */; };
 		BACB3DE718633B2A00898335 /* FeLoadingIcon.m in Sources */ = {isa = PBXBuildFile; fileRef = BACB3DE618633B2A00898335 /* FeLoadingIcon.m */; };
 		BACB3DEA18633B3D00898335 /* FeLoadingIconBox.m in Sources */ = {isa = PBXBuildFile; fileRef = BACB3DE918633B3D00898335 /* FeLoadingIconBox.m */; };
 		BACB3DEE186349FC00898335 /* FeLoadingBoxViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BACB3DED186349FC00898335 /* FeLoadingBoxViewController.m */; };
@@ -105,6 +107,10 @@
 		BAB6330C199DE54500F2925B /* FeEqualizerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeEqualizerViewController.m; sourceTree = "<group>"; };
 		BABFC6F518614504007C61D3 /* FeSpinnerTenDotViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeSpinnerTenDotViewController.h; sourceTree = "<group>"; };
 		BABFC6F618614504007C61D3 /* FeSpinnerTenDotViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeSpinnerTenDotViewController.m; sourceTree = "<group>"; };
+		BAC4D7A31A56849600B52EF1 /* FeHandwritingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeHandwritingViewController.h; sourceTree = "<group>"; };
+		BAC4D7A41A56849600B52EF1 /* FeHandwritingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeHandwritingViewController.m; sourceTree = "<group>"; };
+		BAC4D7A71A5684B200B52EF1 /* FeHandwriting.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeHandwriting.h; sourceTree = "<group>"; };
+		BAC4D7A81A5684B200B52EF1 /* FeHandwriting.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeHandwriting.m; sourceTree = "<group>"; };
 		BACB3DE518633B2A00898335 /* FeLoadingIcon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeLoadingIcon.h; sourceTree = "<group>"; };
 		BACB3DE618633B2A00898335 /* FeLoadingIcon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeLoadingIcon.m; sourceTree = "<group>"; };
 		BACB3DE818633B3D00898335 /* FeLoadingIconBox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeLoadingIconBox.h; sourceTree = "<group>"; };
@@ -186,6 +192,7 @@
 		BA0E9FB5185C03BE0056A74E /* Type */ = {
 			isa = PBXGroup;
 			children = (
+				BAC4D7A61A56849B00B52EF1 /* Handwriting */,
 				BA49221019A230480036749B /* Rolling */,
 				BAD7FE3419A0E91B00E250D3 /* Zero */,
 				BA092802199D204200EDB4B9 /* Equalize */,
@@ -316,6 +323,7 @@
 		BABFC6F318614494007C61D3 /* View Controller */ = {
 			isa = PBXGroup;
 			children = (
+				BAC4D7A21A56847400B52EF1 /* Handwriting */,
 				BAE74BFC19A237E400E8CEF8 /* Rolling */,
 				BAD7FE3819A0EECF00E250D3 /* Zero */,
 				BAB6330A199DE53700F2925B /* Equalizer */,
@@ -336,6 +344,24 @@
 				BABFC6F618614504007C61D3 /* FeSpinnerTenDotViewController.m */,
 			);
 			name = "Spinner Ten Dot";
+			sourceTree = "<group>";
+		};
+		BAC4D7A21A56847400B52EF1 /* Handwriting */ = {
+			isa = PBXGroup;
+			children = (
+				BAC4D7A31A56849600B52EF1 /* FeHandwritingViewController.h */,
+				BAC4D7A41A56849600B52EF1 /* FeHandwritingViewController.m */,
+			);
+			name = Handwriting;
+			sourceTree = "<group>";
+		};
+		BAC4D7A61A56849B00B52EF1 /* Handwriting */ = {
+			isa = PBXGroup;
+			children = (
+				BAC4D7A71A5684B200B52EF1 /* FeHandwriting.h */,
+				BAC4D7A81A5684B200B52EF1 /* FeHandwriting.m */,
+			);
+			name = Handwriting;
 			sourceTree = "<group>";
 		};
 		BACB3DE418633B0400898335 /* Loading icon */ = {
@@ -610,6 +636,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BACB3DE718633B2A00898335 /* FeLoadingIcon.m in Sources */,
+				BAC4D7A51A56849600B52EF1 /* FeHandwritingViewController.m in Sources */,
 				BACB3DEE186349FC00898335 /* FeLoadingBoxViewController.m in Sources */,
 				BAD706FA199D0A1B001D7FDE /* FeHourGlassViewController.m in Sources */,
 				BAE08710183CE85100B12AB6 /* main.m in Sources */,
@@ -634,6 +661,7 @@
 				BA5D0F8D185B635500A5F726 /* FeTenDot.m in Sources */,
 				BA760A2E1871C080004FDD1C /* FeVietNamBar.m in Sources */,
 				BA49221319A230660036749B /* FeRollingLoader.m in Sources */,
+				BAC4D7A91A5684B200B52EF1 /* FeHandwriting.m in Sources */,
 				BAE08714183CE85100B12AB6 /* FeAppDelegate.m in Sources */,
 				BA968645193642A60006E46E /* FeWifiManHub.m in Sources */,
 			);
