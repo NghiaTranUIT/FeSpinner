@@ -1,5 +1,4 @@
 ## Rocket Loader Collection
-======================
 
 The loader collection for iOS app.
 
