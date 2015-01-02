@@ -40,25 +40,38 @@ FeSpinner have some helpful method.
 
 -(void) dismiss;
 ```
+
 =======================
 ## Sreenshot & Demo video
 
-#### Ten Dots
-**Click to photo to see demo video**
+**Rolling Loader**
 
-[![TenDots](http://nghiatran.me/wp-content/uploads/2014/05/TenDots.png)](https://www.youtube.com/watch?v=UAt2lu_Vxr4)
+![GIF](http://nghiatran.me/wp-content/uploads/2015/01/RollingLoader.gif)
 
-#### VietNamLoader
-**Click to photo to see demo video**
+**Equalizer Loader**
 
-[![VietNamLoader](http://nghiatran.me/wp-content/uploads/2014/05/VietNamLoader.png)](https://www.youtube.com/watch?v=3tKu6OqsiiY)
+![GIF](http://nghiatran.me/wp-content/uploads/2015/01/EqualizerLoader.gif)
 
-#### Glow
-**Click to photo to see demo video**
+**Hourglass Loader**
 
-[![Glow](http://nghiatran.me/wp-content/uploads/2014/05/Glow.png)](https://www.youtube.com/watch?v=5FRvamRcNOQ)
+![GIF](http://nghiatran.me/wp-content/uploads/2015/01/HourGlassLoader.gif)
 
-#### LoadingBox
-**Click to photo to see demo video**
+**Wifihub Loader** : Here is loader which i created for my friend few month ago. Wifi Chùa - http://www.wifichuaapp.com.
 
-[![LoadingBox](http://nghiatran.me/wp-content/uploads/2014/05/LoadingBox.png)](https://www.youtube.com/watch?v=IttC-S7DjCM)
+![GIF](http://nghiatran.me/wp-content/uploads/2015/01/WifiHubLoader.gif)
+
+**Threedots Glow**
+
+![GIF](http://nghiatran.me/wp-content/uploads/2015/01/TheeDotGlow.gif)
+
+**Vietnam Loader**
+
+![GIF](http://nghiatran.me/wp-content/uploads/2015/01/VietnamLoader.gif)
+
+**Loading Box Loader**
+
+![GIF](http://nghiatran.me/wp-content/uploads/2015/01/LoadingBox.gif)
+
+**Ten Dots Loader**
+
+![GIF](http://nghiatran.me/wp-content/uploads/2015/01/TenDot.gif)
