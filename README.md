@@ -13,7 +13,7 @@ But your project should include some Apple's framework.
 + CoreGraphics.framework
 + QuartzCore.framework
 
-## Sreenshot
+## Screenshot
 
 **Handwriting Loader**
 
